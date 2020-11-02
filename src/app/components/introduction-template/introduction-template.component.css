@@ -1,0 +1,34 @@
+.introduction{
+  display: flex;
+  justify-content: space-around;
+}
+.main-text-introduction{
+  font-family: 'Poppins', sans-serif;
+  color: #151515;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.button-introduction{
+  font-size: 25px;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background-color: lightblue;
+  border: 0px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 650px) {
+  .introduction{
+    flex-direction: column;
+    justify-content: center;
+  }
+  .main-text-introduction{
+    text-align: center;
+  }
+  .button-introduction{
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
+}
