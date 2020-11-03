@@ -1,30 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Constants } from '../../Constants';
 
 @Component({
   selector: 'app-exhibitions-dashboard',
   templateUrl: './exhibitions-dashboard.component.html',
-  styleUrls: ['./exhibitions-dashboard.component.css']
+  styleUrls: ['./exhibitions-dashboard.component.css'],
 })
 export class ExhibitionsDashboardComponent implements OnInit {
-
   rows;
-  columns;
+  columns = [
+    { prop: 'name' },
+    { prop: 'date' },
+    { prop: 'about' },
+    { prop: 'poster' },
+    { prop: 'lastModified' },
+  ];
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get('http://localhost:3010/exhibitions')
-      .subscribe((exhibitions) => {
-        this.rows = exhibitions;
-        this.columns = [
-          { prop: 'name'},
-          { prop: 'date'},
-          { prop: 'about'},
-          { prop: 'poster'},
-          { prop: 'lastModified'}
-        ];
-      });
+    this.http.get(Constants.exhibitionsApiUrl).subscribe((exhibitions) => {
+      this.rows = exhibitions;
+    });
   }
 }
