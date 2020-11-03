@@ -1,3 +1,49 @@
+.main-dashboard{
+  width: calc(100% - 260px);
+  float: right;
+  background-color: #f1f1f1;
+}
+
+.panels-block{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.panel{
+  display: inline-block;
+  background-color: white;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .dashboard-text{
   text-align: center;
   font-family: 'Poppins', sans-serif;

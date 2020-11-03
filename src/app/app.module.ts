@@ -12,13 +12,14 @@ import { IntroductionTemplateComponent } from './components/introduction-templat
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ExhibitionsDashboardComponent } from './components/exhibitions-dashboard/exhibitions-dashboard.component';
 import { PaintingsDashboardComponent } from './components/paintings-dashboard/paintings-dashboard.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 const appRoutes: Routes = [
-  {path: 'dashboard', component: MainDashboardComponent},
-  {path: 'dashboard/artists', component: ArtistsDashboardComponent},
-  {path: 'dashboard/exhibitions', component: ExhibitionsDashboardComponent},
-  {path: 'dashboard/paintings', component: PaintingsDashboardComponent}
+  {path: '', component: MainDashboardComponent},
+  {path: 'artists', component: ArtistsDashboardComponent},
+  {path: 'exhibitions', component: ExhibitionsDashboardComponent},
+  {path: 'paintings', component: PaintingsDashboardComponent}
 ];
 
 @NgModule({
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     MainDashboardComponent,
     IntroductionTemplateComponent,
     ExhibitionsDashboardComponent,
-    PaintingsDashboardComponent
+    PaintingsDashboardComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

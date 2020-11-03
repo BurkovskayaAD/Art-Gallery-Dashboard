@@ -12,13 +12,9 @@ export class PaintingsDashboardComponent implements OnInit {
   columns;
 
   constructor(private http: HttpClient) {
-    this.allPaintings();
   }
 
   ngOnInit(): void {
-  }
-
-  allPaintings(): void {
     this.http.get('http://localhost:3010/paintings')
       .subscribe((paintings) => {
         this.rows = paintings;
@@ -30,5 +26,4 @@ export class PaintingsDashboardComponent implements OnInit {
         ];
       });
   }
-
 }

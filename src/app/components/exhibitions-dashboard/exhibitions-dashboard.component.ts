@@ -12,13 +12,9 @@ export class ExhibitionsDashboardComponent implements OnInit {
   columns;
 
   constructor(private http: HttpClient) {
-    this.allExhibitions();
   }
 
   ngOnInit(): void {
-  }
-
-  allExhibitions(): void {
     this.http.get('http://localhost:3010/exhibitions')
       .subscribe((exhibitions) => {
         this.rows = exhibitions;
@@ -31,5 +27,4 @@ export class ExhibitionsDashboardComponent implements OnInit {
         ];
       });
   }
-
 }

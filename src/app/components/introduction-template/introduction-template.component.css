@@ -1,6 +1,9 @@
 .introduction{
   display: flex;
   justify-content: space-around;
+  width: calc(100% - 200px);
+  float: right;
+  background-color: #f1f1f1;
 }
 .main-text-introduction{
   font-family: 'Poppins', sans-serif;
