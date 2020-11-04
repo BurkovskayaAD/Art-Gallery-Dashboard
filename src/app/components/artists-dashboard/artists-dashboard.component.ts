@@ -10,6 +10,7 @@ export class ArtistsDashboardComponent implements OnInit {
 
   rows;
   columns;
+  lastModified;
 
   constructor(private http: HttpClient) {
   }

@@ -1,37 +1,46 @@
 .introduction{
   display: flex;
-  justify-content: space-around;
-  width: calc(100% - 200px);
+  flex-direction: row;
+  justify-content: space-between;
+  vertical-align: middle;
+  width: calc(100% - 260px);
   float: right;
   background-color: #f1f1f1;
 }
 .main-text-introduction{
-  font-family: 'Poppins', sans-serif;
-  color: #151515;
-  font-size: 50px;
-  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  color: #66615b;
+  font-size: 20px;
+  margin: 5px 30px;
 }
 
 .button-introduction{
-  font-size: 25px;
-  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
   color: white;
-  background-color: lightblue;
-  border: 0px;
+  background-color: #9c875a;
+  border: 0;
+  margin: 0 30px;
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px){
   .introduction{
-    flex-direction: column;
-    justify-content: center;
+    width: 100%;
   }
   .main-text-introduction{
+    margin-top: 60px;
     text-align: center;
   }
   .button-introduction{
-    width: 90%;
-    margin: 0 auto;
-    padding: 10px 0;
+    margin-top: 55px;
+  }
+}
+@media (max-width: 530px){
+  .main-text-introduction{
+    margin-top: 130px;
+  }
+  .button-introduction{
+    margin-top: 125px;
   }
 }

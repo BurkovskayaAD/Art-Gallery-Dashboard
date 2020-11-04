@@ -10,3 +10,15 @@ ngx-datatable{
   margin: 0 10px;
 }
 
+.line-separator{
+  border-top: 1px solid #bfbfbf;
+  padding: 15px 0;
+  width: 97%;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  .table-template{
+    width: 100%;
+  }
+}
