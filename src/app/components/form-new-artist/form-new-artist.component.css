@@ -1,0 +1,17 @@
+.artist-form{
+  width: calc(100% - 260px);
+  float: right;
+  background-color: #f1f1f1;
+  height: 100vh;
+}
+
+/*.label-artist{*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*  flex-wrap: wrap;*/
+/*}*/
+
+/*.input-artist{*/
+/*  display: block;*/
+/*}*/
+

@@ -1,0 +1,29 @@
+<div class="artist-form">
+<!--  <label class="label-artist">-->
+<!--    <input class="input-artist" [formControl]="nameControl">-->
+<!--    <input class="input-artist" [formControl]="nameControl">-->
+<!--    <input class="input-artist" [formControl]="nameControl">-->
+<!--    <button type="submit">Add</button>-->
+<!--  </label>-->
+
+  <form [formGroup]="addNewArtist" novalidate>
+    <div>
+      <label>Name artists</label>
+      <input type="text" formControlName="name">
+    </div>
+
+    <div>
+      <label>Photo</label>
+      <input type="number" formControlName="pgoto">
+    </div>
+
+    <div>
+      <label>Occupation</label>
+      <input type="number" formControlName="occupation">
+    </div>
+
+    <button type="submit">Add</button>
+
+  </form>
+
+</div>
