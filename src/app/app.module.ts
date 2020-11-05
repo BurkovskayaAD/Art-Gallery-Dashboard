@@ -13,13 +13,16 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ExhibitionsDashboardComponent } from './components/exhibitions-dashboard/exhibitions-dashboard.component';
 import { PaintingsDashboardComponent } from './components/paintings-dashboard/paintings-dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormNewArtistComponent } from './components/form-new-artist/form-new-artist.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: MainDashboardComponent},
   {path: 'artists', component: ArtistsDashboardComponent},
   {path: 'exhibitions', component: ExhibitionsDashboardComponent},
-  {path: 'paintings', component: PaintingsDashboardComponent}
+  {path: 'paintings', component: PaintingsDashboardComponent},
+  {path: 'artists/newArtists', component: FormNewArtistComponent}
 ];
 
 @NgModule({
@@ -31,13 +34,16 @@ const appRoutes: Routes = [
     IntroductionTemplateComponent,
     ExhibitionsDashboardComponent,
     PaintingsDashboardComponent,
-    SidebarComponent
+    SidebarComponent,
+    FormNewArtistComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     NgxDatatableModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

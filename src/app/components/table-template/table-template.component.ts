@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import { ArtistsDashboardComponent } from '../artists-dashboard/artists-dashboard.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-table-template',
@@ -7,7 +8,7 @@ import { ArtistsDashboardComponent } from '../artists-dashboard/artists-dashboar
   styleUrls: ['./table-template.component.css']
 })
 export class TableTemplateComponent implements OnInit {
-
+  roleTemplate: TemplateRef<any>;
 
   @Input()
   rows: object;
@@ -19,5 +20,4 @@ export class TableTemplateComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

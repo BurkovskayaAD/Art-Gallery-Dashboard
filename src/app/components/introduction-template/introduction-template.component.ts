@@ -15,6 +15,9 @@ export class IntroductionTemplateComponent implements OnInit {
   @Input()
   buttonText: string;
 
+  @Input()
+  routerLink: string;
+
   ngOnInit(): void {
   }
 
