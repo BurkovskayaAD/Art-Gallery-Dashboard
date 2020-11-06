@@ -1,0 +1,36 @@
+<div class="form-new-exhibition">
+
+  <div class="introduction py-4">
+    <h1 class="main-text-introduction">Adding a new exhibition</h1>
+  </div>
+
+  <div class="add-exhibition-block">
+
+    <form [formGroup]="addNewExhibition" class="exhibition-form" novalidate>
+      <div>
+        <label class="text-form">Name exhibition</label>
+        <input type="text" formControlName="name">
+      </div>
+
+      <div>
+        <label class="text-form pr-2">Date</label>
+        <input type="date" formControlName="date">
+      </div>
+
+      <div>
+        <label class="text-form">About exhibition</label>
+<!--        <input type="text" formControlName="about">-->
+        <textarea class="text-area" formControlName="about"></textarea>
+      </div>
+
+      <div>
+        <label class="text-form pr-2">Poster</label>
+        <input type="file" formControlName="poster">
+      </div>
+
+      <button class="button-form" type="submit">Add</button>
+
+    </form>
+
+  </div>
+</div>
