@@ -15,6 +15,8 @@ import { PaintingsDashboardComponent } from './components/paintings-dashboard/pa
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FormNewArtistComponent } from './components/form-new-artist/form-new-artist.component';
+import { FormNewExhibitionComponent } from './components/form-new-exhibition/form-new-exhibition.component';
+import { FormNewPaintingComponent } from './components/form-new-painting/form-new-painting.component';
 
 
 const appRoutes: Routes = [
@@ -22,7 +24,9 @@ const appRoutes: Routes = [
   {path: 'artists', component: ArtistsDashboardComponent},
   {path: 'exhibitions', component: ExhibitionsDashboardComponent},
   {path: 'paintings', component: PaintingsDashboardComponent},
-  {path: 'artists/newArtists', component: FormNewArtistComponent}
+  {path: 'artists/newArtists', component: FormNewArtistComponent},
+  {path: 'exhibitions/newExhibition', component: FormNewExhibitionComponent},
+  {path: 'paintings/newPainting', component: FormNewPaintingComponent}
 ];
 
 @NgModule({
@@ -35,7 +39,9 @@ const appRoutes: Routes = [
     ExhibitionsDashboardComponent,
     PaintingsDashboardComponent,
     SidebarComponent,
-    FormNewArtistComponent
+    FormNewArtistComponent,
+    FormNewExhibitionComponent,
+    FormNewPaintingComponent
   ],
   imports: [
     BrowserModule,
