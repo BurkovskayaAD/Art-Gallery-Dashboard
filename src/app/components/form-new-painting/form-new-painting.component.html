@@ -1,0 +1,32 @@
+<div class="form-new-painting">
+
+  <div class="introduction py-4">
+    <h1 class="main-text-introduction">Adding a new painting</h1>
+  </div>
+
+  <div class="add-painting-block">
+
+    <form [formGroup]="addNewPainting" class="painting-form" novalidate>
+      <div>
+        <label class="text-form">Name painting</label>
+        <input type="text" formControlName="name">
+      </div>
+
+      <div>
+        <label class="text-form pr-2">Picture</label>
+        <input type="file" formControlName="picture">
+      </div>
+
+      <div>
+        <label class="text-form">Author</label>
+        <input type="text" formControlName="author">
+      </div>
+
+
+
+      <button class="button-form" type="submit">Add</button>
+
+    </form>
+
+  </div>
+</div>
