@@ -1,17 +1,102 @@
-.artist-form{
+.form-new-artists{
   width: calc(100% - 260px);
-  float: right;
   background-color: #f1f1f1;
   height: 100vh;
+  float: right;
+}
+.add-artist-block{
+  display: flex;
+  vertical-align: middle;
+  justify-content: center;
+  padding-top: 10%;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/*.label-artist{*/
-/*  display: flex;*/
-/*  flex-direction: row;*/
-/*  flex-wrap: wrap;*/
-/*}*/
+.artist-form{
+  width: 60%;
+  background-color: white;
+  height: 400px;
+  padding: 40px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.1);
+  border-radius:10px;
+}
 
-/*.input-artist{*/
-/*  display: block;*/
-/*}*/
+input[type=text] {
+  padding:10px;
+  border:0;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  border-radius:10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.text-form{
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+.text-form-select{
+  font-size: 20px;
+  padding-top: 10px;
+}
+.select{
+  width: 100%;
+  font-size: 20px;
+}
+
+.button-form{
+  margin: 30px auto 0 auto;
+  display: block;
+  /*background-color: #9c875a;*/
+  /*color: white;*/
+  width: 80%;
+  text-decoration: none;
+  padding: 5px 0;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.introduction{
+  display: block;
+  border-bottom: 1px solid #bfbfbf;
+  width: 97%;
+  margin: 0 auto;
+}
+.main-text-introduction{
+  font-family: 'Montserrat', sans-serif;
+  color: #66615b;
+  font-size: 20px;
+  margin-top: 5px;
+  margin-left: 30px;
+}
+
+@media (max-width: 900px) {
+  .artist-form{
+    width: 80%;
+  }
+}
+
+@media (max-width: 700px) {
+  .form-new-artists{
+    width: 100%;
+    padding-top: 70px;
+  }
+  .introduction{
+    width: 100%;
+  }
+  .main-text-introduction{
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 512px) {
+  .add-artist-block{
+    width: 100%;
+  }
+  .main-text-introduction{
+    margin-top: 60px;
+  }
+}
 

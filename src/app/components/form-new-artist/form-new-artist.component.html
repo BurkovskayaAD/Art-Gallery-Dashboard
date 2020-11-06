@@ -1,29 +1,36 @@
-<div class="artist-form">
-<!--  <label class="label-artist">-->
-<!--    <input class="input-artist" [formControl]="nameControl">-->
-<!--    <input class="input-artist" [formControl]="nameControl">-->
-<!--    <input class="input-artist" [formControl]="nameControl">-->
-<!--    <button type="submit">Add</button>-->
-<!--  </label>-->
+<div class="form-new-artists">
 
-  <form [formGroup]="addNewArtist" novalidate>
-    <div>
-      <label>Name artists</label>
-      <input type="text" formControlName="name">
-    </div>
+  <div class="introduction py-4">
+    <h1 class="main-text-introduction">Adding a new artist</h1>
+  </div>
 
-    <div>
-      <label>Photo</label>
-      <input type="number" formControlName="pgoto">
-    </div>
+  <div class="add-artist-block">
+    <form [formGroup]="addNewArtist" class="artist-form" novalidate>
+      <div>
+        <label class="text-form">Name artists</label>
+        <input type="text" formControlName="name">
+      </div>
 
-    <div>
-      <label>Occupation</label>
-      <input type="number" formControlName="occupation">
-    </div>
+      <div>
+        <label class="text-form">Photo</label>
+        <input type="file" formControlName="pgoto">
+      </div>
 
-    <button type="submit">Add</button>
+<!--      <div>-->
+<!--        <label class="text-form">Occupation</label>-->
+<!--        <input type="text" formControlName="occupation">-->
+<!--      </div>-->
 
-  </form>
+      <label class="text-form-select">Type</label>
+      <select size="1" class="select"  name="occupation">
+        <option value="Painter">Painter</option>
+        <option selected value="Sculptor">Sculptor</option>
+        <option value="Photographer">Photographer</option>
+      </select>
 
+      <button class="button-form" type="submit">Add</button>
+
+    </form>
+
+  </div>
 </div>
