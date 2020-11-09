@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../../Constants';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-paintings-dashboard',
@@ -22,5 +24,7 @@ export class PaintingsDashboardComponent implements OnInit {
     this.http.get(Constants.paintingsApiUrl).subscribe((paintings) => {
       this.rows = paintings;
     });
+    const t = moment(this.rows.lastModified);
+    t.format('DD-MM-YYYY');
   }
 }
