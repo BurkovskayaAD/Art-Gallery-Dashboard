@@ -14,12 +14,12 @@ export class FormNewArtistComponent implements OnInit {
     this._createForm();
   }
 
-  // nameControl: FormControl;
-
-
   ngOnInit(): void {
-    // this.nameControl = new FormControl([myValidator]);
   }
+
+  // public onSubmited(): void{
+  //   this.formSubmited = true;
+  // }
 
   private _createForm(): void{
     this.addNewArtist = new FormGroup({
@@ -29,12 +29,5 @@ export class FormNewArtistComponent implements OnInit {
     });
   }
 
-
-
-// function myValidator(formControl: FormControl) {
-//   if (formControl.value.length = 0) {
-//     return {myValidator: {message: 'Add name'}};
-//   }
-//   return null;
 
 }

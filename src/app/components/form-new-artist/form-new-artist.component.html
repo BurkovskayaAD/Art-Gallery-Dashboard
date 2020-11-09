@@ -5,24 +5,19 @@
   </div>
 
   <div class="add-artist-block">
-    <form [formGroup]="addNewArtist" class="artist-form" novalidate>
+    <form [formGroup]="addNewArtist" class="artist-form" (ngSubmit)="submited()" novalidate>
       <div>
         <label class="text-form">Name artists</label>
-        <input type="text" formControlName="name">
+        <input type="text"  formControlName="name">
       </div>
 
       <div>
         <label class="text-form pr-3">Photo</label>
-        <input type="file" formControlName="photo">
+        <input type="file"  formControlName="photo">
       </div>
 
-<!--      <div>-->
-<!--        <label class="text-form">Occupation</label>-->
-<!--        <input type="text" formControlName="occupation">-->
-<!--      </div>-->
-
       <label class="text-form-select">Type</label>
-      <select size="1" class="select"  name="occupation">
+      <select  size="1" class="select"  name="occupation">
         <option value="Painter">Painter</option>
         <option selected value="Sculptor">Sculptor</option>
         <option value="Photographer">Photographer</option>
