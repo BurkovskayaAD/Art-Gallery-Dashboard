@@ -11,13 +11,13 @@ import * as moment from 'moment';
 export class ArtistsDashboardComponent implements OnInit {
   rows;
   columns;
-  @ViewChild('roleTemplate') roleTemplate: TemplateRef<any>;
+  @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.columns = [
-      { prop: 'name', cellTemplate: this.roleTemplate },
+      { prop: 'name', cellTemplate: this.linkTemp },
       { prop: 'photo' },
       { prop: 'occupation' },
       { prop: 'lastModified'}

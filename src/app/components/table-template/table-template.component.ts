@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, TemplateRef} from '@angular/core';
+import {Component, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import { ArtistsDashboardComponent } from '../artists-dashboard/artists-dashboard.component';
 import * as moment from 'moment';
 
@@ -8,7 +8,10 @@ import * as moment from 'moment';
   styleUrls: ['./table-template.component.css']
 })
 export class TableTemplateComponent implements OnInit {
-  roleTemplate: TemplateRef<any>;
+
+  constructor() { }
+
+  @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
 
   @Input()
   rows: object;
@@ -16,8 +19,7 @@ export class TableTemplateComponent implements OnInit {
   @Input()
   columns: object;
 
-  constructor() { }
-
   ngOnInit(): void {
   }
+
 }
