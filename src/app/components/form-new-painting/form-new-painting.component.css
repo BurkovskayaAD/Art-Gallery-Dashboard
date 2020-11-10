@@ -102,9 +102,10 @@ input[type=text] {
   }
 }
 
+.ng-touched:not(form){
+  border-left: 5px solid red;
+}
 .ng-valid[required], .ng-valid.required, .ng-valid:not(form){
   border-left: 5px solid green;
 }
-.ng-invalid:not(form){
-  border-left: 5px solid red;
-}
+

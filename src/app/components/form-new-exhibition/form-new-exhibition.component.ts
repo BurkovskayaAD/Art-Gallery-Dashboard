@@ -13,7 +13,8 @@ export class FormNewExhibitionComponent implements OnInit {
 
   addNewExhibition = this.fb.group({
     name: ['', Validators.required],
-    date: ['', Validators.required],
+    dateStart: ['', Validators.required],
+    dateEnd: ['', Validators.required],
     about: ['', Validators.required],
     poster: ['', Validators.required],
   });
