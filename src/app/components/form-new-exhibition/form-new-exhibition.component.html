@@ -6,7 +6,7 @@
 
   <div class="add-exhibition-block">
 
-    <form [formGroup]="addNewExhibition" class="exhibition-form" novalidate>
+    <form [formGroup]="addNewExhibition" class="exhibition-form" (ngSubmit)="onSubmit()" novalidate>
       <div>
         <label class="text-form">Name exhibition</label>
         <input type="text" formControlName="name">
@@ -19,7 +19,6 @@
 
       <div>
         <label class="text-form">About exhibition</label>
-<!--        <input type="text" formControlName="about">-->
         <textarea class="text-area" formControlName="about"></textarea>
       </div>
 
@@ -28,7 +27,7 @@
         <input type="file" formControlName="poster">
       </div>
 
-      <button class="button-form" type="submit">Add</button>
+      <button class="button-form" type="submit" [disabled]="!addNewExhibition.valid">Add</button>
 
     </form>
 

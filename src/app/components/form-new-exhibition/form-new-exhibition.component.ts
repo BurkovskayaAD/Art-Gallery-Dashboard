@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-form-new-exhibition',
@@ -8,21 +8,21 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class FormNewExhibitionComponent implements OnInit {
 
-  addNewExhibition: FormGroup;
-
-  constructor() {
-    this._createForm();
+  constructor(private fb: FormBuilder) {
   }
+
+  addNewExhibition = this.fb.group({
+    name: ['', Validators.required],
+    date: ['', Validators.required],
+    about: ['', Validators.required],
+    poster: ['', Validators.required],
+  });
 
   ngOnInit(): void {
   }
-  private _createForm(): void{
-    this.addNewExhibition = new FormGroup({
-      name: new FormControl(null),
-      date: new FormControl(null),
-      about: new FormControl(null),
-      poster: new FormControl(null)
-    });
+
+  onSubmit(): void{
+    console.log(this.addNewExhibition.value);
   }
 
 }

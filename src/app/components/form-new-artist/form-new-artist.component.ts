@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-form-new-artist',
@@ -8,26 +8,19 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class FormNewArtistComponent implements OnInit {
 
-  addNewArtist: FormGroup;
-
-  constructor() {
-    this._createForm();
+  constructor(private fb: FormBuilder) {
   }
+
+  addNewArtist = this.fb.group({
+    name: ['', Validators.required],
+    photo: ['', Validators.required],
+    occupation: ['']
+  });
 
   ngOnInit(): void {
   }
 
-  // public onSubmited(): void{
-  //   this.formSubmited = true;
-  // }
-
-  private _createForm(): void{
-    this.addNewArtist = new FormGroup({
-      name: new FormControl(null),
-      photo: new FormControl(null),
-      occupation: new FormControl(null)
-    });
+  onSubmit(): void{
+    console.log(this.addNewArtist.value);
   }
-
-
 }

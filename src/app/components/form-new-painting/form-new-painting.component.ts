@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-form-new-painting',
@@ -8,21 +8,19 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class FormNewPaintingComponent implements OnInit {
 
-  addNewPainting: FormGroup;
-
-  constructor() {
-    this._createForm();
+  constructor(private fb: FormBuilder) {
   }
+
+  addNewPainting = this.fb.group({
+    name: ['', Validators.required],
+    picture: ['', Validators.required],
+    author: ['', Validators.required],
+  });
 
   ngOnInit(): void {
   }
 
-  private _createForm(): void{
-    this.addNewPainting = new FormGroup({
-      name: new FormControl(null),
-      picture: new FormControl(null),
-      author: new FormControl(null)
-    });
+  onSubmit(): void{
+    console.log(this.addNewPainting.value);
   }
-
 }
