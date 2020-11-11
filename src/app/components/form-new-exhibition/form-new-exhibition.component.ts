@@ -4,7 +4,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-form-new-exhibition',
   templateUrl: './form-new-exhibition.component.html',
-  styleUrls: ['./form-new-exhibition.component.css']
+  styleUrls: ['./form-new-exhibition.component.scss']
 })
 export class FormNewExhibitionComponent implements OnInit {
 

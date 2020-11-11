@@ -4,7 +4,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-form-new-painting',
   templateUrl: './form-new-painting.component.html',
-  styleUrls: ['./form-new-painting.component.css']
+  styleUrls: ['./form-new-painting.component.scss']
 })
 export class FormNewPaintingComponent implements OnInit {
 

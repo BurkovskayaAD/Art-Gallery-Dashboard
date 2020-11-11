@@ -5,7 +5,7 @@
   </div>
 
   <div class="add-artist-block">
-    <form [formGroup]="addNewArtist" class="artist-form" (ngSubmit)="onSubmit()" novalidate>
+    <form id="aForm" [formGroup]="addNewArtist" class="artist-form" (ngSubmit)="onSubmit()" novalidate>
 
       <div>
         <label class="text-form">Name artists</label>
@@ -18,9 +18,9 @@
       </div>
 
       <label class="text-form-select">Type</label>
-      <select  size="1" class="select" name="occupation">
-        <option value="Painter">Painter</option>
-        <option selected value="Sculptor">Sculptor</option>
+      <select  size="1" class="select" name="occupation" formControlName="occupation">
+        <option selected value="Painter">Painter</option>
+        <option value="Sculptor">Sculptor</option>
         <option value="Photographer">Photographer</option>
       </select>
 

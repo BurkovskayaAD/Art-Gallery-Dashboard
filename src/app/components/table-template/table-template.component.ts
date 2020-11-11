@@ -5,7 +5,7 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-table-template',
   templateUrl: './table-template.component.html',
-  styleUrls: ['./table-template.component.css']
+  styleUrls: ['./table-template.component.scss']
 })
 export class TableTemplateComponent implements OnInit {
 

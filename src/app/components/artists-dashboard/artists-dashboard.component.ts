@@ -6,7 +6,7 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-artists-dashboard',
   templateUrl: './artists-dashboard.component.html',
-  styleUrls: ['./artists-dashboard.component.css'],
+  styleUrls: ['./artists-dashboard.component.scss'],
 })
 export class ArtistsDashboardComponent implements OnInit {
   rows;

@@ -7,7 +7,7 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-paintings-dashboard',
   templateUrl: './paintings-dashboard.component.html',
-  styleUrls: ['./paintings-dashboard.component.css'],
+  styleUrls: ['./paintings-dashboard.component.scss'],
 })
 export class PaintingsDashboardComponent implements OnInit {
   rows;
