@@ -13,8 +13,8 @@
       </div>
 
       <div>
-        <label class="text-form pr-2">Picture</label>
-        <input type="file" formControlName="picture">
+        <label class="text-form">Genre</label>
+        <input type="text" formControlName="genre">
       </div>
 
       <div>
@@ -22,9 +22,20 @@
         <input type="text" formControlName="author">
       </div>
 
+      <div>
+        <label class="text-form pr-2">Date of creation</label>
+        <input type="date" formControlName="dateCreation">
+      </div>
 
+      <div>
+        <label class="text-form pr-2">Picture</label>
+        <input type="file" formControlName="picture">
+      </div>
 
-      <button class="button-form" type="submit" [disabled]="!addNewPainting.valid">Add</button>
+      <div class="button-block px-5 mt-3">
+        <button class="button-form" type="submit" [disabled]="!addNewPainting.valid">Add</button>
+        <button class="button-form" type="submit" routerLink="/artists">Back</button>
+      </div>
 
     </form>
 

@@ -8,60 +8,63 @@
   display: flex;
   vertical-align: middle;
   justify-content: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 31px;
   font-family: 'Montserrat', sans-serif;
 }
 
 .exhibition-form{
-  width: 60%;
+  width: 97%;
   background-color: white;
-  height: 520px;
   padding: 40px;
   box-shadow:0 0 15px 4px rgba(0,0,0,0.1);
-  border-radius:10px;
+  border-radius: 1px;
 }
 
 input[type=text] {
-  padding:10px;
-  border:0;
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-  border-radius:10px;
-  width: 100%;
+  padding: 2px;
+  border: 1px solid #bfbfbf;
+  background-color: #f1f1f1;
+  border-radius: 1px;
+  width: 60%;
   margin-bottom: 10px;
 }
 
 .text-form{
-  font-size: 20px;
-  padding-top: 5px;
+  font-size: 16px;
+  padding-top: 10px;
+  min-width: 140px;
 }
 
 .text-area{
   width: 100%;
   font-size: 12px;
   height: 80px;
+  background-color: #f1f1f1;
 }
 
 .text-form-select{
-  font-size: 20px;
+  font-size: 16px;
   padding-top: 10px;
+  min-width: 140px;
 }
 .select{
-  width: 100%;
-  font-size: 17px;
+  width: 60%;
+  font-size: 16px;
+}
+.button-block{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .button-form{
-  margin: 30px auto 0 auto;
-  display: block;
-  /*background-color: #9c875a;*/
-  /*color: white;*/
-  width: 80%;
+  width: 100px;
   text-decoration: none;
   padding: 5px 0;
-  font-size: 20px;
+  font-size: 16px;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 1px;
+  margin: 0 40px;
 }
 
 .introduction{
@@ -69,26 +72,20 @@ input[type=text] {
   border-bottom: 1px solid #bfbfbf;
   width: 97%;
   margin: 0 auto;
+  height: 86px;
 }
 .main-text-introduction{
   font-family: 'Montserrat', sans-serif;
   color: #66615b;
   font-size: 20px;
-  margin-top: 5px;
-  margin-left: 30px;
-}
-
-@media (max-width: 900px) {
-  .exhibition-form{
-    width: 80%;
-  }
+  margin-top: 7px;
+  margin-left: 7px;
 }
 
 @media (max-width: 700px) {
   .form-new-exhibition{
     width: 100%;
     padding-top: 70px;
-    height: 100%;
   }
   .introduction{
     width: 100%;
@@ -100,24 +97,14 @@ input[type=text] {
 
 
 @media (max-width: 512px) {
-  .form-new-exhibition{
-    height: 100%;
+  .introduction{
+    height: 135px;
   }
   .add-exhibition-block{
     width: 100%;
   }
   .main-text-introduction{
     margin-top: 60px;
-  }
-  .exhibition-form{
-    height: 600px;
-  }
-}
-
-@media (max-width: 531px) {
-  .exhibition-form{
-    height: 600px;
-    width: 100%;
   }
 }
 

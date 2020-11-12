@@ -13,6 +13,9 @@ export class FormNewArtistComponent implements OnInit {
 
   addNewArtist = this.fb.group({
     name: ['', Validators.required],
+    country: ['', Validators.required],
+    dateBirth: ['', Validators.required],
+    dateDeath: [''],
     photo: ['', Validators.required],
     occupation: ['', Validators.required]
   });

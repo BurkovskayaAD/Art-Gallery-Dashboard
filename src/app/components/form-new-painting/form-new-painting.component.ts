@@ -13,8 +13,10 @@ export class FormNewPaintingComponent implements OnInit {
 
   addNewPainting = this.fb.group({
     name: ['', Validators.required],
-    picture: ['', Validators.required],
+    genre: ['', Validators.required],
     author: ['', Validators.required],
+    dateCreation: ['', Validators.required],
+    picture: ['', Validators.required]
   });
 
   ngOnInit(): void {

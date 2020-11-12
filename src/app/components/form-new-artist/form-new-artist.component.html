@@ -7,9 +7,24 @@
   <div class="add-artist-block">
     <form id="aForm" [formGroup]="addNewArtist" class="artist-form" (ngSubmit)="onSubmit()" novalidate>
 
-      <div>
+      <div class="input-block">
         <label class="text-form">Name artists</label>
         <input type="text" name="name" formControlName="name" required>
+      </div>
+
+      <div class="input-block">
+        <label class="text-form pr-2">Country</label>
+        <input type="text" name="country" formControlName="country" required>
+      </div>
+
+      <div>
+        <label class="text-form pr-2">Date of Birth</label>
+        <input type="date" name="dateBirth" formControlName="dateBirth" required>
+      </div>
+
+      <div>
+        <label class="text-form pr-2">Date of death</label>
+        <input type="date" class="spec" name="dateDeath" formControlName="dateDeath">
       </div>
 
       <div>
@@ -17,14 +32,19 @@
         <input type="file" name="photo" formControlName="photo" required>
       </div>
 
-      <label class="text-form-select">Type</label>
-      <select  size="1" class="select" name="occupation" formControlName="occupation">
-        <option selected value="Painter">Painter</option>
-        <option value="Sculptor">Sculptor</option>
-        <option value="Photographer">Photographer</option>
-      </select>
+      <div class="input-block">
+        <label class="text-form-select">Type</label>
+        <select  size="1" class="select" name="occupation" formControlName="occupation">
+          <option selected value="Painter">Painter</option>
+          <option value="Sculptor">Sculptor</option>
+          <option value="Photographer">Photographer</option>
+        </select>
+      </div>
 
-      <button class="button-form" type="submit" [disabled]="!addNewArtist.valid">Add</button>
+      <div class="button-block px-5 mt-2">
+        <button class="button-form" type="submit" [disabled]="!addNewArtist.valid">Add</button>
+        <button class="button-form" type="submit" routerLink="/artists">Back</button>
+      </div>
 
     </form>
 
