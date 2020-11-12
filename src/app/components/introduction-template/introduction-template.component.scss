@@ -6,12 +6,13 @@
   width: calc(100% - 260px);
   float: right;
   background-color: #f1f1f1;
+  padding: 26px 0;
 }
 .main-text-introduction{
   font-family: 'Montserrat', sans-serif;
   color: #66615b;
   font-size: 20px;
-  margin: 5px 30px;
+  margin: 5px 20px;
 }
 
 .button-introduction{
@@ -20,7 +21,7 @@
   color: white;
   background-color: #9c875a;
   border: 0;
-  margin: 0 30px;
+  margin: 0 20px;
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
