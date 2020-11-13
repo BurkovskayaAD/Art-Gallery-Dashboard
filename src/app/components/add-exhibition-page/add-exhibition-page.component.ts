@@ -17,7 +17,9 @@ export class AddExhibitionPageComponent implements OnInit {
   }
 
   addNewExhibition(addExhibition: any): void {
-    this.http.post(Constants.exhibitionsApiUrl, addExhibition).subscribe();
+    this.http.post(Constants.exhibitionsApiUrl, addExhibition).subscribe(
+      error => { alert('Что-то пошло не так'); }
+    );
   }
 
 }

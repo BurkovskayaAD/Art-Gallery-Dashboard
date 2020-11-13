@@ -17,7 +17,9 @@ export class AddPaintingPageComponent implements OnInit {
   }
 
   addNewPainting(addPainting: any): void {
-    this.http.post(Constants.paintingsApiUrl, addPainting).subscribe();
+    this.http.post(Constants.paintingsApiUrl, addPainting).subscribe(
+      error => { alert('Что-то пошло не так'); }
+    );
   }
 
 }

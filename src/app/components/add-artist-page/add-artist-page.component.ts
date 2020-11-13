@@ -19,6 +19,8 @@ export class AddArtistPageComponent implements OnInit {
   }
 
   addNewArtist(addArtist: any): void {
-    this.http.post(Constants.artistsApiUrl, addArtist).subscribe();
+    this.http.post(Constants.artistsApiUrl, addArtist).subscribe(
+      error => { alert('Что-то пошло не так'); }
+    );
   }
 }
