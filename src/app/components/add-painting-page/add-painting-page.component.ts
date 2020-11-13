@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {HttpServiceService} from '../../services/http-service.service';
+import {Constants} from '../../Constants';
 
 @Component({
   selector: 'app-add-painting-page',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPaintingPageComponent implements OnInit {
 
-  constructor() { }
+  @Input() addPainting;
+
+  constructor(private http: HttpServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  addNewPainting(addPainting: any): void {
+    this.http.post(Constants.paintingsApiUrl, addPainting).subscribe();
   }
 
 }
