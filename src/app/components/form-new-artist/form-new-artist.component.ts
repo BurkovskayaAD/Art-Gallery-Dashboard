@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+// import {EventEmitter} from 'events';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-form-new-artist',
@@ -20,12 +22,13 @@ export class FormNewArtistComponent implements OnInit {
     occupation: ['', Validators.required]
   });
 
-  // @Input() addNewArtist: object;
+  @Output() AddNewOutput = new EventEmitter();
 
   ngOnInit(): void {
   }
 
   onSubmit(): void{
+    this.AddNewOutput.emit(this.addNewArtist.value);
     const ArtistObj = this.addNewArtist.value;
     console.log(ArtistObj);
     // const form = document.querySelector('#aForm');

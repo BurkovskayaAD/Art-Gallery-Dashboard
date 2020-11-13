@@ -21,4 +21,16 @@ export class HttpServiceService {
       })
     );
   }
+
+  post(url: string, payload: any, params?: any): Observable<any> {
+    return this.http.post(url, payload, params).pipe(
+      catchError((err) => {
+        console.error(err);
+        return of({
+          error: true,
+          statusCode: err.status,
+        });
+      })
+    );
+  }
 }

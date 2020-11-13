@@ -18,6 +18,9 @@ export class ArtistsDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.columns = [
       { prop: 'name', cellTemplate: this.linkTemp },
+      { prop: 'country' },
+      { prop: 'dateBirth' },
+      { prop: 'dateDeath' },
       { prop: 'photo' },
       { prop: 'occupation' },
       { prop: 'lastModified'}

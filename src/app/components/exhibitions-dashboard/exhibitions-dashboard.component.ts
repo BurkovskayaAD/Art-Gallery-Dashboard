@@ -11,7 +11,8 @@ export class ExhibitionsDashboardComponent implements OnInit {
   rows;
   columns = [
     { prop: 'name' },
-    { prop: 'date' },
+    { prop: 'dateStart' },
+    { prop: 'dateEnd' },
     { prop: 'about' },
     { prop: 'poster' },
     { prop: 'lastModified' },

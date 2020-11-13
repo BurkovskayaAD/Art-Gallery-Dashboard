@@ -13,8 +13,10 @@ export class PaintingsDashboardComponent implements OnInit {
   rows;
   columns = [
     { prop: 'name' },
-    { prop: 'picture' },
+    { prop: 'genre' },
     { prop: 'author' },
+    { prop: 'dateCreation' },
+    { prop: 'picture' },
     { prop: 'lastModified' },
   ];
 

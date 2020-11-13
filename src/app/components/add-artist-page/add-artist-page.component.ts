@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Constants} from '../../Constants';
 import {Observable} from 'rxjs';
+import {HttpServiceService} from '../../services/http-service.service';
 
 @Component({
   selector: 'app-add-artist-page',
@@ -10,11 +11,14 @@ import {Observable} from 'rxjs';
 })
 export class AddArtistPageComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  @Input() addArtist;
 
-  @Input() ArtistObj: object;
+  constructor(private http: HttpServiceService) { }
 
   ngOnInit(): void {
-    this.http.post('http://localhost:3010/artists', this.ArtistObj).subscribe();
+  }
+
+  addNewArtist(addArtist: any): void {
+    this.http.post(Constants.artistsApiUrl, addArtist).subscribe();
   }
 }
