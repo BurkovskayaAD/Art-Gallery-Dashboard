@@ -30,26 +30,26 @@ input[type=text] {
 }
 
 .text-form{
-  font-size: 16px;
+  font-size: 13px;
   padding-top: 10px;
   min-width: 140px;
 }
 
 .text-area{
   width: 100%;
-  font-size: 12px;
+  font-size: 13px;
   height: 80px;
   background-color: #f1f1f1;
 }
 
 .text-form-select{
-  font-size: 16px;
+  font-size: 13px;
   padding-top: 10px;
   min-width: 140px;
 }
 .select{
   width: 60%;
-  font-size: 16px;
+  font-size: 13px;
 }
 .button-block{
   display: flex;
@@ -61,10 +61,14 @@ input[type=text] {
   width: 100px;
   text-decoration: none;
   padding: 5px 0;
-  font-size: 16px;
+  font-size: 13px;
   border: 1px solid black;
   border-radius: 1px;
   margin: 0 40px;
+}
+
+input{
+  font-size: 13px;
 }
 
 .introduction{

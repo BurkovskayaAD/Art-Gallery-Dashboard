@@ -29,21 +29,25 @@ input[type=text] {
   width: 60%;
 }
 
+input{
+  font-size: 13px;
+}
+
 .text-form{
-  font-size: 16px;
+  font-size: 13px;
   padding-top: 5px;
   min-width: 120px;
 }
 
 .text-form-select{
-  font-size: 16px;
+  font-size: 13px;
   padding-top: 10px;
   min-width: 120px;
 
 }
 .select{
   width: 60%;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .button-block{
@@ -56,7 +60,7 @@ input[type=text] {
   width: 100px;
   text-decoration: none;
   padding: 5px 0;
-  font-size: 16px;
+  font-size: 13px;
   border: 1px solid black;
   border-radius: 1px;
   margin: 0 40px;
