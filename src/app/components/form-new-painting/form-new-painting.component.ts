@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -19,10 +19,14 @@ export class FormNewPaintingComponent implements OnInit {
     picture: ['', Validators.required]
   });
 
+  @Output() AddNewOutput = new EventEmitter();
+
   ngOnInit(): void {
   }
 
   onSubmit(): void{
-    console.log(this.addNewPainting.value);
+    this.AddNewOutput.emit(this.addNewPainting.value);
+    const PaintingObj = this.addNewPainting.value;
+    console.log(PaintingObj);
   }
 }

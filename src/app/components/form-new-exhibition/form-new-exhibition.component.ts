@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -19,11 +19,15 @@ export class FormNewExhibitionComponent implements OnInit {
     poster: ['', Validators.required],
   });
 
+  @Output() AddNewOutput = new EventEmitter();
+
   ngOnInit(): void {
   }
 
   onSubmit(): void{
-    console.log(this.addNewExhibition.value);
+    this.AddNewOutput.emit(this.addNewExhibition.value);
+    const ExhibitionObj = this.addNewExhibition.value;
+    console.log(ExhibitionObj);
   }
 
 }
