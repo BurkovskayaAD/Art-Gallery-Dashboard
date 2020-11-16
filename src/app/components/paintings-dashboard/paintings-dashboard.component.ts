@@ -23,9 +23,10 @@ export class PaintingsDashboardComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get(Constants.paintingsApiUrl).subscribe((paintings) => {
-      this.rows = paintings;
-    });
+    this.http.get(Constants.paintingsApiUrl).subscribe(
+      (paintings) => { this.rows = paintings; },
+      error => { alert('Something went wrong'); }
+    );
     const t = moment(this.rows.lastModified);
     t.format('DD-MM-YYYY');
   }

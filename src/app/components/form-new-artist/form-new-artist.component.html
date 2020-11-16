@@ -29,7 +29,7 @@
 
       <div>
         <label class="text-form pr-3">Photo</label>
-        <input type="file" name="photo" formControlName="photo" required>
+        <input type="file" (change)="onChange($event)" name="photo" formControlName="photo" required>
       </div>
 
       <div class="input-block">
