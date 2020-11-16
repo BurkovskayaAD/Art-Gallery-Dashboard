@@ -18,7 +18,8 @@ export class AddExhibitionPageComponent implements OnInit {
 
   addNewExhibition(addExhibition: any): void {
     this.http.post(Constants.exhibitionsApiUrl, addExhibition).subscribe(
-      error => { alert('Что-то пошло не так'); }
+      (data) => { alert('Exhibition added'); },
+      error => { alert('Something went wrong'); }
     );
   }
 

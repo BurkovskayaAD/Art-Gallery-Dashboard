@@ -21,8 +21,9 @@ export class ExhibitionsDashboardComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get(Constants.exhibitionsApiUrl).subscribe((exhibitions) => {
-      this.rows = exhibitions;
-    });
+    this.http.get(Constants.exhibitionsApiUrl).subscribe(
+      (exhibitions) => { this.rows = exhibitions;},
+      error => { alert('Something went wrong'); }
+      );
   }
 }

@@ -20,7 +20,8 @@ export class AddArtistPageComponent implements OnInit {
 
   addNewArtist(addArtist: any): void {
     this.http.post(Constants.artistsApiUrl, addArtist).subscribe(
-      error => { alert('Что-то пошло не так'); }
+      (data) => { alert('Artist added'); },
+      error => { alert('Something went wrong'); }
     );
   }
 }

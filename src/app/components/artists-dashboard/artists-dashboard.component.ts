@@ -25,8 +25,9 @@ export class ArtistsDashboardComponent implements OnInit {
       { prop: 'occupation' },
       { prop: 'lastModified'}
     ];
-    this.http.get(Constants.artistsApiUrl).subscribe((artists) => {
-      this.rows = artists;
-    });
+    this.http.get(Constants.artistsApiUrl).subscribe(
+      (artists) => { this.rows = artists; },
+      error => { alert('Something went wrong'); }
+      );
   }
 }

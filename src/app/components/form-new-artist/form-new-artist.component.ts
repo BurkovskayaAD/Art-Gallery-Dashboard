@@ -2,6 +2,7 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 // import {EventEmitter} from 'events';
 import { EventEmitter } from '@angular/core';
+import {observable, Observable, Subscriber} from 'rxjs';
 
 @Component({
   selector: 'app-form-new-artist',
@@ -31,11 +32,34 @@ export class FormNewArtistComponent implements OnInit {
     this.AddNewOutput.emit(this.addNewArtist.value);
     const ArtistObj = this.addNewArtist.value;
     console.log(ArtistObj);
-    // const form = document.querySelector('#aForm');
-    // const artistObj = new FormData();
-    // artistObj.set('name', form.elements.name.value);
-    // artistObj.set('photo', form.elements.photo.files[0]);
-    // artistObj.set('occupation', form.elements.occupation.value);
-    // console.log(artistObj);
+  }
+
+  onChange($event: Event): void{
+    const file = ($event.target as HTMLInputElement).files[0];
+    console.log(file);
+    this.convertToBase64(file);
+  }
+
+  convertToBase64(file: File): void{
+    const observable = new Observable((subscriber: Subscriber<any>) => {
+      this.readFile(file, subscriber);
+    });
+    observable.subscribe((d) => {
+      console.log(d);
+    });
+  }
+
+  readFile(file: File, subscriber: Subscriber<any>): void{
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileReader.onload = () => {
+      subscriber.next(fileReader.result);
+      subscriber.complete();
+    };
+    fileReader.onerror = (error) => {
+      subscriber.error(error);
+      subscriber.complete();
+    };
   }
 }
