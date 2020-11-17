@@ -9,27 +9,27 @@
     <form [formGroup]="addNewExhibition" class="exhibition-form" (ngSubmit)="onSubmit()" novalidate>
       <div>
         <label class="text-form">Name exhibition</label>
-        <input type="text" formControlName="name">
+        <input type="text" name="name" formControlName="name">
       </div>
 
       <div>
         <label class="text-form pr-2">Date start</label>
-        <input type="date" formControlName="dateStart">
+        <input type="date" name="dateStart" formControlName="dateStart">
       </div>
 
       <div>
         <label class="text-form pr-2">Date end</label>
-        <input type="date" formControlName="dateEnd">
+        <input type="date" name="dateEnd" formControlName="dateEnd">
       </div>
 
       <div>
         <label class="text-form">About exhibition</label>
-        <textarea class="text-area" formControlName="about"></textarea>
+        <textarea class="text-area" name="about" formControlName="about"></textarea>
       </div>
 
       <div>
         <label class="text-form pr-2">Poster</label>
-        <input type="file" formControlName="poster">
+        <input type="file" (change)="onChangePoster($event)" name="poster" formControlName="poster">
       </div>
 
       <div class="button-block px-5 mt-3">

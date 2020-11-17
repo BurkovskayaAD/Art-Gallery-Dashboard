@@ -27,7 +27,7 @@ export class PaintingsDashboardComponent implements OnInit {
       (paintings) => { this.rows = paintings; },
       error => { alert('Something went wrong'); }
     );
-    const t = moment(this.rows.lastModified);
-    t.format('DD-MM-YYYY');
+    // const t = moment(this.rows.lastModified);
+    // t.format('DD-MM-YYYY');
   }
 }

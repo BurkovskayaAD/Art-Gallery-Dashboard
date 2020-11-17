@@ -2,7 +2,7 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 // import {EventEmitter} from 'events';
 import { EventEmitter } from '@angular/core';
-import {observable, Observable, Subscriber} from 'rxjs';
+import {Observable, Subscriber} from 'rxjs';
 
 @Component({
   selector: 'app-form-new-artist',
@@ -44,8 +44,10 @@ export class FormNewArtistComponent implements OnInit {
     const observable = new Observable((subscriber: Subscriber<any>) => {
       this.readFile(file, subscriber);
     });
-    observable.subscribe((d) => {
-      console.log(d);
+    observable.subscribe(d => {
+      const data = d;
+      console.log(data);
+      this.addNewArtist.patchValue({photo: data});
     });
   }
 

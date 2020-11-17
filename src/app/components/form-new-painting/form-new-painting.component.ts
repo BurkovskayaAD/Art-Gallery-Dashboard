@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Observable, Subscriber} from 'rxjs';
 
 @Component({
   selector: 'app-form-new-painting',
@@ -28,5 +29,36 @@ export class FormNewPaintingComponent implements OnInit {
     this.AddNewOutput.emit(this.addNewPainting.value);
     const PaintingObj = this.addNewPainting.value;
     console.log(PaintingObj);
+  }
+
+  onChangePicture($event: Event): void{
+    const file = ($event.target as HTMLInputElement).files[0];
+    console.log(file);
+    this.convertToBase64Picture(file);
+  }
+
+  convertToBase64Picture(file: File): void{
+    const observable = new Observable((subscriber: Subscriber<any>) => {
+      this.readFilePicture(file, subscriber);
+    });
+    observable.subscribe(d => {
+      const data = d;
+      console.log(data);
+      this.addNewPainting.patchValue({picture: data});
+    });
+  }
+
+  readFilePicture(file: File, subscriber: Subscriber<any>): void {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileReader.onload = () => {
+      subscriber.next(fileReader.result);
+      subscriber.complete();
+    };
+    fileReader.onerror = (error) => {
+      subscriber.error(error);
+      subscriber.complete();
+    };
   }
 }
