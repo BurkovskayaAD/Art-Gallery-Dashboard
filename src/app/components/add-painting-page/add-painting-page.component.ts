@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {HttpServiceService} from '../../services/http-service.service';
 import {Constants} from '../../Constants';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-painting-page',
@@ -11,7 +13,7 @@ export class AddPaintingPageComponent implements OnInit {
 
   @Input() addPainting;
 
-  constructor(private http: HttpServiceService) { }
+  constructor(private http: HttpServiceService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +23,7 @@ export class AddPaintingPageComponent implements OnInit {
       (data) => { alert('Painting added'); },
       error => { alert('Something went wrong'); }
     );
+    this.router.navigate(['/paintings']);
   }
 
 }

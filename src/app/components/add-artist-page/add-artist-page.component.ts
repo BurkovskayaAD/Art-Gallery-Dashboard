@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Constants} from '../../Constants';
 import {Observable} from 'rxjs';
 import {HttpServiceService} from '../../services/http-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-artist-page',
@@ -13,7 +14,7 @@ export class AddArtistPageComponent implements OnInit {
 
   @Input() addArtist;
 
-  constructor(private http: HttpServiceService) { }
+  constructor(private http: HttpServiceService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,5 +24,6 @@ export class AddArtistPageComponent implements OnInit {
       (data) => { alert('Artist added'); },
       error => { alert('Something went wrong'); }
     );
+    this.router.navigate(['/artists']);
   }
 }
