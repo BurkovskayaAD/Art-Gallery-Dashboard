@@ -2,6 +2,7 @@ import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../../Constants';
 import * as moment from 'moment';
+import {HttpServiceService} from '../../services/http-service.service';
 
 @Component({
   selector: 'app-artists-dashboard',
@@ -13,7 +14,7 @@ export class ArtistsDashboardComponent implements OnInit {
   columns;
   @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpServiceService) {}
 
   ngOnInit(): void {
     this.columns = [
@@ -21,7 +22,6 @@ export class ArtistsDashboardComponent implements OnInit {
       { prop: 'country' },
       { prop: 'dateBirth' },
       { prop: 'dateDeath' },
-      { prop: 'photo' },
       { prop: 'occupation' },
       { prop: 'lastModified'}
     ];

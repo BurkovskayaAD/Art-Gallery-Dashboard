@@ -1,14 +1,14 @@
 <div class="form-new-exhibition">
 
   <div class="introduction py-4">
-    <h1 class="main-text-introduction">Adding a new exhibition</h1>
+    <h1 class="main-text-introduction">Add a new exhibition</h1>
   </div>
 
   <div class="add-exhibition-block">
 
     <form [formGroup]="addNewExhibition" class="exhibition-form" (ngSubmit)="onSubmit()" novalidate>
       <div>
-        <label class="text-form">Name exhibition</label>
+        <label class="text-form">Exhibition`s name</label>
         <input type="text" name="name" formControlName="name">
       </div>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../../Constants';
+import {HttpServiceService} from '../../services/http-service.service';
 
 @Component({
   selector: 'app-exhibitions-dashboard',
@@ -14,11 +15,10 @@ export class ExhibitionsDashboardComponent implements OnInit {
     { prop: 'dateStart' },
     { prop: 'dateEnd' },
     { prop: 'about' },
-    { prop: 'poster' },
     { prop: 'lastModified' },
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpServiceService) {}
 
   ngOnInit(): void {
     this.http.get(Constants.exhibitionsApiUrl).subscribe(

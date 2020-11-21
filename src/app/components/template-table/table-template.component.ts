@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
-import { ArtistsDashboardComponent } from '../artists-dashboard/artists-dashboard.component';
+import { ArtistsDashboardComponent } from '../dashboard-artists/artists-dashboard.component';
 import * as moment from 'moment';
 
 @Component({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../../Constants';
 import * as moment from 'moment';
+import {HttpServiceService} from '../../services/http-service.service';
 
 
 @Component({
@@ -16,11 +17,10 @@ export class PaintingsDashboardComponent implements OnInit {
     { prop: 'genre' },
     { prop: 'author' },
     { prop: 'dateCreation' },
-    { prop: 'picture' },
     { prop: 'lastModified' },
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpServiceService) {}
 
   ngOnInit(): void {
     this.http.get(Constants.paintingsApiUrl).subscribe(

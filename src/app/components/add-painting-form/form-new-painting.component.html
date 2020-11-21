@@ -1,14 +1,14 @@
 <div class="form-new-painting">
 
   <div class="introduction py-4">
-    <h1 class="main-text-introduction">Adding a new painting</h1>
+    <h1 class="main-text-introduction">Add a new painting</h1>
   </div>
 
   <div class="add-painting-block">
 
     <form [formGroup]="addNewPainting" class="painting-form" (ngSubmit)="onSubmit()" novalidate>
       <div>
-        <label class="text-form">Name painting</label>
+        <label class="text-form">Painting`s name</label>
         <input type="text" name="name" formControlName="name">
       </div>
 
