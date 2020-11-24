@@ -20,15 +20,19 @@ export class FormNewExhibitionComponent implements OnInit {
     poster: ['', Validators.required],
   });
 
-  @Output() AddNewOutput = new EventEmitter();
+  @Output() addNewOutput = new EventEmitter();
 
   ngOnInit(): void {
   }
 
+  get nameError(): any {
+    // console.log(this.addNewExhibition.get('name').errors);
+    return this.addNewExhibition.get('name').errors;
+  }
+
   onSubmit(): void{
-    this.AddNewOutput.emit(this.addNewExhibition.value);
-    const ExhibitionObj = this.addNewExhibition.value;
-    console.log(ExhibitionObj);
+    this.addNewOutput.emit(this.addNewExhibition.value);
+    console.log(this.addNewExhibition.value);
   }
 
   onChangePoster($event: Event): void{
