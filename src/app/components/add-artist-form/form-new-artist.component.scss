@@ -92,6 +92,7 @@ input{
   height: 20px;
   margin: 0;
   padding: 0;
+  border-radius: 1px;
 }
 
 .my-alert{
@@ -140,12 +141,13 @@ input{
 //}
 
 
-.file-in .ng-valid{
-  box-shadow: -12px 0px 6px -5px #4ab842;
+input[type=file].ng-valid[required], input[type=file].ng-valid.required{
+  box-shadow: -9px 0px 6px -5px #4ab84282;
 }
 
-.ng-valid[required], .ng-valid.required{
+.ng-valid[required]:not([type=file]), .ng-valid.required:not([type=file]){
   box-shadow: 0 0 5px #4ab842;
+  background-color: white;
 }
 
 

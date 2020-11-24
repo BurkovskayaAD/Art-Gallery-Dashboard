@@ -9,7 +9,7 @@
 
       <div class="input-block">
         <label class="text-form">Artist`s name</label>
-        <input type="text" name="name" formControlName="name" required>
+        <input type="text" name="name" formControlName="name" required [class.hasError] = nameError>
 
         <div class="alert alert-danger my-alert" *ngIf="addNewArtist.controls['name'].invalid && addNewArtist.controls['name'].touched">
           Please enter artist name
@@ -68,7 +68,7 @@
 
       <div class="button-block px-5 mt-2">
         <button class="button-form" type="submit" [disabled]="!addNewArtist.valid">Add</button>
-        <button class="button-form" type="button" routerLink="/artists">Back</button>
+        <button class="button-form" type="button" routerLink="/artist">Back</button>
       </div>
 
       <div class="opt-field">* - optional field</div>

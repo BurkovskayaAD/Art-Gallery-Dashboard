@@ -20,13 +20,13 @@ export class FormNewPaintingComponent implements OnInit {
     picture: ['', Validators.required]
   });
 
-  @Output() AddNewOutput = new EventEmitter();
+  @Output() addNewOutput = new EventEmitter();
 
   ngOnInit(): void {
   }
 
   onSubmit(): void{
-    this.AddNewOutput.emit(this.addNewPainting.value);
+    this.addNewOutput.emit(this.addNewPainting.value);
     const PaintingObj = this.addNewPainting.value;
     console.log(PaintingObj);
   }

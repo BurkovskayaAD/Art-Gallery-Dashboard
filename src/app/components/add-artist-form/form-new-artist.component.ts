@@ -23,15 +23,19 @@ export class FormNewArtistComponent implements OnInit {
     occupation: ['', Validators.required]
   });
 
-  @Output() AddNewOutput = new EventEmitter();
+  @Output() addNewOutput = new EventEmitter();
 
   ngOnInit(): void {
   }
 
+  get nameError(): any {
+    // console.log(this.addNewArtist.get('name').errors);
+    return this.addNewArtist.get('name').errors;
+  }
+
   onSubmit(): void{
-    this.AddNewOutput.emit(this.addNewArtist.value);
-    const ArtistObj = this.addNewArtist.value;
-    console.log(ArtistObj);
+    this.addNewOutput.emit(this.addNewArtist.value);
+    console.log(this.addNewArtist.value);
   }
 
   onChange($event: Event): void{

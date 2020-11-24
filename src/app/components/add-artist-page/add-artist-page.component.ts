@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
 })
 export class AddArtistPageComponent implements OnInit {
 
-  @Input() addArtist;
-
   constructor(private http: HttpServiceService, private router: Router) { }
 
   ngOnInit(): void {
@@ -21,9 +19,13 @@ export class AddArtistPageComponent implements OnInit {
 
   addNewArtist(addArtist: any): void {
     this.http.post(Constants.artistsApiUrl, addArtist).subscribe(
-      (data) => { alert('Artist added'); },
-      error => { alert('Something went wrong'); }
+      (data) => {
+        sessionStorage.setItem('userAdded', 'true');
+        this.router.navigate(['/artist']);
+        },
+      error => {
+        alert('Something went wrong');
+      }
     );
-    this.router.navigate(['/artists']);
   }
 }
