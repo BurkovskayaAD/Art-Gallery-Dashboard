@@ -7,35 +7,58 @@
   <div class="add-painting-block">
 
     <form [formGroup]="addNewPainting" class="painting-form" (ngSubmit)="onSubmit()" novalidate>
-      <div>
-        <label class="text-form">Painting`s name</label>
+
+      <div class="input-block">
+        <label class="text-form">Painting`s name *</label>
         <input type="text" name="name" formControlName="name">
+
+        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['name'].invalid && addNewPainting.controls['name'].touched">
+          Please enter painting name
+        </div>
       </div>
 
-      <div>
-        <label class="text-form">Genre</label>
+      <div class="input-block">
+        <label class="text-form">Genre *</label>
         <input type="text" name="genre" formControlName="genre">
+
+        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['genre'].invalid && addNewPainting.controls['genre'].touched">
+          Please enter the genre of the painting
+        </div>
       </div>
 
-      <div>
-        <label class="text-form">Author</label>
+      <div class="input-block">
+        <label class="text-form">Author *</label>
         <input type="text" name="author" formControlName="author">
+
+        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['author'].invalid && addNewPainting.controls['author'].touched">
+          Please enter the author of the painting
+        </div>
       </div>
 
-      <div>
-        <label class="text-form pr-2">Date of creation</label>
+      <div class="input-block">
+        <label class="text-form pr-2">Date of creation *</label>
         <input type="date" name="dataCreation" formControlName="dateCreation">
+
+        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['dateCreation'].invalid && addNewPainting.controls['dateCreation'].touched">
+          Please enter the painting`s date of creation
+        </div>
       </div>
 
-      <div>
-        <label class="text-form pr-2">Picture</label>
-        <input type="file" (change)="onChangePicture($event)" name="picture" formControlName="picture">
+      <div class="input-block">
+        <label class="text-form pr-2">Picture *</label>
+        <input type="file" (change)="onChangePicture($event)" name="picture" accept="image/*" formControlName="picture">
+
+        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['picture'].invalid && addNewPainting.controls['picture'].touched">
+          Please select picture
+        </div>
       </div>
 
       <div class="button-block px-5 mt-3">
         <button class="button-form" type="submit" [disabled]="!addNewPainting.valid">Add</button>
-        <button class="button-form" type="button" routerLink="/paintings">Back</button>
+        <button class="button-form" type="button" routerLink="/painting">Back</button>
       </div>
+
+      <div class="opt-field">* - required field</div>
 
     </form>
 

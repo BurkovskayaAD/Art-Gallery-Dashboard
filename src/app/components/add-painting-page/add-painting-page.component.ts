@@ -20,10 +20,14 @@ export class AddPaintingPageComponent implements OnInit {
 
   addNewPainting(addPainting: any): void {
     this.http.post(Constants.paintingsApiUrl, addPainting).subscribe(
-      (data) => { alert('Painting added'); },
-      error => { alert('Something went wrong'); }
+      (data) => {
+        sessionStorage.setItem('paintingAdded', 'true');
+        this.router.navigate(['/exhibition']);
+      },
+      error => {
+        alert('Something went wrong');
+      }
     );
-    this.router.navigate(['/paintings']);
   }
 
 }
