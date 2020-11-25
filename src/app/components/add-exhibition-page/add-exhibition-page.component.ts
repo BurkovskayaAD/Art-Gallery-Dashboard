@@ -20,10 +20,14 @@ export class AddExhibitionPageComponent implements OnInit {
 
   addNewExhibition(addExhibition: any): void {
     this.http.post(Constants.exhibitionsApiUrl, addExhibition).subscribe(
-      (data) => { alert('Exhibition added'); },
-      error => { alert('Something went wrong'); }
+      (data) => {
+        sessionStorage.setItem('exhibitionAdded', 'true');
+        this.router.navigate(['/exhibition']);
+      },
+      error => {
+        alert('Something went wrong');
+      }
     );
-    this.router.navigate(['/exhibitions']);
   }
 
 }

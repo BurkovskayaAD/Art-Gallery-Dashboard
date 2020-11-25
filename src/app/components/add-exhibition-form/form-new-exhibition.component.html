@@ -9,7 +9,7 @@
     <form [formGroup]="addNewExhibition" class="exhibition-form" (ngSubmit)="onSubmit()" novalidate>
 
       <div class="input-block">
-        <label class="text-form">Exhibition`s name</label>
+        <label class="text-form">Exhibition`s name *</label>
         <input type="text" name="name" formControlName="name" [class.hasError] = nameError>
 
         <div class="alert alert-danger my-alert" *ngIf="addNewExhibition.controls['name'].invalid && addNewExhibition.controls['name'].touched">
@@ -18,7 +18,7 @@
       </div>
 
       <div class="input-block">
-        <label class="text-form pr-2">Date start</label>
+        <label class="text-form pr-2">Date start *</label>
         <input type="date" name="dateStart" formControlName="dateStart">
 
         <div class="alert alert-danger my-alert" *ngIf="addNewExhibition.controls['dateStart'].invalid && addNewExhibition.controls['dateStart'].touched">
@@ -27,7 +27,7 @@
       </div>
 
       <div class="input-block">
-        <label class="text-form pr-2">Date end</label>
+        <label class="text-form pr-2">Date end *</label>
         <input type="date" name="dateEnd" formControlName="dateEnd">
 
         <div class="alert alert-danger my-alert" *ngIf="addNewExhibition.controls['dateEnd'].invalid && addNewExhibition.controls['dateEnd'].touched">
@@ -36,7 +36,7 @@
       </div>
 
       <div class="input-block">
-        <label class="text-form">About exhibition</label>
+        <label class="text-form">About exhibition *</label>
         <textarea class="text-area" name="about" formControlName="about"></textarea>
 
         <div class="alert alert-danger my-alert alert-textarea" *ngIf="addNewExhibition.controls['about'].invalid && addNewExhibition.controls['about'].touched">
@@ -45,8 +45,8 @@
       </div>
 
       <div class="input-block">
-        <label class="text-form pr-2">Poster</label>
-        <input type="file" (change)="onChangePoster($event)" name="poster" formControlName="poster">
+        <label class="text-form pr-2">Poster *</label>
+        <input type="file" (change)="onChangePoster($event)" name="poster" accept="image/*" formControlName="poster">
 
         <div class="alert alert-danger my-alert" *ngIf="addNewExhibition.controls['poster'].invalid && addNewExhibition.controls['poster'].touched">
           Please select poster of exhibition
@@ -57,6 +57,8 @@
         <button class="button-form" type="submit" [disabled]="!addNewExhibition.valid">Add</button>
         <button class="button-form" type="button" routerLink="/exhibition">Back</button>
       </div>
+
+      <div class="opt-field">* - required field</div>
 
     </form>
 
