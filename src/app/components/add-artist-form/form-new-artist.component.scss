@@ -86,6 +86,7 @@ input{
 .opt-field{
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
+  padding-top: 10px;
 }
 
 .alert{
@@ -127,6 +128,23 @@ input{
   }
   .main-text-introduction{
     margin-top: 60px;
+  }
+}
+
+@media (max-width: 391px) {
+  .my-alert{
+    margin-left: 0;
+    width: 100%;
+  }
+  input{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  input[type=text]{
+    width: 100%;
+  }
+  .select{
+    width: 100%;
   }
 }
 
