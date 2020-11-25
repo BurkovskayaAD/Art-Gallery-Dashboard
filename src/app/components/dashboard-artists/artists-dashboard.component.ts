@@ -9,7 +9,7 @@ import {HttpServiceService} from '../../services/http-service.service';
   templateUrl: './artists-dashboard.component.html',
   styleUrls: ['./artists-dashboard.component.scss'],
 })
-export class ArtistsDashboardComponent implements OnInit, AfterViewInit {
+export class ArtistsDashboardComponent implements OnInit{
   rows;
   columns;
   @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
@@ -25,7 +25,7 @@ export class ArtistsDashboardComponent implements OnInit, AfterViewInit {
         if (artists.error){
           // alert('ERROR');
         } else {
-          const isNewUser = sessionStorage.getItem('UserAdded');
+          const isNewUser = sessionStorage.getItem('userAdded');
           if (isNewUser !== null){
             // alert('ERROR');
             sessionStorage.removeItem('userAdded');
@@ -38,15 +38,11 @@ export class ArtistsDashboardComponent implements OnInit, AfterViewInit {
     );
     this.columns = [
       { prop: 'name', cellTemplate: this.linkTemp },
+      { prop: 'occupation' },
       { prop: 'country' },
       { prop: 'dateBirth' },
       { prop: 'dateDeath' },
-      { prop: 'occupation' },
       { prop: 'lastModified'}
     ];
-  }
-
-  ngAfterViewInit(): void{
-
   }
 }

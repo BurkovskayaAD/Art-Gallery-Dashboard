@@ -3,7 +3,15 @@
   [buttonText]="'painting'">
 </app-introduction-template>
 
-<app-table-template
-  [rows] = "rows"
-  [columns] = "columns">
-</app-table-template>
+<div *ngIf="loading" class="preloader">
+  <div class="line-separator"></div>
+  <img src="assets/loader2.svg" class="preloader__image">
+</div>
+
+
+<div *ngIf="!loading">
+  <app-table-template
+    [rows] = "rows"
+    [columns] = "columns">
+  </app-table-template>
+</div>

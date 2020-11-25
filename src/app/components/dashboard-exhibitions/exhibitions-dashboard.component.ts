@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../../Constants';
 import {HttpServiceService} from '../../services/http-service.service';
@@ -10,20 +10,37 @@ import {HttpServiceService} from '../../services/http-service.service';
 })
 export class ExhibitionsDashboardComponent implements OnInit {
   rows;
-  columns = [
-    { prop: 'name' },
-    { prop: 'dateStart' },
-    { prop: 'dateEnd' },
-    { prop: 'about' },
-    { prop: 'lastModified' },
-  ];
+  columns;
+  @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
+
+  loading = false;
 
   constructor(private http: HttpServiceService) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.http.get(Constants.exhibitionsApiUrl).subscribe(
-      (exhibitions) => { this.rows = exhibitions;},
-      error => { alert('Something went wrong'); }
-      );
+      (exhibitions) => {
+        if (exhibitions.error){
+          // alert('ERROR');
+        } else {
+          const isNewUser = sessionStorage.getItem('exhibitionAdded');
+          if (isNewUser !== null){
+            // alert('ERROR');
+            sessionStorage.removeItem('exhibitionAdded');
+          }
+          this.rows = exhibitions;
+        }
+
+        this.loading = false;
+      }
+    );
+    this.columns = [
+      { prop: 'name', cellTemplate: this.linkTemp },
+      { prop: 'about' },
+      { prop: 'dateStart' },
+      { prop: 'dateEnd' },
+      { prop: 'lastModified' },
+    ];
   }
 }

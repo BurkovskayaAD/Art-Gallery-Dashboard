@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../../Constants';
 import * as moment from 'moment';
@@ -12,22 +12,37 @@ import {HttpServiceService} from '../../services/http-service.service';
 })
 export class PaintingsDashboardComponent implements OnInit {
   rows;
-  columns = [
-    { prop: 'name' },
-    { prop: 'genre' },
-    { prop: 'author' },
-    { prop: 'dateCreation' },
-    { prop: 'lastModified' },
-  ];
+  columns;
+  @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
+
+  loading = false;
 
   constructor(private http: HttpServiceService) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.http.get(Constants.paintingsApiUrl).subscribe(
-      (paintings) => { this.rows = paintings; },
-      error => { alert('Something went wrong'); }
+      (paintings) => {
+        if (paintings.error){
+          // alert('ERROR');
+        } else {
+          const isNewUser = sessionStorage.getItem('paintingAdded');
+          if (isNewUser !== null){
+            // alert('ERROR');
+            sessionStorage.removeItem('paintingsAdded');
+          }
+          this.rows = paintings;
+        }
+
+        this.loading = false;
+      }
     );
-    // const t = moment(this.rows.lastModified);
-    // t.format('DD-MM-YYYY');
+    this.columns = [
+      { prop: 'name', cellTemplate: this.linkTemp },
+      { prop: 'genre' },
+      { prop: 'author' },
+      { prop: 'dateCreation' },
+      { prop: 'lastModified' },
+    ];
   }
 }
