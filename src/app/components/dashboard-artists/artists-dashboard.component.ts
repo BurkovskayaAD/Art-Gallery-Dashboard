@@ -12,7 +12,6 @@ import {HttpServiceService} from '../../services/http-service.service';
 export class ArtistsDashboardComponent implements OnInit{
   rows;
   columns;
-  @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
 
   loading = false;
 
@@ -37,12 +36,12 @@ export class ArtistsDashboardComponent implements OnInit{
       }
     );
     this.columns = [
-      { prop: 'name', cellTemplate: this.linkTemp },
+      { prop: 'name', linkColumn: true},
       { prop: 'occupation' },
       { prop: 'country' },
-      { prop: 'dateBirth' },
-      { prop: 'dateDeath' },
-      { prop: 'lastModified'}
+      { prop: 'dateBirth', dateColumn: true },
+      { prop: 'dateDeath', dateColumn: true  },
+      { prop: 'lastModified', dateColumn: true }
     ];
   }
 }

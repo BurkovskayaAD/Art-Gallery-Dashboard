@@ -12,6 +12,8 @@ export class TableTemplateComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
+  @ViewChild('dateTemp') dateTemp: TemplateRef<any>;
+  @ViewChild('yearTemp') yearTemp: TemplateRef<any>;
 
   @Input()
   rows: object;
@@ -23,13 +25,18 @@ export class TableTemplateComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const newCol = {
-      ...this.columns[0],
-      cellTemplate: this.linkTemp
-    };
-    console.log(this.columns);
-    this.columns = [newCol, ...this.columns.slice(1)];
-    console.log(this.columns);
+    this.columns = this.columns.map(col => {
+      if (col.linkColumn){
+        return {...col, cellTemplate: this.linkTemp};
+      }
+      if (col.dateColumn){
+        return {...col, cellTemplate: this.dateTemp};
+      }
+      if (col.yearColumn){
+        return {...col, cellTemplate: this.yearTemp};
+      }
+      return col;
+    });
   }
 
 }

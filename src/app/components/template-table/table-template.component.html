@@ -14,13 +14,16 @@
 </div>
 
 
-<ng-template #linkTemp let-row="row">
+<ng-template #linkTemp let-row="row" let-value="value">
     <a class="nav-link" routerLink="/">
-      {{row.name}}
+      {{value}}
     </a>
 </ng-template>
 
+<ng-template #dateTemp let-row="row" let-value="value">
+  {{value | date: "dd-MM-yyyy"}}
+</ng-template>
 
-
-
-
+<ng-template #yearTemp let-row="row" let-value="value">
+  {{value | date: "yyyy"}}
+</ng-template>

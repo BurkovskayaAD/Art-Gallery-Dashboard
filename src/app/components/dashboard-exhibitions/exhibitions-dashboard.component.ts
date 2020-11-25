@@ -36,11 +36,11 @@ export class ExhibitionsDashboardComponent implements OnInit {
       }
     );
     this.columns = [
-      { prop: 'name', cellTemplate: this.linkTemp },
+      { prop: 'name', linkColumn: true },
       { prop: 'about' },
-      { prop: 'dateStart' },
-      { prop: 'dateEnd' },
-      { prop: 'lastModified' },
+      { prop: 'dateStart', dateColumn: true },
+      { prop: 'dateEnd', dateColumn: true },
+      { prop: 'lastModified', dateColumn: true },
     ];
   }
 }

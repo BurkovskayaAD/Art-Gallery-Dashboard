@@ -38,11 +38,11 @@ export class PaintingsDashboardComponent implements OnInit {
       }
     );
     this.columns = [
-      { prop: 'name', cellTemplate: this.linkTemp },
+      { prop: 'name', linkColumn: true},
       { prop: 'genre' },
       { prop: 'author' },
-      { prop: 'dateCreation' },
-      { prop: 'lastModified' },
+      { prop: 'dateCreation', name: 'Year Creation', yearColumn: true },
+      { prop: 'lastModified', dateColumn: true },
     ];
   }
 }
