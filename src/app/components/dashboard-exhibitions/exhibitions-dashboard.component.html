@@ -9,6 +9,18 @@
 </div>
 
 
+<div *ngIf="textExhibitionAdded" class="text-exhibition-added-block">
+  <div class="text-exhibition-added">
+    Exhibition has been added
+  </div>
+</div>
+
+<div *ngIf="textExhibitionDisconnect" class="text-exhibition-disconnect-block">
+  <div class="text-exhibition-disconnect">
+    Something went wrong
+  </div>
+</div>
+
 <div *ngIf="!loading">
   <app-table-template
     [rows] = "rows"

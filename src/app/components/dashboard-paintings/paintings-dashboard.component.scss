@@ -1,3 +1,44 @@
+.text-painting-added-block{
+  position: fixed;
+  left: 30px;
+  top: 35%;
+  right: 30px;
+  bottom: 40%;
+  overflow: hidden;
+  background: white;
+  z-index: 1002;
+  opacity: 0.9;
+  border: 1px solid #bfbfbf;
+}
+.text-painting-added{
+  font-family: 'Montserrat', sans-serif;
+  color: #4ab842;
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  top: 39%;
+}
+
+.text-painting-disconnect-block{
+  position: fixed;
+  left: 30px;
+  top: 35%;
+  right: 30px;
+  bottom: 40%;
+  overflow: hidden;
+  background: white;
+  z-index: 1002;
+  opacity: 0.9;
+  border: 1px solid #bfbfbf;
+}
+.text-painting-disconnect{
+  font-family: 'Montserrat', sans-serif;
+  color: #ff3030;
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  top: 39%;
+}
 .preloader {
   position: fixed;
   left: 0;
@@ -52,5 +93,11 @@
   .preloader{
     top: 86px;
     left: 260px;
+  }
+  .text-painting-added-block{
+    left: 290px;
+  }
+  .text-painting-disconnect-block{
+    left: 290px;
   }
 }

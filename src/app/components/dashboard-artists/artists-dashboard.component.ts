@@ -12,6 +12,8 @@ import {HttpServiceService} from '../../services/http-service.service';
 export class ArtistsDashboardComponent implements OnInit{
   rows;
   columns;
+  textArtistAdded;
+  textArtistDisconnect;
 
   loading = false;
 
@@ -22,16 +24,17 @@ export class ArtistsDashboardComponent implements OnInit{
     this.http.get(Constants.artistsApiUrl).subscribe(
       (artists) => {
         if (artists.error){
-          // alert('ERROR');
+          this.textArtistDisconnect = true;
         } else {
+          this.textArtistDisconnect = false;
           const isNewUser = sessionStorage.getItem('userAdded');
           if (isNewUser !== null){
-            // alert('ERROR');
+            this.textArtistAdded = true;
+            setTimeout(() => { this.textArtistAdded = false; }, 2000);
             sessionStorage.removeItem('userAdded');
           }
           this.rows = artists;
         }
-
         this.loading = false;
       }
     );

@@ -1,3 +1,45 @@
+.text-artist-added-block{
+  position: fixed;
+  left: 30px;
+  top: 35%;
+  right: 30px;
+  bottom: 40%;
+  overflow: hidden;
+  background: white;
+  z-index: 1002;
+  opacity: 0.9;
+  border: 1px solid #bfbfbf;
+}
+.text-artist-added{
+  font-family: 'Montserrat', sans-serif;
+  color: #4ab842;
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  top: 39%;
+}
+
+.text-artist-disconnect-block{
+  position: fixed;
+  left: 30px;
+  top: 35%;
+  right: 30px;
+  bottom: 40%;
+  overflow: hidden;
+  background: white;
+  z-index: 1002;
+  opacity: 0.9;
+  border: 1px solid #bfbfbf;
+}
+.text-artist-disconnect{
+  font-family: 'Montserrat', sans-serif;
+  color: #ff3030;
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  top: 39%;
+}
+
 .preloader {
   position: fixed;
   left: 0;
@@ -52,5 +94,11 @@
   .preloader{
     top: 86px;
     left: 260px;
+  }
+  .text-artist-added-block{
+    left: 290px;
+  }
+  .text-artist-disconnect-block{
+    left: 290px;
   }
 }

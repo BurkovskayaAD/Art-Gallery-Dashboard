@@ -13,7 +13,8 @@ import {HttpServiceService} from '../../services/http-service.service';
 export class PaintingsDashboardComponent implements OnInit {
   rows;
   columns;
-  @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
+  textPaintingAdded;
+  textPaintingDisconnect;
 
   loading = false;
 
@@ -24,11 +25,13 @@ export class PaintingsDashboardComponent implements OnInit {
     this.http.get(Constants.paintingsApiUrl).subscribe(
       (paintings) => {
         if (paintings.error){
-          // alert('ERROR');
+          this.textPaintingDisconnect = true;
         } else {
+          this.textPaintingDisconnect = false;
           const isNewUser = sessionStorage.getItem('paintingAdded');
           if (isNewUser !== null){
-            // alert('ERROR');
+            this.textPaintingAdded = true;
+            setTimeout(() => { this.textPaintingAdded = false; }, 2000);
             sessionStorage.removeItem('paintingsAdded');
           }
           this.rows = paintings;

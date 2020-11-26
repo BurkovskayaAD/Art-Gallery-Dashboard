@@ -10,6 +10,18 @@
 </div>
 
 
+<div *ngIf="textArtistAdded" class="text-artist-added-block">
+  <div class="text-artist-added">
+    Artist has been added
+  </div>
+</div>
+
+<div *ngIf="textArtistDisconnect" class="text-artist-disconnect-block">
+  <div class="text-artist-disconnect">
+    Something went wrong
+  </div>
+</div>
+
 <div *ngIf="!loading">
   <app-table-template
     [rows] = "rows"

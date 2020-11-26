@@ -9,6 +9,18 @@
 </div>
 
 
+<div *ngIf="textPaintingAdded" class="text-painting-added-block">
+  <div class="text-painting-added">
+    Painting has been added
+  </div>
+</div>
+
+<div *ngIf="textPaintingDisconnect" class="text-painting-disconnect-block">
+  <div class="text-painting-disconnect">
+    Something went wrong
+  </div>
+</div>
+
 <div *ngIf="!loading">
   <app-table-template
     [rows] = "rows"

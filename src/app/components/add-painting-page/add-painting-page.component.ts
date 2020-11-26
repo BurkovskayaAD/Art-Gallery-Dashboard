@@ -22,7 +22,7 @@ export class AddPaintingPageComponent implements OnInit {
     this.http.post(Constants.paintingsApiUrl, addPainting).subscribe(
       (data) => {
         sessionStorage.setItem('paintingAdded', 'true');
-        this.router.navigate(['/exhibition']);
+        this.router.navigate(['/painting']);
       },
       error => {
         alert('Something went wrong');

@@ -11,7 +11,8 @@ import {HttpServiceService} from '../../services/http-service.service';
 export class ExhibitionsDashboardComponent implements OnInit {
   rows;
   columns;
-  @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
+  textExhibitionAdded;
+  textExhibitionDisconnect;
 
   loading = false;
 
@@ -22,11 +23,13 @@ export class ExhibitionsDashboardComponent implements OnInit {
     this.http.get(Constants.exhibitionsApiUrl).subscribe(
       (exhibitions) => {
         if (exhibitions.error){
-          // alert('ERROR');
+          this.textExhibitionDisconnect = true;
         } else {
+          this.textExhibitionDisconnect = false;
           const isNewUser = sessionStorage.getItem('exhibitionAdded');
           if (isNewUser !== null){
-            // alert('ERROR');
+            this.textExhibitionAdded = true;
+            setTimeout(() => { this.textExhibitionAdded = false; }, 2000);
             sessionStorage.removeItem('exhibitionAdded');
           }
           this.rows = exhibitions;
