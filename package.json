@@ -21,6 +21,7 @@
     "@angular/router": "~10.2.0",
     "@swimlane/ngx-datatable": "^18.0.0",
     "angular-base64": "^2.0.5",
+    "angular-file-uploader": "^7.0.3",
     "form": "^0.2.4",
     "loopback-sdk-angular-cli": "^3.3.1",
     "moment": "^2.29.1",

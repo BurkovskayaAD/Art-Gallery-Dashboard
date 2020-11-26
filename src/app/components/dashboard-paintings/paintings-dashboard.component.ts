@@ -1,9 +1,7 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../../Constants';
-import * as moment from 'moment';
 import {HttpServiceService} from '../../services/http-service.service';
-
 
 @Component({
   selector: 'app-paintings-dashboard',
@@ -32,7 +30,7 @@ export class PaintingsDashboardComponent implements OnInit {
           if (isNewUser !== null){
             this.textPaintingAdded = true;
             setTimeout(() => { this.textPaintingAdded = false; }, 2000);
-            sessionStorage.removeItem('paintingsAdded');
+            sessionStorage.removeItem('paintingAdded');
           }
           this.rows = paintings;
         }

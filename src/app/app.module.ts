@@ -20,7 +20,7 @@ import { FormNewPaintingComponent } from './components/add-painting-form/form-ne
 import { AddArtistPageComponent } from './components/add-artist-page/add-artist-page.component';
 import { AddExhibitionPageComponent } from './components/add-exhibition-page/add-exhibition-page.component';
 import { AddPaintingPageComponent } from './components/add-painting-page/add-painting-page.component';
-
+import { AngularFileUploaderModule} from 'angular-file-uploader';
 
 const appRoutes: Routes = [
   {path: '', component: MainDashboardComponent},
@@ -55,7 +55,8 @@ const appRoutes: Routes = [
     NgxDatatableModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFileUploaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
