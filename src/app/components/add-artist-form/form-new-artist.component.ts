@@ -13,7 +13,8 @@ import {HttpServiceService} from '../../services/http-service.service';
 })
 export class FormNewArtistComponent implements OnInit {
 
-  fileToUpload: File = null;
+  // fileToUpload: File = null;
+  fileToUpload: File;
 
   constructor(private fb: FormBuilder, private http: HttpServiceService) {
   }
@@ -57,8 +58,13 @@ export class FormNewArtistComponent implements OnInit {
   }
 
   onChange(event): void {
-    this.fileToUpload = event.target.files[0];
+    this.fileToUpload = event.target;
     console.log(this.fileToUpload);
+    const blob = new Blob([this.fileToUpload]);
+    console.log(blob);
+
+    // this.fileToUpload = event.target.files[0];
+    // console.log(this.fileToUpload);
     //
     // const fd = new FormData();
     // fd.append('image', this.fileToUpload, this.fileToUpload.name);
