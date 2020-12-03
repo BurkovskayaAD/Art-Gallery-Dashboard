@@ -21,7 +21,10 @@ export class MainDashboardComponent implements OnInit {
       (artist) => {this.artist = artist; console.log(this.artist); }
     );
     this.http.get(Constants.paintingsApiUrl).subscribe(
-      (painting) => {this.painting = painting; console.log(this.painting); }
+      (painting) => {this.painting = painting;
+                     const countPainting = painting.length;
+                     console.log(this.painting);
+                     console.log(countPainting); }
     );
     this.http.get(Constants.exhibitionsApiUrl).subscribe(
       (exhibition) => {this.exhibition = exhibition; console.log(this.exhibition); }
