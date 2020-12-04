@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import * as moment from 'moment';
 import { Constants } from '../../Constants';
 import {HttpServiceService} from '../../services/http-service.service';
@@ -8,13 +8,35 @@ import {HttpServiceService} from '../../services/http-service.service';
   templateUrl: './main-dashboard.component.html',
   styleUrls: ['./main-dashboard.component.scss']
 })
-export class MainDashboardComponent implements OnInit {
+export class MainDashboardComponent implements OnInit, AfterViewInit {
 
   constructor(private http: HttpServiceService) { }
 
   artist;
   painting;
   exhibition;
+
+  @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
+  @ViewChild('dateTemp') dateTemp: TemplateRef<any>;
+  @ViewChild('yearTemp') yearTemp: TemplateRef<any>;
+
+  @Input()
+  rowsArtist: object;
+
+  @Input()
+  columnsArtist: any;
+
+  @Input()
+  rowsPainting: object;
+
+  @Input()
+  columnsPainting: any;
+
+  @Input()
+  rowsExhibition: object;
+
+  @Input()
+  columnsExhibition: any;
 
   ngOnInit(): void {
     this.http.get(Constants.artistsApiUrl).subscribe(
@@ -29,6 +51,86 @@ export class MainDashboardComponent implements OnInit {
     this.http.get(Constants.exhibitionsApiUrl).subscribe(
       (exhibition) => {this.exhibition = exhibition; console.log(this.exhibition); }
     );
+
+
+    this.http.get(Constants.artistsApiUrl).subscribe(
+      (artists) => {
+          this.rowsArtist = artists;
+      }
+    );
+    this.columnsArtist = [
+      { prop: 'name', linkColumn: true},
+      { prop: 'occupation' },
+      { prop: 'country' },
+      { prop: 'dateBirth', dateColumn: true },
+      { prop: 'dateDeath', dateColumn: true  },
+      { prop: 'lastModified', dateColumn: true }
+    ];
+
+    this.http.get(Constants.paintingsApiUrl).subscribe(
+      (paintings) => {
+        this.rowsPainting = paintings;
+      }
+    );
+    this.columnsPainting = [
+      { prop: 'name', linkColumn: true},
+      { prop: 'genre' },
+      { prop: 'author' },
+      { prop: 'dateCreation', name: 'Year Creation', yearColumn: true },
+      { prop: 'lastModified', dateColumn: true },
+    ];
+
+    this.http.get(Constants.exhibitionsApiUrl).subscribe(
+      (exhibitions) => {
+        this.rowsExhibition = exhibitions;
+      }
+    );
+    this.columnsExhibition = [
+      { prop: 'name', linkColumn: true },
+      { prop: 'about' },
+      { prop: 'dateStart', dateColumn: true },
+      { prop: 'dateEnd', dateColumn: true },
+      { prop: 'lastModified', dateColumn: true },
+    ];
+  }
+
+  ngAfterViewInit(): void {
+    this.columnsArtist = this.columnsArtist.map(col => {
+      if (col.linkColumn){
+        return {...col, cellTemplate: this.linkTemp};
+      }
+      if (col.dateColumn){
+        return {...col, cellTemplate: this.dateTemp};
+      }
+      if (col.yearColumn){
+        return {...col, cellTemplate: this.yearTemp};
+      }
+      return col;
+    });
+    this.columnsPainting = this.columnsPainting.map(col => {
+      if (col.linkColumn){
+        return {...col, cellTemplate: this.linkTemp};
+      }
+      if (col.dateColumn){
+        return {...col, cellTemplate: this.dateTemp};
+      }
+      if (col.yearColumn){
+        return {...col, cellTemplate: this.yearTemp};
+      }
+      return col;
+    });
+    this.columnsExhibition = this.columnsExhibition.map(col => {
+      if (col.linkColumn){
+        return {...col, cellTemplate: this.linkTemp};
+      }
+      if (col.dateColumn){
+        return {...col, cellTemplate: this.dateTemp};
+      }
+      if (col.yearColumn){
+        return {...col, cellTemplate: this.yearTemp};
+      }
+      return col;
+    });
   }
 
 }
