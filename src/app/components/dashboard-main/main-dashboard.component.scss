@@ -158,20 +158,26 @@
   font-size: 15px;
 }
 
-.tables-block{
-  width: 99%;
-  margin-right: auto;
-  margin-left: auto;
-}
 ngx-datatable{
-  display: inline-block;
-  border-radius: 5px;
-  margin: 10px;
+  //display: inline-block;
+  //margin: 10px;
+  box-shadow: none!important;
 }
-.table-and-text{
+.tables-block{
+  width: 100%;
+  padding: 0 5px;
+}
+.article-tables{
+  background-color: white;
   display: inline-flex;
   flex-direction: column;
-  width: 50%;
+  width: calc(50% - 20px);
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.last{
+  width: calc(100% - 20px);
 }
 .text-block{
   display: flex;
@@ -193,6 +199,17 @@ ngx-datatable{
   padding-top: -84px;
 }
 
+@media (max-width: 1160px) {
+  .article-tables{
+    width: calc(100% - 20px);
+   }
+}
+
+@media (max-width: 1000px) {
+  .panel{
+    width: calc(50% - 20px);
+  }
+}
 
 @media (max-width: 700px) {
   .main-dashboard{

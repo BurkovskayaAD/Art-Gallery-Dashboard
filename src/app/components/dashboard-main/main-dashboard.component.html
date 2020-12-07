@@ -49,6 +49,7 @@
   </div>
 
   <div class="tables-block">
+    <div class="article-tables">
       <div class="table-and-text">
         <div class="text-block">
           <div class="table-text">Recently added artists</div>
@@ -64,35 +65,40 @@
                        [rows]="rowsArtist">
         </ngx-datatable>
       </div>
-    <div class="table-and-text">
-      <div class="text-block">
-        <div class="table-text">Recently added paintings</div>
-        <a class="table-text table-link" routerLink="/painting">View all</a>
-      </div>
-      <ngx-datatable *ngIf="rowsPainting"
-                     class="material"
-                     [limit]="10"
-                     [headerHeight]="50"
-                     [columnMode]="'force'"
-                     [rowHeight]="'auto'"
-                     [columns]="columnsPainting"
-                     [rows]="rowsPainting">
-      </ngx-datatable>
     </div>
-    <div class="table-and-text">
-      <div class="text-block">
-        <div class="table-text">Recently added exhibitions</div>
-        <a class="table-text table-link" routerLink="/exhibition">View all</a>
+    <div class="article-tables">
+      <div class="table-and-text">
+        <div class="text-block">
+          <div class="table-text">Recently added paintings</div>
+          <a class="table-text table-link" routerLink="/painting">View all</a>
+        </div>
+        <ngx-datatable *ngIf="rowsPainting"
+                       class="material"
+                       [limit]="10"
+                       [headerHeight]="50"
+                       [columnMode]="'force'"
+                       [rowHeight]="'auto'"
+                       [columns]="columnsPainting"
+                       [rows]="rowsPainting">
+        </ngx-datatable>
       </div>
-      <ngx-datatable *ngIf="rowsExhibition"
-                     class="material"
-                     [limit]="10"
-                     [headerHeight]="50"
-                     [columnMode]="'force'"
-                     [rowHeight]="'auto'"
-                     [columns]="columnsExhibition"
-                     [rows]="rowsExhibition">
-      </ngx-datatable>
+    </div>
+    <div class="article-tables last">
+      <div class="table-and-text">
+        <div class="text-block">
+          <div class="table-text">Recently added exhibitions</div>
+          <a class="table-text table-link" routerLink="/exhibition">View all</a>
+        </div>
+        <ngx-datatable *ngIf="rowsExhibition"
+                       class="material"
+                       [limit]="10"
+                       [headerHeight]="50"
+                       [columnMode]="'force'"
+                       [rowHeight]="'auto'"
+                       [columns]="columnsExhibition"
+                       [rows]="rowsExhibition">
+        </ngx-datatable>
+      </div>
     </div>
   </div>
 
