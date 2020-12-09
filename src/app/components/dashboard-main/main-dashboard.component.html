@@ -121,7 +121,7 @@
 
     <div class="block-painting pb-5">
     <div *ngFor="let itemPainting of painting | slice: -3" class="article-block-painting">
-      <img src="../../../assets/12.jpg" class="painting-photo" alt="painting">
+      <img src="{{itemPainting.picture}}" class="painting-photo" alt="painting">
       <div class="painting-text py-2">{{itemPainting.name}}</div>
     </div>
   </div>
@@ -130,7 +130,7 @@
 
   <div class="block-artists pb-5">
     <div *ngFor="let itemArtist of artist | slice: -3" class="article-block-artists">
-      <img src="../../../assets/botichelli.jpg" class="artist-photo" alt="painting">
+      <img src="{{itemArtist.picture}}" class="artist-photo" alt="painting">
       <div class="artist-text py-2">{{itemArtist.name}} | {{itemArtist.occupation}}</div>
     </div>
   </div>
@@ -142,7 +142,7 @@
     <div *ngFor="let itemExhibition of exhibition | slice: -2" class="row w-100 pb-5">
       <div class="col-lg-1"></div>
       <div class="col-lg px-5">
-        <img src="../../../assets/31.jpg" alt="poster" class="poster px-5 w-100">
+        <img src="{{itemExhibition.poster}}" alt="poster" class="poster px-5 w-100">
       </div>
       <div class="col-lg px-5 py-2">
         <div class="text-exhibition">Name: </div>
