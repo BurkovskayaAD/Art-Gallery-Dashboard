@@ -30,7 +30,7 @@ export class ArtistsDashboardComponent implements OnInit{
           const isNewUser = sessionStorage.getItem('userAdded');
           if (isNewUser !== null){
             this.textArtistAdded = true;
-            setTimeout(() => { this.textArtistAdded = false; }, 2000);
+            setTimeout(() => { this.textArtistAdded = false; }, 1500);
             sessionStorage.removeItem('userAdded');
           }
           this.rows = artists;

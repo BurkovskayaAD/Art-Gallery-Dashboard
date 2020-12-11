@@ -71,96 +71,9 @@
   font-size: 16px;
   color: #9a9a9a;
 }
-.dashboard-text{
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;;
-  color: #151515;
-  font-size: 36px;
-  line-height: 1.4;
-}
 
-.block-painting{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.article-block-painting{
-  width: 33%;
-  padding: 0 5px;
-}
-.painting-photo{
-  object-fit: cover;
-  width: 100%;
-  height: 350px;
-}
-.painting-text{
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;;
-  font-size: 24px;
-  color: #151515;
-}
-
-.line-separator{
-  border-top: 1px solid #bfbfbf;
-  padding: 30px 0;
-  width: 90%;
-  margin: 0 auto;
-}
-
-.block-artists{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.article-block-artists{
-  width: 33%;
-  padding: 0 15px;
-}
-.artist-photo{
-  object-fit: cover;
-  width: 100%;
-  height: 350px;
-}
-.artist-text{
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;;
-  font-size: 24px;
-  color: #151515;
-}
-
-.text-exhibition{
-  font-family: 'Montserrat', sans-serif;;
-  color: lightblue;
-  font-size: 20px;
-  padding: 5px 0;
-}
-.exhibition-name{
-  font-family: 'Montserrat', sans-serif;;
-  color: #151515;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.exhibition-date{
-  font-family: 'Montserrat', sans-serif;;
-  color: #151515;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.exhibition-about{
-  font-family: 'Montserrat', sans-serif;;
-  color: #151515;
-  font-size: 15px;
-}
 
 ngx-datatable{
-  //display: inline-block;
-  //margin: 10px;
   box-shadow: none!important;
 }
 .tables-block{
@@ -213,12 +126,6 @@ ngx-datatable{
 
 @media (max-width: 700px) {
   .main-dashboard{
-    width: 100%;
-  }
-  .article-block-painting{
-    width: 100%;
-  }
-  .article-block-artists{
     width: 100%;
   }
   .introduction{

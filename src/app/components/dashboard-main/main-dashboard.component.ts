@@ -43,17 +43,14 @@ export class MainDashboardComponent implements OnInit, AfterViewInit {
       (artist) => {this.artist = artist; console.log(this.artist); }
     );
     this.http.get(Constants.paintingsApiUrl).subscribe(
-      (painting) => {this.painting = painting;
-                     const countPainting = painting.length;
-                     console.log(this.painting);
-                     console.log(countPainting); }
+      (painting) => {this.painting = painting; console.log(this.painting); }
     );
     this.http.get(Constants.exhibitionsApiUrl).subscribe(
       (exhibition) => {this.exhibition = exhibition; console.log(this.exhibition); }
     );
 
 
-    this.http.get(Constants.artistsApiUrl).subscribe(
+    this.http.get(Constants.artistsLatestApiUrl).subscribe(
       (artists) => {
           this.rowsArtist = artists;
       }
@@ -67,7 +64,7 @@ export class MainDashboardComponent implements OnInit, AfterViewInit {
       { prop: 'lastModified', dateColumn: true }
     ];
 
-    this.http.get(Constants.paintingsApiUrl).subscribe(
+    this.http.get(Constants.paintingsLatestApiUrl).subscribe(
       (paintings) => {
         this.rowsPainting = paintings;
       }
@@ -80,7 +77,7 @@ export class MainDashboardComponent implements OnInit, AfterViewInit {
       { prop: 'lastModified', dateColumn: true },
     ];
 
-    this.http.get(Constants.exhibitionsApiUrl).subscribe(
+    this.http.get(Constants.exhibitionsLatestApiUrl).subscribe(
       (exhibitions) => {
         this.rowsExhibition = exhibitions;
       }

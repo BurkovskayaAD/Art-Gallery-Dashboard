@@ -48,7 +48,7 @@
         <label class="text-form pr-2">Picture *</label>
         <input type="file" (change)="onChangePicture($event)" name="picture" accept="image/*" formControlName="picture">
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['picture'].invalid && addNewPainting.controls['picture'].touched">
+        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['picture'].invalid && addNewPainting.controls['picture'].dirty">
           Please select picture
         </div>
       </div>

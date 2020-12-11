@@ -48,7 +48,7 @@
         <label class="text-form pr-2">Poster *</label>
         <input type="file" (change)="onChangePoster($event)" name="poster" accept="image/*" formControlName="poster">
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewExhibition.controls['poster'].invalid && addNewExhibition.controls['poster'].touched">
+        <div class="alert alert-danger my-alert" *ngIf="addNewExhibition.controls['poster'].invalid && addNewExhibition.controls['poster'].dirty">
           Please select poster of exhibition
         </div>
       </div>
