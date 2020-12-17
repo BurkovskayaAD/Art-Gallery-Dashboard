@@ -13,7 +13,7 @@
       </svg>
       <div class="panels-block-title">
         <div class="panels-text">Artists</div>
-        <div class="num">{{artist.length}}</div>
+        <div *ngIf="artist" class="num">{{artist.length}}</div>
       </div>
     </div>
     <div class="panel">
@@ -23,7 +23,7 @@
       </svg>
       <div class="panels-block-title">
         <div class="panels-text">Paintings</div>
-        <div class="num">{{painting.length}}</div>
+        <div *ngIf="painting" class="num">{{painting.length}}</div>
       </div>
     </div>
     <div class="panel">
@@ -33,7 +33,7 @@
       </svg>
       <div class="panels-block-title">
         <div class="panels-text">Exhibitions</div>
-        <div class="num">{{exhibition.length}}</div>
+        <div *ngIf="exhibition" class="num">{{exhibition.length}}</div>
       </div>
     </div>
     <div class="panel">
@@ -43,7 +43,7 @@
       </svg>
       <div class="panels-block-title">
         <div class="panels-text">Total</div>
-        <div class="num">{{(exhibition.length)+(painting.length)+(artist.length)}}</div>
+        <div *ngIf="exhibition && painting && artist" class="num">{{(exhibition.length)+(painting.length)+(artist.length)}}</div>
       </div>
     </div>
   </div>

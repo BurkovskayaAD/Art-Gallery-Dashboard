@@ -53,34 +53,15 @@ export class FormNewArtistComponent implements OnInit {
   }
 
   onSubmit(): void{
-    this.addNewOutput.emit(this.addNewArtist.value);
+    const formData = new FormData();
+    formData.append('file', this.fileToUpload);
+    formData.append('name', 'hello');
+    this.addNewOutput.emit(formData);
     console.log(this.addNewArtist.value);
   }
 
   onChange(event): void {
-    this.fileToUpload = event.target;
-    console.log(this.fileToUpload);
-    const blob = new Blob([this.fileToUpload]);
-    console.log(blob);
-
-    // this.fileToUpload = event.target.files[0];
-    // console.log(this.fileToUpload);
-    //
-    // const fd = new FormData();
-    // fd.append('image', this.fileToUpload, this.fileToUpload.name);
-    //
-    // this.http.post('./api/test-api-for-upload', fd, {
-    //   reportProgress: true,
-    //   observe: 'events'
-    // })
-    //   .subscribe(event => {
-    //     if (event.type = HttpEventType.UploadProgress) {
-    //       console.log('Upload Progress: ', Math.round(event.loaded / event.total * 100) + '%');
-    //     }
-    //     if (event.type = HttpEventType.Response) {
-    //       console.log(event);
-    //     }
-    //   });
+    this.fileToUpload = event.target.files[0];
   }
 
   // onChange($event: Event): void{
