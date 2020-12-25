@@ -15,7 +15,7 @@
 
 
 <ng-template #linkTemp let-row="row" let-value="value">
-    <a class="nav-link" routerLink="/">
+    <a class="nav-link" [routerLink]="[row._id]">
       {{value}}
     </a>
 </ng-template>

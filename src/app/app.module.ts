@@ -21,6 +21,12 @@ import { AddArtistPageComponent } from './components/add-artist-page/add-artist-
 import { AddExhibitionPageComponent } from './components/add-exhibition-page/add-exhibition-page.component';
 import { AddPaintingPageComponent } from './components/add-painting-page/add-painting-page.component';
 import { AngularFileUploaderModule} from 'angular-file-uploader';
+import { EditArtistFormComponent } from './components/edit-artist-form/edit-artist-form.component';
+import { EditArtistPageComponent } from './components/edit-artist-page/edit-artist-page.component';
+import { EditExhibitionFormComponent } from './components/edit-exhibition-form/edit-exhibition-form.component';
+import { EditExhibitionPageComponent } from './components/edit-exhibition-page/edit-exhibition-page.component';
+import { EditPaintingFormComponent } from './components/edit-painting-form/edit-painting-form.component';
+import { EditPaintingPageComponent } from './components/edit-painting-page/edit-painting-page.component';
 
 const appRoutes: Routes = [
   {path: '', component: MainDashboardComponent},
@@ -29,7 +35,10 @@ const appRoutes: Routes = [
   {path: 'painting', component: PaintingsDashboardComponent},
   {path: 'artist/new', component: AddArtistPageComponent},
   {path: 'exhibition/new', component: AddExhibitionPageComponent},
-  {path: 'painting/new', component: AddPaintingPageComponent}
+  {path: 'painting/new', component: AddPaintingPageComponent},
+  {path: 'artist/:id', component: EditArtistPageComponent},
+  {path: 'exhibition/:id', component: EditExhibitionPageComponent},
+  {path: 'painting/:id', component: EditPaintingPageComponent},
 ];
 
 @NgModule({
@@ -47,7 +56,13 @@ const appRoutes: Routes = [
     FormNewPaintingComponent,
     AddArtistPageComponent,
     AddExhibitionPageComponent,
-    AddPaintingPageComponent
+    AddPaintingPageComponent,
+    EditArtistFormComponent,
+    EditArtistPageComponent,
+    EditExhibitionFormComponent,
+    EditExhibitionPageComponent,
+    EditPaintingFormComponent,
+    EditPaintingPageComponent
   ],
   imports: [
     BrowserModule,

@@ -9,4 +9,7 @@ export class Constants {
   static readonly exhibitionsLatestApiUrl = `${environment.baseUrl}/exhibitions/latest`;
   static readonly paintingsApiUrl = `${environment.baseUrl}/paintings`;
   static readonly paintingsLatestApiUrl = `${environment.baseUrl}/paintings/latest`;
+  static readonly artistsEditApiUrl = `${environment.baseUrl}/artists/`;
+  static readonly exhibitionsEditApiUrl = `${environment.baseUrl}/exhibitions/`;
+  static readonly paintingsEditApiUrl = `${environment.baseUrl}/paintings/`;
 }

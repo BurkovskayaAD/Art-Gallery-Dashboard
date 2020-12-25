@@ -56,7 +56,7 @@ export class MainDashboardComponent implements OnInit, AfterViewInit {
       }
     );
     this.columnsArtist = [
-      { prop: 'name', linkColumn: true},
+      { prop: 'name'},
       { prop: 'occupation' },
       { prop: 'country' },
       { prop: 'dateBirth', dateColumn: true },
@@ -70,7 +70,7 @@ export class MainDashboardComponent implements OnInit, AfterViewInit {
       }
     );
     this.columnsPainting = [
-      { prop: 'name', linkColumn: true},
+      { prop: 'name'},
       { prop: 'genre' },
       { prop: 'author' },
       { prop: 'dateCreation', name: 'Year Creation', yearColumn: true },
@@ -83,7 +83,7 @@ export class MainDashboardComponent implements OnInit, AfterViewInit {
       }
     );
     this.columnsExhibition = [
-      { prop: 'name', linkColumn: true },
+      { prop: 'name'},
       { prop: 'about' },
       { prop: 'dateStart', dateColumn: true },
       { prop: 'dateEnd', dateColumn: true },
@@ -93,9 +93,6 @@ export class MainDashboardComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.columnsArtist = this.columnsArtist.map(col => {
-      if (col.linkColumn){
-        return {...col, cellTemplate: this.linkTemp};
-      }
       if (col.dateColumn){
         return {...col, cellTemplate: this.dateTemp};
       }
@@ -104,10 +101,8 @@ export class MainDashboardComponent implements OnInit, AfterViewInit {
       }
       return col;
     });
+
     this.columnsPainting = this.columnsPainting.map(col => {
-      if (col.linkColumn){
-        return {...col, cellTemplate: this.linkTemp};
-      }
       if (col.dateColumn){
         return {...col, cellTemplate: this.dateTemp};
       }
@@ -116,10 +111,8 @@ export class MainDashboardComponent implements OnInit, AfterViewInit {
       }
       return col;
     });
+
     this.columnsExhibition = this.columnsExhibition.map(col => {
-      if (col.linkColumn){
-        return {...col, cellTemplate: this.linkTemp};
-      }
       if (col.dateColumn){
         return {...col, cellTemplate: this.dateTemp};
       }
