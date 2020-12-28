@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpServiceService} from '../../services/http-service.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Constants} from '../../Constants';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-edit-artist-page',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditArtistPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpServiceService, private route: ActivatedRoute, private router: Router) { }
+
+  private routeSub: Subscription;
 
   ngOnInit(): void {
+  }
+
+  editNewArtist(editArtist: any): void {
+    this.routeSub = this.route.params.subscribe(param => {
+      const idd = String(param.id);
+      this.http.post(Constants.artistsEditApiUrl + idd, editArtist.value).subscribe(
+        (data) => {
+          console.log(Constants.artistsEditApiUrl + idd);
+          sessionStorage.setItem('artistEdited', 'true');
+          this.router.navigate(['/artist']);
+        },
+        error => {
+          alert('Something went wrong');
+        }
+      );
+    });
   }
 
 }

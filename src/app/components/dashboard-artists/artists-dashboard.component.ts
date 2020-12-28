@@ -23,6 +23,7 @@ export class ArtistsDashboardComponent implements OnInit{
     this.loading = true;
     this.http.get(Constants.artistsApiUrl).subscribe(
       (artists) => {
+        console.log(artists);
         if (artists.error){
           this.textArtistDisconnect = true;
         } else {
