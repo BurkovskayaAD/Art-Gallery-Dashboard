@@ -1,3 +1,30 @@
+.delete-artist-block{
+  width: 97%;
+  background-color: white;
+  padding: 40px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.1);
+  border-radius: 1px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.delete-text{
+  font-family: 'Montserrat', sans-serif;
+  color: #212529;
+  font-size: 13px;
+  padding-top: 7px;
+}
+.delete-button{
+  width: 100px;
+  text-decoration: none;
+  padding: 5px 0;
+  font-size: 13px;
+  border: 1px solid black;
+  border-radius: 1px;
+  margin: 0 40px;
+}
+
 .form-edit-artist{
   width: calc(100% - 260px);
   background-color: #f1f1f1;
@@ -105,6 +132,39 @@ input{
   margin-bottom: 10px;
 }
 
+.delete-second-block{
+  width: 500px;
+  right: 20%;
+  position: fixed;
+  top: 35%;
+  bottom: 40%;
+  overflow: hidden;
+  background: white;
+  z-index: 1002;
+  opacity: 0.9;
+  border: 1px solid #bfbfbf;
+}
+.delete-second-text{
+  font-family: 'Montserrat', sans-serif;
+  color: #151515;
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+  top: 30%;
+}
+.delete-second-button{
+  width: 100px;
+  text-decoration: none;
+  padding: 5px 0;
+  font-size: 13px;
+  border: 1px solid black;
+  border-radius: 1px;
+  margin: 70px 40px 0 40px;
+}
+.delete-second-button-block{
+  text-align: center;
+}
+
 @media (max-width: 700px) {
   .form-edit-artist{
     width: 100%;
@@ -115,6 +175,10 @@ input{
   }
   .main-text-introduction{
     text-align: center;
+  }
+  .delete-second-block{
+    width: 100%;
+    right: 0;
   }
 }
 

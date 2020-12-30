@@ -8,72 +8,57 @@
     <form *ngIf="artistEdit" id="aForm" [formGroup]="editNewArtist" class="artist-form" (ngSubmit)="onSubmit()" novalidate>
 
       <div class="input-block">
-        <label class="text-form">Artist`s name *</label>
+        <label class="text-form">Artist`s name</label>
         <input placeholder="{{artistEdit.name}}" type="text" name="name" formControlName="name" [class.hasError] = nameError>
-
-        <div class="alert alert-danger my-alert" *ngIf="editNewArtist.controls['name'].invalid && editNewArtist.controls['name'].touched">
-          Please enter artist name
-        </div>
       </div>
 
 
 
       <div class="input-block">
-        <label class="text-form pr-2">Country *</label>
+        <label class="text-form pr-2">Country</label>
         <input placeholder="{{artistEdit.country}}" type="text" name="country" formControlName="country">
 
-        <div class="alert alert-danger my-alert" *ngIf="editNewArtist.controls['country'].invalid && editNewArtist.controls['country'].touched">
-          Please enter artist's country of birth
-        </div>
       </div>
 
 
+      <div>
+        <label class="text-form pr-2">Date of Birth</label>
+        <input value="{{artistEdit.dateBirth | date: 'yyyy-MM-dd'}}" type="date" name="dateBirth" formControlName="dateBirth">
+      </div>
+
 <!--      <div>-->
-<!--        <label class="text-form pr-2">Date of Birth *</label>-->
-<!--        <input value="{{artistEdit.dateBirth | date: 'yyyy-MM-dd'}}" type="date" name="dateBirth" formControlName="dateBirth" required>-->
+<!--        <label class="text-form pr-2">Date of Birth</label>-->
+<!--        <input placeholder="{{artistEdit.dateBirth | date: 'yyyy-MM-dd'}}" type="text" name="dateBirth" formControlName="dateBirth">-->
 
 <!--        <div class="alert alert-danger my-alert" *ngIf="editNewArtist.controls['dateBirth'].invalid && editNewArtist.controls['dateBirth'].touched">-->
 <!--          Please enter the artist's date of birth-->
 <!--        </div>-->
 <!--      </div>-->
 
-      <div>
-        <label class="text-form pr-2">Date of Birth *</label>
-        <input placeholder="{{artistEdit.dateBirth | date: 'yyyy-MM-dd'}}" type="text" name="dateBirth" formControlName="dateBirth">
-
-        <div class="alert alert-danger my-alert" *ngIf="editNewArtist.controls['dateBirth'].invalid && editNewArtist.controls['dateBirth'].touched">
-          Please enter the artist's date of birth
-        </div>
-      </div>
-
 
       <div>
         <label class="text-form pr-2">Date of Death</label>
-        <input placeholder="{{artistEdit.dateDeath | date: 'yyyy-MM-dd'}}" type="text" class="spec" name="dateDeath" formControlName="dateDeath">
+        <input placeholder="{{artistEdit.dateDeath | date: 'yyyy-MM-dd'}}" type="date" class="spec" name="dateDeath" formControlName="dateDeath">
       </div>
 
 
-<!--      <div class="input-block">-->
-<!--        <label class="text-form-select">Type *</label>-->
-<!--        <select [value]="artistEdit.occupation" size="1" class="select" name="occupation" formControlName="occupation">-->
-<!--          <option selected value="Painter">Painter</option>-->
-<!--          <option value="Sculptor">Sculptor</option>-->
-<!--          <option value="Photographer">Photographer</option>-->
-<!--        </select>-->
+      <div class="input-block">
+        <label class="text-form-select">Type</label>
+        <select [value]="artistEdit.occupation" size="1" class="select" name="occupation" formControlName="occupation">
+          <option selected value="Painter">Painter</option>
+          <option value="Sculptor">Sculptor</option>
+          <option value="Photographer">Photographer</option>
+        </select>
+      </div>
+
+<!--      <div>-->
+<!--        <label class="text-form pr-2">Type</label>-->
+<!--        <input placeholder="{{artistEdit.occupation}}" type="text" name="occupation" formControlName="occupation">-->
 
 <!--        <div class="alert alert-danger my-alert" *ngIf="editNewArtist.controls['occupation'].invalid && editNewArtist.controls['occupation'].touched">-->
 <!--          Please choose who the artist was-->
 <!--        </div>-->
 <!--      </div>-->
-
-      <div>
-        <label class="text-form pr-2">Type *</label>
-        <input placeholder="{{artistEdit.occupation}}" type="text" name="occupation" formControlName="occupation">
-
-        <div class="alert alert-danger my-alert" *ngIf="editNewArtist.controls['occupation'].invalid && editNewArtist.controls['occupation'].touched">
-          Please choose who the artist was
-        </div>
-      </div>
 
 
       <div class="button-block px-5 mt-2">
@@ -81,10 +66,23 @@
         <button class="button-form" type="button" routerLink="/artist">Back</button>
       </div>
 
-      <div class="opt-field">* - required field</div>
-
     </form>
 
+  </div>
+
+  <div class="delete-artist-block mt-3">
+    <div class="delete-text">Do you want to delete this artist?</div>
+    <button class="delete-button" (click)="onDelete()">Delete</button>
+  </div>
+
+  <div *ngIf="deleteArtist">
+    <div class="delete-second-block">
+      <div class="delete-second-text">Are you sure?</div>
+      <div class="delete-second-button-block">
+        <button (click)="onDeleteYes()" class="delete-second-button">Yes</button>
+        <button (click)="onDeleteNo()" class="delete-second-button">No</button>
+      </div>
+      </div>
   </div>
 
 </div>

@@ -33,4 +33,28 @@ export class HttpServiceService {
       })
     );
   }
+
+  delete(url: string, params?: any): Observable<any> {
+    return this.http.delete(url, params).pipe(
+      catchError((err) => {
+        console.error(err);
+        return of({
+          error: true,
+          statusCode: err.status,
+        });
+      })
+    );
+  }
+
+  put(url: string, payload: any, params?: any): Observable<any> {
+    return this.http.post(url, payload, params).pipe(
+      catchError((err) => {
+        console.error(err);
+        return of({
+          error: true,
+          statusCode: err.status,
+        });
+      })
+    );
+  }
 }

@@ -18,11 +18,12 @@ export class EditArtistPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  editNewArtist(editArtist: any): void {
+  editNewArtist(editNewArtist: any): void {
     this.routeSub = this.route.params.subscribe(param => {
       const idd = String(param.id);
-      this.http.post(Constants.artistsEditApiUrl + idd, editArtist.value).subscribe(
+      this.http.post(Constants.artistsEditApiUrl + idd, editNewArtist).subscribe(
         (data) => {
+          console.log(editNewArtist);
           console.log(Constants.artistsEditApiUrl + idd);
           sessionStorage.setItem('artistEdited', 'true');
           this.router.navigate(['/artist']);

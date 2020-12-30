@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {HttpServiceService} from '../../services/http-service.service';
 import { Constants } from '../../Constants';
@@ -14,10 +14,11 @@ import {FormBuilder, Validators} from '@angular/forms';
 })
 export class EditArtistFormComponent implements OnInit {
 
-  constructor(private http: HttpServiceService, private fb: FormBuilder, private route: ActivatedRoute) { }
+  constructor(private http: HttpServiceService, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) { }
 
   private routeSub: Subscription;
   artistEdit;
+  deleteArtist = false;
 
   editNewArtist = this.fb.group({
     name: [''],
@@ -38,6 +39,30 @@ export class EditArtistFormComponent implements OnInit {
   onSubmit(): void {
     this.addNewOutput.emit(this.editNewArtist.value);
     console.log(this.editNewArtist.value);
+  }
+
+  onDelete(): void {
+    this.deleteArtist = true;
+  }
+
+  onDeleteNo(): void{
+    this.deleteArtist = false;
+  }
+
+  onDeleteYes(): void{
+    this.routeSub = this.route.params.subscribe(param => {
+      const idd = String(param.id);
+      this.http.delete(Constants.artistsEditApiUrl + idd, idd).subscribe(
+        (data) => {
+          console.log(idd);
+          sessionStorage.setItem('artistDeleted', 'true');
+          this.router.navigate(['/artist']);
+        },
+        error => {
+          alert('Something went wrong');
+        }
+      );
+    });
   }
 
   ngOnInit(): void {

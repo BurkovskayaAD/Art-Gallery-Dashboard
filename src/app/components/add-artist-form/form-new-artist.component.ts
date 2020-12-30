@@ -53,10 +53,12 @@ export class FormNewArtistComponent implements OnInit {
   }
 
   onSubmit(): void{
-    const formData = new FormData();
-    formData.append('file', this.fileToUpload);
-    formData.append('name', 'hello');
-    this.addNewOutput.emit(formData);
+    // const formData = new FormData();
+    // formData.append('file', this.fileToUpload);
+    // formData.append('name', 'hello');
+    // this.addNewOutput.emit(formData);
+    // console.log(this.addNewArtist.value);
+    this.addNewOutput.emit(this.addNewArtist.value);
     console.log(this.addNewArtist.value);
   }
 
