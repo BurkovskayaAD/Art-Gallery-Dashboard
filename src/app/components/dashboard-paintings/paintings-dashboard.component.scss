@@ -1,22 +1,12 @@
 .text-painting-added-block{
-  position: fixed;
-  left: 30px;
-  top: 35%;
-  right: 30px;
-  bottom: 40%;
-  overflow: hidden;
-  background: white;
-  z-index: 1002;
-  opacity: 0.9;
-  border: 1px solid #bfbfbf;
-}
-.text-painting-added{
   font-family: 'Montserrat', sans-serif;
   color: #4ab842;
-  font-size: 25px;
-  position: relative;
-  text-align: center;
-  top: 39%;
+  font-size: 15px;
+  position: fixed;
+  padding-left: 20px;
+  overflow: hidden;
+  z-index: 1002;
+  padding-top: 215px;
 }
 
 .text-painting-disconnect-block{
@@ -39,6 +29,7 @@
   text-align: center;
   top: 39%;
 }
+
 .preloader {
   position: fixed;
   left: 0;
@@ -88,16 +79,20 @@
   .preloader{
     top: 141px;
   }
+  .text-painting-added-block{
+    padding-top: 145px;
+  }
 }
 @media (min-width: 701px) {
   .preloader{
     top: 86px;
     left: 260px;
   }
-  .text-painting-added-block{
-    left: 290px;
-  }
   .text-painting-disconnect-block{
     left: 290px;
+  }
+  .text-painting-added-block{
+    padding-left: 280px;
+    padding-top: 90px;
   }
 }

@@ -12,6 +12,8 @@ export class PaintingsDashboardComponent implements OnInit {
   rows;
   columns;
   textPaintingAdded;
+  textPaintingEdited;
+  textPaintingDeleted;
   textPaintingDisconnect;
 
   loading = false;
@@ -26,11 +28,26 @@ export class PaintingsDashboardComponent implements OnInit {
           this.textPaintingDisconnect = true;
         } else {
           this.textPaintingDisconnect = false;
-          const isNewUser = sessionStorage.getItem('paintingAdded');
-          if (isNewUser !== null){
+
+          const isNewPainting = sessionStorage.getItem('paintingAdded');
+          if (isNewPainting !== null){
             this.textPaintingAdded = true;
             setTimeout(() => { this.textPaintingAdded = false; }, 2000);
             sessionStorage.removeItem('paintingAdded');
+          }
+
+          const isEditPainting = sessionStorage.getItem('paintingEdited');
+          if (isEditPainting !== null){
+            this.textPaintingEdited = true;
+            setTimeout(() => { this.textPaintingEdited = false; }, 2000);
+            sessionStorage.removeItem('paintingEdited');
+          }
+
+          const isDeletePainting = sessionStorage.getItem('paintingDeleted');
+          if (isDeletePainting !== null){
+            this.textPaintingDeleted = true;
+            setTimeout(() => { this.textPaintingDeleted = false; }, 2000);
+            sessionStorage.removeItem('paintingDeleted');
           }
           this.rows = paintings;
         }

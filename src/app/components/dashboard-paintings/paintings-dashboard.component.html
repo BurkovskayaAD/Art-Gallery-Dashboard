@@ -15,6 +15,18 @@
   </div>
 </div>
 
+<div *ngIf="textPaintingEdited" class="text-painting-added-block">
+  <div class="text-painting-added">
+    Painting has been edited
+  </div>
+</div>
+
+<div *ngIf="textPaintingDeleted" class="text-painting-added-block">
+  <div class="text-painting-added">
+    Painting has been deleted
+  </div>
+</div>
+
 <div *ngIf="textPaintingDisconnect" class="text-painting-disconnect-block">
   <div class="text-painting-disconnect">
     Something went wrong

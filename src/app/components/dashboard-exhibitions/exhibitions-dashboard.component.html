@@ -15,6 +15,18 @@
   </div>
 </div>
 
+<div *ngIf="textExhibitionEdited" class="text-exhibition-added-block">
+  <div class="text-exhibition-added">
+    Exhibition has been edited
+  </div>
+</div>
+
+<div *ngIf="textExhibitionDeleted" class="text-exhibition-added-block">
+  <div class="text-exhibition-added">
+    Exhibition has been deleted
+  </div>
+</div>
+
 <div *ngIf="textExhibitionDisconnect" class="text-exhibition-disconnect-block">
   <div class="text-exhibition-disconnect">
     Something went wrong

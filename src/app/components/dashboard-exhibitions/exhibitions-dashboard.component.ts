@@ -12,6 +12,8 @@ export class ExhibitionsDashboardComponent implements OnInit {
   rows;
   columns;
   textExhibitionAdded;
+  textExhibitionEdited;
+  textExhibitionDeleted;
   textExhibitionDisconnect;
 
   loading = false;
@@ -26,11 +28,26 @@ export class ExhibitionsDashboardComponent implements OnInit {
           this.textExhibitionDisconnect = true;
         } else {
           this.textExhibitionDisconnect = false;
-          const isNewUser = sessionStorage.getItem('exhibitionAdded');
-          if (isNewUser !== null){
+
+          const isNewExhibition = sessionStorage.getItem('exhibitionAdded');
+          if (isNewExhibition !== null){
             this.textExhibitionAdded = true;
             setTimeout(() => { this.textExhibitionAdded = false; }, 2000);
             sessionStorage.removeItem('exhibitionAdded');
+          }
+
+          const isEditExhibition = sessionStorage.getItem('exhibitionEdited');
+          if (isEditExhibition !== null){
+            this.textExhibitionEdited = true;
+            setTimeout(() => { this.textExhibitionEdited = false; }, 2000);
+            sessionStorage.removeItem('exhibitionEdited');
+          }
+
+          const isDeleteExhibition = sessionStorage.getItem('exhibitionDeleted');
+          if (isDeleteExhibition !== null){
+            this.textExhibitionDeleted = true;
+            setTimeout(() => { this.textExhibitionDeleted = false; }, 2000);
+            sessionStorage.removeItem('exhibitionDeleted');
           }
           this.rows = exhibitions;
         }
