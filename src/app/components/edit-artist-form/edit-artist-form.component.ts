@@ -1,11 +1,9 @@
-import {AfterViewInit, Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {HttpServiceService} from '../../services/http-service.service';
 import { Constants } from '../../Constants';
-import {FormBuilder, Validators} from '@angular/forms';
-
-
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-artist-form',
@@ -14,7 +12,10 @@ import {FormBuilder, Validators} from '@angular/forms';
 })
 export class EditArtistFormComponent implements OnInit {
 
-  constructor(private http: HttpServiceService, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) { }
+  constructor(private http: HttpServiceService,
+              private fb: FormBuilder,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   private routeSub: Subscription;
   artistEdit;
@@ -25,7 +26,6 @@ export class EditArtistFormComponent implements OnInit {
     country: [''],
     dateBirth: [''],
     dateDeath: [''],
-    photo: [''],
     occupation: ['']
   });
 

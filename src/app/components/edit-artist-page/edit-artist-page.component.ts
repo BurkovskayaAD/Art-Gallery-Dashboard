@@ -11,7 +11,9 @@ import {Subscription} from 'rxjs';
 })
 export class EditArtistPageComponent implements OnInit {
 
-  constructor(private http: HttpServiceService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private http: HttpServiceService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   private routeSub: Subscription;
 

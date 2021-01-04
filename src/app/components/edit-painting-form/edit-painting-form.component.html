@@ -4,4 +4,53 @@
     <h1 class="main-text-introduction">Edit painting</h1>
   </div>
 
+  <div class="edit-painting-block">
+    <form *ngIf="paintingEdit" id="aForm" [formGroup]="editNewPainting" class="painting-form" (ngSubmit)="onSubmit()" novalidate>
+
+      <div class="input-block">
+        <label class="text-form">Name</label>
+        <input placeholder="{{paintingEdit.name}}" type="text" name="name" formControlName="name" [class.hasError] = nameError>
+      </div>
+
+      <div class="input-block">
+        <label class="text-form">Genre</label>
+        <input placeholder="{{paintingEdit.genre}}" type="text" name="genre" formControlName="genre" [class.hasError] = nameError>
+      </div>
+
+      <div class="input-block">
+        <label class="text-form">Author</label>
+        <input placeholder="{{paintingEdit.author}}" type="text" name="author" formControlName="author" [class.hasError] = nameError>
+      </div>
+
+
+      <div>
+        <label class="text-form pr-2">Year of creation</label>
+        <input value="{{paintingEdit.dateCreation | date: 'yyyy-MM-dd'}}" type="date" name="dateCreation" formControlName="dateCreation">
+      </div>
+
+
+      <div class="button-block px-5 mt-2">
+        <button class="button-form" type="submit" [disabled]="!editNewPainting.valid">Edit</button>
+        <button class="button-form" type="button" routerLink="/artist">Back</button>
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="delete-painting-block mt-3">
+    <div class="delete-text">Do you want to delete this painting?</div>
+    <button class="delete-button" (click)="onDelete()">Delete</button>
+  </div>
+
+  <div *ngIf="deletePainting">
+    <div class="delete-second-block">
+      <div class="delete-second-text">Are you sure?</div>
+      <div class="delete-second-button-block">
+        <button (click)="onDeleteYes()" class="delete-second-button">Yes</button>
+        <button (click)="onDeleteNo()" class="delete-second-button">No</button>
+      </div>
+    </div>
+  </div>
+
 </div>

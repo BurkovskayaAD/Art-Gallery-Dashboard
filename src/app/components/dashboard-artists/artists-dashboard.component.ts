@@ -31,24 +31,24 @@ export class ArtistsDashboardComponent implements OnInit{
         } else {
           this.textArtistDisconnect = false;
 
-          const isNewUser = sessionStorage.getItem('artistAdded');
-          if (isNewUser !== null){
+          const isNewArtist = sessionStorage.getItem('artistAdded');
+          if (isNewArtist !== null){
             this.textArtistAdded = true;
-            setTimeout(() => { this.textArtistAdded = false; }, 1500);
+            setTimeout(() => { this.textArtistAdded = false; }, 2000);
             sessionStorage.removeItem('artistAdded');
           }
 
-          const isEditUser = sessionStorage.getItem('artistEdited');
-          if (isEditUser !== null){
+          const isEditArtist = sessionStorage.getItem('artistEdited');
+          if (isEditArtist !== null){
             this.textArtistEdited = true;
-            setTimeout(() => { this.textArtistEdited = false; }, 1500);
+            setTimeout(() => { this.textArtistEdited = false; }, 2000);
             sessionStorage.removeItem('artistEdited');
           }
 
-          const isDeleteUser = sessionStorage.getItem('artistDeleted');
-          if (isDeleteUser !== null){
+          const isDeleteArtist = sessionStorage.getItem('artistDeleted');
+          if (isDeleteArtist !== null){
             this.textArtistDeleted = true;
-            setTimeout(() => { this.textArtistDeleted = false; }, 1500);
+            setTimeout(() => { this.textArtistDeleted = false; }, 2000);
             sessionStorage.removeItem('artistDeleted');
           }
           this.rows = artists;

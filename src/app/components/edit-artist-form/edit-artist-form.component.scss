@@ -110,32 +110,10 @@ input{
   border-radius: 1px;
   margin: 0 40px;
 }
-.opt-field{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  padding-top: 10px;
-}
-
-.alert{
-  height: 20px;
-  margin: 0;
-  padding: 0;
-  border-radius: 1px;
-}
-
-.my-alert{
-  display: flex;
-  justify-content: center;
-  vertical-align: middle;
-  width: 60%;
-  font-size: 11px;
-  margin-left: 120px;
-  margin-bottom: 10px;
-}
 
 .delete-second-block{
-  width: 80%;
-  //right: 20%;
+  left: 260px;
+  width: calc(100% - 260px);
   position: fixed;
   top: 35%;
   bottom: 40%;
@@ -179,7 +157,7 @@ input{
   }
   .delete-second-block{
     width: 100%;
-    right: 0;
+    left: 0;
   }
 }
 
@@ -196,10 +174,6 @@ input{
 }
 
 @media (max-width: 450px) {
-  .my-alert{
-    margin-left: 0;
-    width: 100%;
-  }
   input{
     width: 100%;
     margin-bottom: 10px;
@@ -216,4 +190,4 @@ input{
   .delete-second-text{
     top: 44%;
   }
-  }
+}
