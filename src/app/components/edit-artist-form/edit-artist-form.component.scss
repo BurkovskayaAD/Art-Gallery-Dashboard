@@ -7,6 +7,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .delete-text{
@@ -133,8 +134,8 @@ input{
 }
 
 .delete-second-block{
-  width: 500px;
-  right: 20%;
+  width: 80%;
+  //right: 20%;
   position: fixed;
   top: 35%;
   bottom: 40%;
@@ -209,4 +210,10 @@ input{
   .select{
     width: 100%;
   }
-}
+  .delete-second-block{
+    height: 347px;
+  }
+  .delete-second-text{
+    top: 44%;
+  }
+  }

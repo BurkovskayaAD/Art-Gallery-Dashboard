@@ -13,7 +13,9 @@ export class ArtistsDashboardComponent implements OnInit{
   rows;
   columns;
   textArtistAdded;
+  textArtistEdited;
   textArtistDisconnect;
+  textArtistDeleted;
 
   loading = false;
 
@@ -28,11 +30,26 @@ export class ArtistsDashboardComponent implements OnInit{
           this.textArtistDisconnect = true;
         } else {
           this.textArtistDisconnect = false;
-          const isNewUser = sessionStorage.getItem('userAdded');
+
+          const isNewUser = sessionStorage.getItem('artistAdded');
           if (isNewUser !== null){
             this.textArtistAdded = true;
             setTimeout(() => { this.textArtistAdded = false; }, 1500);
-            sessionStorage.removeItem('userAdded');
+            sessionStorage.removeItem('artistAdded');
+          }
+
+          const isEditUser = sessionStorage.getItem('artistEdited');
+          if (isEditUser !== null){
+            this.textArtistEdited = true;
+            setTimeout(() => { this.textArtistEdited = false; }, 1500);
+            sessionStorage.removeItem('artistEdited');
+          }
+
+          const isDeleteUser = sessionStorage.getItem('artistDeleted');
+          if (isDeleteUser !== null){
+            this.textArtistDeleted = true;
+            setTimeout(() => { this.textArtistDeleted = false; }, 1500);
+            sessionStorage.removeItem('artistDeleted');
           }
           this.rows = artists;
         }

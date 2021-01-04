@@ -20,7 +20,7 @@ export class AddArtistPageComponent implements OnInit {
   addNewArtist(addArtist: any): void {
     this.http.post(Constants.artistsApiUrl, addArtist).subscribe(
       (data) => {
-        sessionStorage.setItem('userAdded', 'true');
+        sessionStorage.setItem('artistAdded', 'true');
         this.router.navigate(['/artist']);
         },
       error => {

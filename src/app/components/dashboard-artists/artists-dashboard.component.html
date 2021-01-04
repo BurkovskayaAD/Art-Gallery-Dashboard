@@ -14,6 +14,14 @@
     Artist has been added
 </div>
 
+<div *ngIf="textArtistEdited" class="text-artist-added-block">
+  Artist has been edited
+</div>
+
+<div *ngIf="textArtistDeleted" class="text-artist-added-block">
+  Artist has been deleted
+</div>
+
 <div *ngIf="textArtistDisconnect" class="text-artist-disconnect-block">
   <div class="text-artist-disconnect">
     Something went wrong
