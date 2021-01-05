@@ -1,4 +1,4 @@
-.text-exhibition-added-block{
+.text-exhibition-added-block {
   font-family: 'Montserrat', sans-serif;
   color: #4ab842;
   font-size: 15px;
@@ -9,7 +9,7 @@
   padding-top: 215px;
 }
 
-.text-exhibition-disconnect-block{
+.text-exhibition-disconnect-block {
   position: fixed;
   left: 30px;
   top: 35%;
@@ -21,7 +21,8 @@
   opacity: 0.9;
   border: 1px solid #bfbfbf;
 }
-.text-exhibition-disconnect{
+
+.text-exhibition-disconnect {
   font-family: 'Montserrat', sans-serif;
   color: #ff3030;
   font-size: 25px;
@@ -41,7 +42,7 @@
   z-index: 1001;
 }
 
-.line-separator{
+.line-separator {
   border-bottom: 1px solid #bfbfbf;
   width: 97%;
   margin: 0 auto;
@@ -76,22 +77,23 @@
 }
 
 @media (min-width: 530px) {
-  .preloader{
+  .preloader {
     top: 141px;
   }
-  .text-exhibition-added-block{
+  .text-exhibition-added-block {
     padding-top: 145px;
   }
 }
+
 @media (min-width: 701px) {
-  .preloader{
+  .preloader {
     top: 86px;
     left: 260px;
   }
-  .text-exhibition-disconnect-block{
+  .text-exhibition-disconnect-block {
     left: 290px;
   }
-  .text-exhibition-added-block{
+  .text-exhibition-added-block {
     padding-left: 280px;
     padding-top: 90px;
   }

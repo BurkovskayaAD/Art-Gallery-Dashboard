@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {Observable, Subscriber} from 'rxjs';
 
 @Component({
@@ -7,6 +7,7 @@ import {Observable, Subscriber} from 'rxjs';
   templateUrl: './form-new-exhibition.component.html',
   styleUrls: ['./form-new-exhibition.component.scss']
 })
+
 export class FormNewExhibitionComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
@@ -30,18 +31,18 @@ export class FormNewExhibitionComponent implements OnInit {
     return this.addNewExhibition.get('name').errors;
   }
 
-  onSubmit(): void{
+  onSubmit(): void {
     this.addNewOutput.emit(this.addNewExhibition.value);
     console.log(this.addNewExhibition.value);
   }
 
-  onChangePoster($event: Event): void{
+  onChangePoster($event: Event): void {
     const file = ($event.target as HTMLInputElement).files[0];
     console.log(file);
     this.convertToBase64Poster(file);
   }
 
-  convertToBase64Poster(file: File): void{
+  convertToBase64Poster(file: File): void {
     const observable = new Observable((subscriber: Subscriber<any>) => {
       this.readFilePoster(file, subscriber);
     });
@@ -52,7 +53,7 @@ export class FormNewExhibitionComponent implements OnInit {
     });
   }
 
-  readFilePoster(file: File, subscriber: Subscriber<any>): void{
+  readFilePoster(file: File, subscriber: Subscriber<any>): void {
     const fileReader = new FileReader();
     fileReader.readAsDataURL(file);
 

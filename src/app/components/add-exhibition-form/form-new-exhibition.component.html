@@ -10,9 +10,10 @@
 
       <div class="input-block">
         <label class="text-form">Exhibition`s name *</label>
-        <input type="text" name="name" formControlName="name" [class.hasError] = nameError>
+        <input type="text" name="name" formControlName="name" [class.hasError]=nameError>
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewExhibition.controls['name'].invalid && addNewExhibition.controls['name'].touched">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewExhibition.controls['name'].invalid && addNewExhibition.controls['name'].touched">
           Please enter exhibition name
         </div>
       </div>
@@ -21,7 +22,8 @@
         <label class="text-form pr-2">Date start *</label>
         <input type="date" name="dateStart" formControlName="dateStart">
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewExhibition.controls['dateStart'].invalid && addNewExhibition.controls['dateStart'].touched">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewExhibition.controls['dateStart'].invalid && addNewExhibition.controls['dateStart'].touched">
           Please enter exhibitions date start
         </div>
       </div>
@@ -30,7 +32,8 @@
         <label class="text-form pr-2">Date end *</label>
         <input type="date" name="dateEnd" formControlName="dateEnd">
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewExhibition.controls['dateEnd'].invalid && addNewExhibition.controls['dateEnd'].touched">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewExhibition.controls['dateEnd'].invalid && addNewExhibition.controls['dateEnd'].touched">
           Please enter exhibitions date end
         </div>
       </div>
@@ -39,7 +42,8 @@
         <label class="text-form">About exhibition *</label>
         <textarea class="text-area" name="about" formControlName="about"></textarea>
 
-        <div class="alert alert-danger my-alert alert-textarea" *ngIf="addNewExhibition.controls['about'].invalid && addNewExhibition.controls['about'].touched">
+        <div class="alert alert-danger my-alert alert-textarea"
+             *ngIf="addNewExhibition.controls['about'].invalid && addNewExhibition.controls['about'].touched">
           Please enter something about exhibition
         </div>
       </div>
@@ -48,7 +52,8 @@
         <label class="text-form pr-2">Poster *</label>
         <input type="file" (change)="onChangePoster($event)" name="poster" accept="image/*" formControlName="poster">
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewExhibition.controls['poster'].invalid && addNewExhibition.controls['poster'].dirty">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewExhibition.controls['poster'].invalid && addNewExhibition.controls['poster'].dirty">
           Please select poster of exhibition
         </div>
       </div>

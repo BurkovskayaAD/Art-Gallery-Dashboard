@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 // import {EventEmitter} from 'events';
-import { EventEmitter } from '@angular/core';
+import {EventEmitter} from '@angular/core';
 import {Observable, Subscriber} from 'rxjs';
 import {HttpEventType} from '@angular/common/http';
 import {HttpServiceService} from '../../services/http-service.service';
@@ -52,7 +52,7 @@ export class FormNewArtistComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(): void{
+  onSubmit(): void {
     // const formData = new FormData();
     // formData.append('file', this.fileToUpload);
     // formData.append('name', 'hello');

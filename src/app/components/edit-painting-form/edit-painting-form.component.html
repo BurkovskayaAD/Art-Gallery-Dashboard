@@ -9,23 +9,23 @@
 
       <div class="input-block">
         <label class="text-form">Name</label>
-        <input placeholder="{{paintingEdit.name}}" type="text" name="name" formControlName="name" [class.hasError] = nameError>
+        <input [(ngModel)]="paintingEdit.name" placeholder="{{paintingEdit.name}}" type="text" name="name" formControlName="name" [class.hasError] = nameError>
       </div>
 
       <div class="input-block">
         <label class="text-form">Genre</label>
-        <input placeholder="{{paintingEdit.genre}}" type="text" name="genre" formControlName="genre" [class.hasError] = nameError>
+        <input [(ngModel)]="paintingEdit.genre" placeholder="{{paintingEdit.genre}}" type="text" name="genre" formControlName="genre" [class.hasError] = nameError>
       </div>
 
       <div class="input-block">
         <label class="text-form">Author</label>
-        <input placeholder="{{paintingEdit.author}}" type="text" name="author" formControlName="author" [class.hasError] = nameError>
+        <input [(ngModel)]="paintingEdit.author" placeholder="{{paintingEdit.author}}" type="text" name="author" formControlName="author" [class.hasError] = nameError>
       </div>
 
 
       <div>
         <label class="text-form pr-2">Year of creation</label>
-        <input value="{{paintingEdit.dateCreation | date: 'yyyy-MM-dd'}}" type="date" name="dateCreation" formControlName="dateCreation">
+        <input [ngModel] ="paintingEdit.dateCreation | date:'yyyy-MM-dd'" type="date" name="dateCreation" formControlName="dateCreation">
       </div>
 
 

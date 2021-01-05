@@ -7,7 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class IntroductionTemplateComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   @Input()
   title: string;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpServiceService} from '../../services/http-service.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Constants} from '../../Constants';
@@ -9,11 +9,13 @@ import {Subscription} from 'rxjs';
   templateUrl: './edit-artist-page.component.html',
   styleUrls: ['./edit-artist-page.component.scss']
 })
+
 export class EditArtistPageComponent implements OnInit {
 
   constructor(private http: HttpServiceService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   private routeSub: Subscription;
 

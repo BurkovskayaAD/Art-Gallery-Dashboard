@@ -1,7 +1,5 @@
-import {AfterViewInit, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Constants } from '../../Constants';
-import * as moment from 'moment';
+import {Component, OnInit} from '@angular/core';
+import {Constants} from '../../Constants';
 import {HttpServiceService} from '../../services/http-service.service';
 
 @Component({
@@ -9,7 +7,8 @@ import {HttpServiceService} from '../../services/http-service.service';
   templateUrl: './artists-dashboard.component.html',
   styleUrls: ['./artists-dashboard.component.scss'],
 })
-export class ArtistsDashboardComponent implements OnInit{
+
+export class ArtistsDashboardComponent implements OnInit {
   rows;
   columns;
   textArtistAdded;
@@ -19,36 +18,43 @@ export class ArtistsDashboardComponent implements OnInit{
 
   loading = false;
 
-  constructor(private http: HttpServiceService) {}
+  constructor(private http: HttpServiceService) {
+  }
 
   ngOnInit(): void {
     this.loading = true;
     this.http.get(Constants.artistsApiUrl).subscribe(
       (artists) => {
         console.log(artists);
-        if (artists.error){
+        if (artists.error) {
           this.textArtistDisconnect = true;
         } else {
           this.textArtistDisconnect = false;
 
           const isNewArtist = sessionStorage.getItem('artistAdded');
-          if (isNewArtist !== null){
+          if (isNewArtist !== null) {
             this.textArtistAdded = true;
-            setTimeout(() => { this.textArtistAdded = false; }, 2000);
+            setTimeout(() => {
+              this.textArtistAdded = false;
+            }, 2000);
             sessionStorage.removeItem('artistAdded');
           }
 
           const isEditArtist = sessionStorage.getItem('artistEdited');
-          if (isEditArtist !== null){
+          if (isEditArtist !== null) {
             this.textArtistEdited = true;
-            setTimeout(() => { this.textArtistEdited = false; }, 2000);
+            setTimeout(() => {
+              this.textArtistEdited = false;
+            }, 2000);
             sessionStorage.removeItem('artistEdited');
           }
 
           const isDeleteArtist = sessionStorage.getItem('artistDeleted');
-          if (isDeleteArtist !== null){
+          if (isDeleteArtist !== null) {
             this.textArtistDeleted = true;
-            setTimeout(() => { this.textArtistDeleted = false; }, 2000);
+            setTimeout(() => {
+              this.textArtistDeleted = false;
+            }, 2000);
             sessionStorage.removeItem('artistDeleted');
           }
           this.rows = artists;
@@ -57,12 +63,12 @@ export class ArtistsDashboardComponent implements OnInit{
       }
     );
     this.columns = [
-      { prop: 'name', linkColumn: true},
-      { prop: 'occupation' },
-      { prop: 'country' },
-      { prop: 'dateBirth', dateColumn: true },
-      { prop: 'dateDeath', dateColumn: true  },
-      { prop: 'lastModified', dateColumn: true }
+      {prop: 'name', linkColumn: true},
+      {prop: 'occupation'},
+      {prop: 'country'},
+      {prop: 'dateBirth', dateColumn: true},
+      {prop: 'dateDeath', dateColumn: true},
+      {prop: 'lastModified', dateColumn: true}
     ];
   }
 }

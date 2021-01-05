@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {HttpServiceService} from '../../services/http-service.service';
 import {Constants} from '../../Constants';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -9,11 +9,13 @@ import { Router } from '@angular/router';
   templateUrl: './add-exhibition-page.component.html',
   styleUrls: ['./add-exhibition-page.component.scss']
 })
+
 export class AddExhibitionPageComponent implements OnInit {
 
   @Input() addExhibition;
 
-  constructor(private http: HttpServiceService, private router: Router) {}
+  constructor(private http: HttpServiceService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpServiceService} from '../../services/http-service.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Constants} from '../../Constants';
@@ -13,7 +13,8 @@ export class EditExhibitionPageComponent implements OnInit {
 
   constructor(private http: HttpServiceService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   private routeSub: Subscription;
 

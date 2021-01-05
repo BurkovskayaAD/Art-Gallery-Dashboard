@@ -3,21 +3,21 @@
   <div class="line-separator"></div>
 
   <ngx-datatable *ngIf="rows"
-    class="material"
-    [headerHeight]="50"
-    [columnMode]="'force'"
-    [rowHeight]="'auto'"
-    [columns]="columns"
-    [rows]="rows">
+                 class="material"
+                 [headerHeight]="50"
+                 [columnMode]="'force'"
+                 [rowHeight]="'auto'"
+                 [columns]="columns"
+                 [rows]="rows">
   </ngx-datatable>
 
 </div>
 
 
 <ng-template #linkTemp let-row="row" let-value="value">
-    <a class="nav-link" [routerLink]="[row._id]">
-      {{value}}
-    </a>
+  <a class="nav-link" [routerLink]="[row._id]">
+    {{value}}
+  </a>
 </ng-template>
 
 <ng-template #dateTemp let-row="row" let-value="value">

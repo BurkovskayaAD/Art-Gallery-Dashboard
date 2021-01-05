@@ -5,60 +5,44 @@
   </div>
 
   <div class="edit-artist-block">
-    <form *ngIf="artistEdit" id="aForm" [formGroup]="editNewArtist" class="artist-form" (ngSubmit)="onSubmit()" novalidate>
+    <form *ngIf="artistEdit" id="aForm" [formGroup]="editNewArtist" class="artist-form" (ngSubmit)="onSubmit()"
+          novalidate>
 
       <div class="input-block">
         <label class="text-form">Artist`s name</label>
-        <input placeholder="{{artistEdit.name}}" type="text" name="name" formControlName="name" [class.hasError] = nameError>
+        <input [(ngModel)]="artistEdit.name" placeholder="{{artistEdit.name}}" type="text" name="name"
+               formControlName="name" [class.hasError]=nameError>
       </div>
-
 
 
       <div class="input-block">
         <label class="text-form pr-2">Country</label>
-        <input placeholder="{{artistEdit.country}}" type="text" name="country" formControlName="country">
-
+        <input [(ngModel)]="artistEdit.country" placeholder="{{artistEdit.country}}" type="text" name="country"
+               formControlName="country">
       </div>
-
 
       <div>
         <label class="text-form pr-2">Date of Birth</label>
-        <input value="{{artistEdit.dateBirth | date: 'yyyy-MM-dd'}}" type="date" name="dateBirth" formControlName="dateBirth">
+        <input [ngModel]="artistEdit.dateBirth | date:'yyyy-MM-dd'" type="date" name="dateBirth"
+               formControlName="dateBirth">
       </div>
-
-<!--      <div>-->
-<!--        <label class="text-form pr-2">Date of Birth</label>-->
-<!--        <input placeholder="{{artistEdit.dateBirth | date: 'yyyy-MM-dd'}}" type="text" name="dateBirth" formControlName="dateBirth">-->
-
-<!--        <div class="alert alert-danger my-alert" *ngIf="editNewArtist.controls['dateBirth'].invalid && editNewArtist.controls['dateBirth'].touched">-->
-<!--          Please enter the artist's date of birth-->
-<!--        </div>-->
-<!--      </div>-->
 
 
       <div>
         <label class="text-form pr-2">Date of Death</label>
-        <input placeholder="{{artistEdit.dateDeath | date: 'yyyy-MM-dd'}}" type="date" class="spec" name="dateDeath" formControlName="dateDeath">
+        <input [ngModel]="artistEdit.dateDeath | date:'yyyy-MM-dd'" type="date" class="spec" name="dateDeath"
+               formControlName="dateDeath">
       </div>
-
 
       <div class="input-block">
         <label class="text-form-select">Type</label>
-        <select [value]="artistEdit.occupation" size="1" class="select" name="occupation" formControlName="occupation">
+        <select [(ngModel)]="artistEdit.occupation" size="1" class="select" name="occupation"
+                formControlName="occupation">
           <option selected value="Painter">Painter</option>
           <option value="Sculptor">Sculptor</option>
           <option value="Photographer">Photographer</option>
         </select>
       </div>
-
-<!--      <div>-->
-<!--        <label class="text-form pr-2">Type</label>-->
-<!--        <input placeholder="{{artistEdit.occupation}}" type="text" name="occupation" formControlName="occupation">-->
-
-<!--        <div class="alert alert-danger my-alert" *ngIf="editNewArtist.controls['occupation'].invalid && editNewArtist.controls['occupation'].touched">-->
-<!--          Please choose who the artist was-->
-<!--        </div>-->
-<!--      </div>-->
 
 
       <div class="button-block px-5 mt-2">
@@ -82,7 +66,7 @@
         <button (click)="onDeleteYes()" class="delete-second-button">Yes</button>
         <button (click)="onDeleteNo()" class="delete-second-button">No</button>
       </div>
-      </div>
+    </div>
   </div>
 
 </div>

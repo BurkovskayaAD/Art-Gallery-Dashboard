@@ -9,9 +9,10 @@
 
       <div class="input-block">
         <label class="text-form">Artist`s name *</label>
-        <input type="text" name="name" formControlName="name" required [class.hasError] = nameError>
+        <input type="text" name="name" formControlName="name" required [class.hasError]=nameError>
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewArtist.controls['name'].invalid && addNewArtist.controls['name'].touched">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewArtist.controls['name'].invalid && addNewArtist.controls['name'].touched">
           Please enter artist name
         </div>
       </div>
@@ -21,7 +22,8 @@
         <label class="text-form pr-2">Country *</label>
         <input type="text" name="country" formControlName="country" required>
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewArtist.controls['country'].invalid && addNewArtist.controls['country'].touched">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewArtist.controls['country'].invalid && addNewArtist.controls['country'].touched">
           Please enter artist's country of birth
         </div>
       </div>
@@ -31,7 +33,8 @@
         <label class="text-form pr-2">Date of Birth *</label>
         <input type="date" name="dateBirth" formControlName="dateBirth" required>
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewArtist.controls['dateBirth'].invalid && addNewArtist.controls['dateBirth'].touched">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewArtist.controls['dateBirth'].invalid && addNewArtist.controls['dateBirth'].touched">
           Please enter the artist's date of birth
         </div>
       </div>
@@ -44,9 +47,11 @@
 
       <div>
         <label class="text-form pr-3">Photo *</label>
-        <input class="file-in" type="file" (change)="onChange($event)" name="photo" formControlName="photo" accept="image/*" required>
+        <input class="file-in" type="file" (change)="onChange($event)" name="photo" formControlName="photo"
+               accept="image/*" required>
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewArtist.controls['photo'].invalid && addNewArtist.controls['photo'].dirty">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewArtist.controls['photo'].invalid && addNewArtist.controls['photo'].dirty">
           Please select artist photo
         </div>
       </div>
@@ -60,7 +65,8 @@
           <option value="Photographer">Photographer</option>
         </select>
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewArtist.controls['occupation'].invalid && addNewArtist.controls['occupation'].touched">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewArtist.controls['occupation'].invalid && addNewArtist.controls['occupation'].touched">
           Please choose who the artist was
         </div>
       </div>

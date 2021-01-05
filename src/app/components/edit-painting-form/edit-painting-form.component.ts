@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {HttpServiceService} from '../../services/http-service.service';
-import { Constants } from '../../Constants';
+import {Constants} from '../../Constants';
 import {FormBuilder} from '@angular/forms';
 
 @Component({
@@ -10,12 +10,14 @@ import {FormBuilder} from '@angular/forms';
   templateUrl: './edit-painting-form.component.html',
   styleUrls: ['./edit-painting-form.component.scss']
 })
+
 export class EditPaintingFormComponent implements OnInit {
 
   constructor(private http: HttpServiceService,
               private fb: FormBuilder,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   private routeSub: Subscription;
   paintingEdit;
@@ -43,11 +45,11 @@ export class EditPaintingFormComponent implements OnInit {
     this.deletePainting = true;
   }
 
-  onDeleteNo(): void{
+  onDeleteNo(): void {
     this.deletePainting = false;
   }
 
-  onDeleteYes(): void{
+  onDeleteYes(): void {
     this.routeSub = this.route.params.subscribe(param => {
       const idd = String(param.id);
       this.http.delete(Constants.paintingsEditApiUrl + idd, idd).subscribe(
@@ -69,7 +71,9 @@ export class EditPaintingFormComponent implements OnInit {
       const idd = String(param.id);
       console.log(idd);
       this.http.get(Constants.paintingsEditApiUrl + idd).subscribe(
-        (paintingEdit) => {this.paintingEdit = paintingEdit; console.log(this.paintingEdit);
+        (paintingEdit) => {
+          this.paintingEdit = paintingEdit;
+          console.log(this.paintingEdit);
         }
       );
     });

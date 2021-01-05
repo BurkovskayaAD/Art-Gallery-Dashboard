@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
   margin: 0;
   padding: 0;
   width: 260px;
@@ -15,7 +15,7 @@
   justify-content: center;
 }
 
-.line-separator{
+.line-separator {
   width: 90%;
   border-bottom: 1px solid #66615b;
   margin: 0 auto 10px auto;
@@ -37,7 +37,8 @@
   /*background-color: #f1f1f1;*/
 
 }
-p{
+
+p {
   margin-top: 5px;
 }
 
@@ -45,7 +46,7 @@ p{
   color: #151515;
 }
 
-.sidebar-icon{
+.sidebar-icon {
   text-align: center;
   vertical-align: bottom;
   margin: 3px 12px 3px 0;
@@ -61,10 +62,10 @@ p{
     flex-wrap: wrap;
     text-align: center;
   }
-  .logo-sidebar{
+  .logo-sidebar {
     display: none;
   }
-  .line-separator{
+  .line-separator {
     display: none;
   }
   .sidebar a {

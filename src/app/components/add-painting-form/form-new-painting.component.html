@@ -12,7 +12,8 @@
         <label class="text-form">Painting`s name *</label>
         <input type="text" name="name" formControlName="name">
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['name'].invalid && addNewPainting.controls['name'].touched">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewPainting.controls['name'].invalid && addNewPainting.controls['name'].touched">
           Please enter painting name
         </div>
       </div>
@@ -21,7 +22,8 @@
         <label class="text-form">Genre *</label>
         <input type="text" name="genre" formControlName="genre">
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['genre'].invalid && addNewPainting.controls['genre'].touched">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewPainting.controls['genre'].invalid && addNewPainting.controls['genre'].touched">
           Please enter the genre of the painting
         </div>
       </div>
@@ -30,7 +32,8 @@
         <label class="text-form">Author *</label>
         <input type="text" name="author" formControlName="author">
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['author'].invalid && addNewPainting.controls['author'].touched">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewPainting.controls['author'].invalid && addNewPainting.controls['author'].touched">
           Please enter the author of the painting
         </div>
       </div>
@@ -39,7 +42,8 @@
         <label class="text-form pr-2">Year of creation *</label>
         <input type="date" name="dataCreation" formControlName="dateCreation">
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['dateCreation'].invalid && addNewPainting.controls['dateCreation'].touched">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewPainting.controls['dateCreation'].invalid && addNewPainting.controls['dateCreation'].touched">
           Please enter the painting`s date of creation
         </div>
       </div>
@@ -48,7 +52,8 @@
         <label class="text-form pr-2">Picture *</label>
         <input type="file" (change)="onChangePicture($event)" name="picture" accept="image/*" formControlName="picture">
 
-        <div class="alert alert-danger my-alert" *ngIf="addNewPainting.controls['picture'].invalid && addNewPainting.controls['picture'].dirty">
+        <div class="alert alert-danger my-alert"
+             *ngIf="addNewPainting.controls['picture'].invalid && addNewPainting.controls['picture'].dirty">
           Please select picture
         </div>
       </div>

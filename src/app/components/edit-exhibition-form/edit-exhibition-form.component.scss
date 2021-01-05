@@ -1,11 +1,11 @@
-.form-edit-exhibition{
+.form-edit-exhibition {
   width: calc(100% - 260px);
   background-color: #f1f1f1;
   height: 100vh;
   float: right;
 }
 
-.introduction{
+.introduction {
   display: block;
   border-bottom: 1px solid #bfbfbf;
   width: 97%;
@@ -13,7 +13,7 @@
   height: 86px;
 }
 
-.main-text-introduction{
+.main-text-introduction {
   font-family: 'Montserrat', sans-serif;
   color: #66615b;
   font-size: 20px;
@@ -21,11 +21,11 @@
   margin-left: 7px;
 }
 
-.delete-exhibition-block{
+.delete-exhibition-block {
   width: 97%;
   background-color: white;
   padding: 40px;
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.1);
   border-radius: 1px;
   margin: 0 auto;
   display: flex;
@@ -33,13 +33,14 @@
   justify-content: center;
 }
 
-.delete-text{
+.delete-text {
   font-family: 'Montserrat', sans-serif;
   color: #212529;
   font-size: 13px;
   padding-top: 7px;
 }
-.delete-button{
+
+.delete-button {
   width: 100px;
   text-decoration: none;
   padding: 5px 0;
@@ -49,7 +50,7 @@
   margin: 0 40px;
 }
 
-.edit-exhibition-block{
+.edit-exhibition-block {
   display: flex;
   vertical-align: middle;
   justify-content: center;
@@ -57,11 +58,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.exhibition-form{
+.exhibition-form {
   width: 97%;
   background-color: white;
   padding: 40px;
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.1);
   border-radius: 1px;
 }
 
@@ -76,30 +77,30 @@ input[type=text] {
   outline-width: 1px;
 }
 
-input{
+input {
   font-size: 13px;
 }
 
-.text-form{
+.text-form {
   font-size: 13px;
   padding-top: 5px;
   min-width: 120px;
 }
 
-.text-area{
+.text-area {
   width: 100%;
   font-size: 13px;
   height: 80px;
   background-color: #f1f1f1;
 }
 
-.button-block{
+.button-block {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.button-form{
+.button-form {
   width: 100px;
   text-decoration: none;
   padding: 5px 0;
@@ -109,7 +110,7 @@ input{
   margin: 0 40px;
 }
 
-.delete-second-block{
+.delete-second-block {
   left: 260px;
   width: calc(100% - 260px);
   position: fixed;
@@ -121,7 +122,8 @@ input{
   opacity: 0.9;
   border: 1px solid #bfbfbf;
 }
-.delete-second-text{
+
+.delete-second-text {
   font-family: 'Montserrat', sans-serif;
   color: #151515;
   font-size: 25px;
@@ -129,7 +131,8 @@ input{
   text-align: center;
   top: 30%;
 }
-.delete-second-button{
+
+.delete-second-button {
   width: 100px;
   text-decoration: none;
   padding: 5px 0;
@@ -138,54 +141,55 @@ input{
   border-radius: 1px;
   margin: 70px 40px 0 40px;
 }
-.delete-second-button-block{
+
+.delete-second-button-block {
   text-align: center;
 }
 
 @media (max-width: 700px) {
-  .form-edit-exhibition{
+  .form-edit-exhibition {
     width: 100%;
     padding-top: 70px;
   }
-  .introduction{
+  .introduction {
     width: 100%;
   }
-  .main-text-introduction{
+  .main-text-introduction {
     text-align: center;
   }
-  .delete-second-block{
+  .delete-second-block {
     width: 100%;
     left: 0;
   }
 }
 
 @media (max-width: 512px) {
-  .introduction{
+  .introduction {
     height: 135px;
   }
-  .edit-exhibition-block{
+  .edit-exhibition-block {
     width: 100%;
   }
-  .main-text-introduction{
+  .main-text-introduction {
     margin-top: 60px;
   }
 }
 
 @media (max-width: 450px) {
-  input{
+  input {
     width: 100%;
     margin-bottom: 10px;
   }
-  input[type=text]{
+  input[type=text] {
     width: 100%;
   }
-  .select{
+  .select {
     width: 100%;
   }
-  .delete-second-block{
+  .delete-second-block {
     height: 347px;
   }
-  .delete-second-text{
+  .delete-second-text {
     top: 44%;
   }
 }

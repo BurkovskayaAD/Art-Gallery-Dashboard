@@ -1,18 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
 import {Constants} from '../../Constants';
-import {Observable} from 'rxjs';
 import {HttpServiceService} from '../../services/http-service.service';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-artist-page',
   templateUrl: './add-artist-page.component.html',
   styleUrls: ['./add-artist-page.component.scss']
 })
+
 export class AddArtistPageComponent implements OnInit {
 
-  constructor(private http: HttpServiceService, private router: Router) { }
+  constructor(private http: HttpServiceService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
@@ -22,7 +22,7 @@ export class AddArtistPageComponent implements OnInit {
       (data) => {
         sessionStorage.setItem('artistAdded', 'true');
         this.router.navigate(['/artist']);
-        },
+      },
       error => {
         alert('Something went wrong');
       }

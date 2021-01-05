@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {HttpServiceService} from '../../services/http-service.service';
-import { Constants } from '../../Constants';
+import {Constants} from '../../Constants';
 import {FormBuilder} from '@angular/forms';
 
 
@@ -11,12 +11,14 @@ import {FormBuilder} from '@angular/forms';
   templateUrl: './edit-exhibition-form.component.html',
   styleUrls: ['./edit-exhibition-form.component.scss']
 })
+
 export class EditExhibitionFormComponent implements OnInit {
 
   constructor(private http: HttpServiceService,
               private fb: FormBuilder,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   private routeSub: Subscription;
   exhibitionEdit;
@@ -44,11 +46,11 @@ export class EditExhibitionFormComponent implements OnInit {
     this.deleteExhibition = true;
   }
 
-  onDeleteNo(): void{
+  onDeleteNo(): void {
     this.deleteExhibition = false;
   }
 
-  onDeleteYes(): void{
+  onDeleteYes(): void {
     this.routeSub = this.route.params.subscribe(param => {
       const idd = String(param.id);
       this.http.delete(Constants.exhibitionsEditApiUrl + idd, idd).subscribe(
@@ -70,8 +72,9 @@ export class EditExhibitionFormComponent implements OnInit {
       const idd = String(param.id);
       console.log(idd);
       this.http.get(Constants.exhibitionsEditApiUrl + idd).subscribe(
-        (exhibitionEdit) => {this.exhibitionEdit = exhibitionEdit;
-                             console.log(this.exhibitionEdit);
+        (exhibitionEdit) => {
+          this.exhibitionEdit = exhibitionEdit;
+          console.log(this.exhibitionEdit);
         }
       );
     });

@@ -1,6 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
-import { ArtistsDashboardComponent } from '../dashboard-artists/artists-dashboard.component';
-import * as moment from 'moment';
+import {AfterViewInit, Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-table-template',
@@ -9,7 +7,8 @@ import * as moment from 'moment';
 })
 export class TableTemplateComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
   @ViewChild('dateTemp') dateTemp: TemplateRef<any>;
@@ -26,13 +25,13 @@ export class TableTemplateComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.columns = this.columns.map(col => {
-      if (col.linkColumn){
+      if (col.linkColumn) {
         return {...col, cellTemplate: this.linkTemp};
       }
-      if (col.dateColumn){
+      if (col.dateColumn) {
         return {...col, cellTemplate: this.dateTemp};
       }
-      if (col.yearColumn){
+      if (col.yearColumn) {
         return {...col, cellTemplate: this.yearTemp};
       }
       return col;

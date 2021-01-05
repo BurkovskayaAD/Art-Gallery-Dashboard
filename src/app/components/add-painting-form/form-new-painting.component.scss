@@ -1,10 +1,11 @@
-.form-new-painting{
+.form-new-painting {
   width: calc(100% - 260px);
   background-color: #f1f1f1;
   height: 100vh;
   float: right;
 }
-.add-painting-block{
+
+.add-painting-block {
   display: flex;
   vertical-align: middle;
   justify-content: center;
@@ -12,11 +13,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.painting-form{
+.painting-form {
   width: 97%;
   background-color: white;
   padding: 40px;
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.1);
   border-radius: 1px;
 }
 
@@ -29,23 +30,23 @@ input[type=text] {
   margin-bottom: 10px;
 }
 
-input{
+input {
   font-size: 13px;
 }
 
-.text-form{
+.text-form {
   font-size: 13px;
   padding-top: 10px;
   min-width: 140px;
 }
 
-.button-block{
+.button-block {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.button-form{
+.button-form {
   width: 100px;
   text-decoration: none;
   padding: 5px 0;
@@ -55,14 +56,15 @@ input{
   margin: 0 40px;
 }
 
-.introduction{
+.introduction {
   display: block;
   border-bottom: 1px solid #bfbfbf;
   width: 97%;
   margin: 0 auto;
   height: 86px;
 }
-.main-text-introduction{
+
+.main-text-introduction {
   font-family: 'Montserrat', sans-serif;
   color: #66615b;
   font-size: 20px;
@@ -70,20 +72,20 @@ input{
   margin-left: 7px;
 }
 
-.opt-field{
+.opt-field {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   padding-top: 10px;
 }
 
-.alert{
+.alert {
   height: 20px;
   margin: 0;
   padding: 0;
   border-radius: 1px;
 }
 
-.my-alert{
+.my-alert {
   display: flex;
   justify-content: center;
   vertical-align: middle;
@@ -94,52 +96,52 @@ input{
 }
 
 @media (max-width: 700px) {
-  .form-new-painting{
+  .form-new-painting {
     width: 100%;
     padding-top: 70px;
   }
-  .introduction{
+  .introduction {
     width: 100%;
   }
-  .main-text-introduction{
+  .main-text-introduction {
     text-align: center;
   }
 }
 
 
 @media (max-width: 512px) {
-  .introduction{
+  .introduction {
     height: 135px;
   }
-  .add-painting-block{
+  .add-painting-block {
     width: 100%;
   }
-  .main-text-introduction{
+  .main-text-introduction {
     margin-top: 60px;
   }
 }
 
 @media (max-width: 498px) {
-  .my-alert{
+  .my-alert {
     margin-left: 0;
     width: 100%;
   }
-  input{
+  input {
     width: 100%;
     margin-bottom: 10px;
   }
-  input[type=text]{
+  input[type=text] {
     width: 100%;
   }
 }
 
 
-input.ng-valid:not([type=file]){
+input.ng-valid:not([type=file]) {
   box-shadow: 0 0 5px #4ab842;
   background-color: white;
 }
 
-input[type=file].ng-valid{
+input[type=file].ng-valid {
   box-shadow: -9px 0px 6px -5px #4ab84282;
 }
 

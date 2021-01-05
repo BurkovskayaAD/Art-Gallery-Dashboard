@@ -1,5 +1,5 @@
 <app-introduction-template
-  [title] = "'Artists'"
+  [title]="'Artists'"
   [buttonText]="'artist'">
 </app-introduction-template>
 
@@ -11,7 +11,7 @@
 
 
 <div *ngIf="textArtistAdded" class="text-artist-added-block">
-    Artist has been added
+  Artist has been added
 </div>
 
 <div *ngIf="textArtistEdited" class="text-artist-added-block">
@@ -30,7 +30,7 @@
 
 <div *ngIf="!loading">
   <app-table-template
-    [rows] = "rows"
-    [columns] = "columns">
+    [rows]="rows"
+    [columns]="columns">
   </app-table-template>
 </div>

@@ -1,17 +1,18 @@
-.table-template{
+.table-template {
   width: calc(100% - 260px);
   float: right;
   background-color: #f1f1f1;
   height: 100vh;
 }
-ngx-datatable{
+
+ngx-datatable {
   font-size: 15px;
   font-family: 'Poppins', sans-serif;
   width: 97%;
   margin: 0 auto;
 }
 
-.line-separator{
+.line-separator {
   border-top: 1px solid #bfbfbf;
   padding: 15px 0;
   width: 97%;
@@ -19,7 +20,7 @@ ngx-datatable{
 }
 
 @media (max-width: 700px) {
-  .table-template{
+  .table-template {
     width: 100%;
   }
 }

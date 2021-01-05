@@ -1,4 +1,4 @@
-.introduction{
+.introduction {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -8,14 +8,15 @@
   background-color: #f1f1f1;
   padding: 26px 0;
 }
-.main-text-introduction{
+
+.main-text-introduction {
   font-family: 'Montserrat', sans-serif;
   color: #66615b;
   font-size: 20px;
   margin: 5px 20px;
 }
 
-.button-introduction{
+.button-introduction {
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   color: white;
@@ -25,23 +26,24 @@
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-@media (max-width: 700px){
-  .introduction{
+@media (max-width: 700px) {
+  .introduction {
     width: 100%;
   }
-  .main-text-introduction{
+  .main-text-introduction {
     margin-top: 60px;
     text-align: center;
   }
-  .button-introduction{
+  .button-introduction {
     margin-top: 55px;
   }
 }
-@media (max-width: 530px){
-  .main-text-introduction{
+
+@media (max-width: 530px) {
+  .main-text-introduction {
     margin-top: 130px;
   }
-  .button-introduction{
+  .button-introduction {
     margin-top: 125px;
   }
 }

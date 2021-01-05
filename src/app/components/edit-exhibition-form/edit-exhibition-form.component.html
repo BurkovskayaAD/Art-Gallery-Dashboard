@@ -5,28 +5,33 @@
   </div>
 
   <div class="edit-exhibition-block">
-    <form *ngIf="exhibitionEdit" id="aForm" [formGroup]="editNewExhibition" class="exhibition-form" (ngSubmit)="onSubmit()" novalidate>
+    <form *ngIf="exhibitionEdit" id="aForm" [formGroup]="editNewExhibition" class="exhibition-form"
+          (ngSubmit)="onSubmit()" novalidate>
 
       <div class="input-block">
         <label class="text-form">Name</label>
-        <input placeholder="{{exhibitionEdit.name}}" type="text" name="name" formControlName="name" [class.hasError] = nameError>
+        <input [(ngModel)]="exhibitionEdit.name" placeholder="{{exhibitionEdit.name}}" type="text" name="name"
+               formControlName="name" [class.hasError]=nameError>
       </div>
 
 
       <div>
         <label class="text-form pr-2">Date start</label>
-        <input value="{{exhibitionEdit.dateStart | date: 'yyyy-MM-dd'}}" type="date" name="dateStart" formControlName="dateStart">
+        <input [ngModel]="exhibitionEdit.dateStart | date:'yyyy-MM-dd'" type="date" name="dateStart"
+               formControlName="dateStart">
       </div>
 
       <div>
         <label class="text-form pr-2">Date end</label>
-        <input value="{{exhibitionEdit.dateEnd | date: 'yyyy-MM-dd'}}" type="date" name="dateEnd" formControlName="dateEnd">
+        <input [ngModel]="exhibitionEdit.dateEnd | date:'yyyy-MM-dd'" type="date" name="dateEnd"
+               formControlName="dateEnd">
       </div>
 
 
       <div class="input-block">
         <label class="text-form">About exhibition</label>
-        <textarea placeholder="{{exhibitionEdit.about}}" class="text-area" name="about" formControlName="about"></textarea>
+        <textarea [(ngModel)]="exhibitionEdit.about" placeholder="{{exhibitionEdit.about}}" class="text-area"
+                  name="about" formControlName="about"></textarea>
       </div>
 
 
