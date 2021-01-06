@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {HttpServiceService} from '../../services/http-service.service';
 import {Constants} from '../../Constants';
 import {FormBuilder} from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-edit-artist-form',
@@ -22,13 +23,15 @@ export class EditArtistFormComponent implements OnInit {
   private routeSub: Subscription;
   artistEdit;
   deleteArtist = false;
+  DateNow;
 
   editNewArtist = this.fb.group({
     name: [''],
     country: [''],
     dateBirth: [''],
     dateDeath: [''],
-    occupation: ['']
+    occupation: [''],
+    lastModified: ['']
   });
 
   @Output() addNewOutput = new EventEmitter();
@@ -76,12 +79,15 @@ export class EditArtistFormComponent implements OnInit {
         (artistEdit) => {
           this.artistEdit = artistEdit;
           console.log(this.artistEdit);
+          this.artistEdit.lastModified = moment().format('YYYY-MM-DD');;
+          console.log(this.artistEdit.lastModified);
           // if (this.artistEdit.occupation === 'Painter') {
           //   this.artistEdit.occupation = 0;
           // }
         }
       );
     });
+
   }
 
 }

@@ -4,7 +4,7 @@ import {Subscription} from 'rxjs';
 import {HttpServiceService} from '../../services/http-service.service';
 import {Constants} from '../../Constants';
 import {FormBuilder} from '@angular/forms';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-edit-exhibition-form',
@@ -28,7 +28,8 @@ export class EditExhibitionFormComponent implements OnInit {
     name: [''],
     dateStart: [''],
     dateEnd: [''],
-    about: ['']
+    about: [''],
+    lastModified: ['']
   });
 
   @Output() addNewOutput = new EventEmitter();
@@ -75,6 +76,8 @@ export class EditExhibitionFormComponent implements OnInit {
         (exhibitionEdit) => {
           this.exhibitionEdit = exhibitionEdit;
           console.log(this.exhibitionEdit);
+          this.exhibitionEdit.lastModified = moment().format('YYYY-MM-DD');;
+          console.log(this.exhibitionEdit.lastModified);
         }
       );
     });

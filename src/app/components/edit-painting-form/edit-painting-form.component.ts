@@ -4,6 +4,8 @@ import {Subscription} from 'rxjs';
 import {HttpServiceService} from '../../services/http-service.service';
 import {Constants} from '../../Constants';
 import {FormBuilder} from '@angular/forms';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-edit-painting-form',
@@ -27,7 +29,8 @@ export class EditPaintingFormComponent implements OnInit {
     name: [''],
     genre: [''],
     author: [''],
-    dateCreation: ['']
+    dateCreation: [''],
+    lastModified: ['']
   });
 
   @Output() addNewOutput = new EventEmitter();
@@ -74,6 +77,8 @@ export class EditPaintingFormComponent implements OnInit {
         (paintingEdit) => {
           this.paintingEdit = paintingEdit;
           console.log(this.paintingEdit);
+          this.paintingEdit.lastModified = moment().format('YYYY-MM-DD');;
+          console.log(this.paintingEdit.lastModified);
         }
       );
     });

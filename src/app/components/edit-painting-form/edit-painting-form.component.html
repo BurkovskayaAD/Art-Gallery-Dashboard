@@ -28,6 +28,12 @@
         <input [ngModel] ="paintingEdit.dateCreation | date:'yyyy-MM-dd'" type="date" name="dateCreation" formControlName="dateCreation">
       </div>
 
+      <div>
+        <label class="text-form pr-2">Last modified</label>
+        <input [ngModel]="paintingEdit.lastModified | date:'yyyy-MM-dd'" type="date" name="lastModified"
+               formControlName="lastModified" readonly>
+      </div>
+
 
       <div class="button-block px-5 mt-2">
         <button class="button-form" type="submit" [disabled]="!editNewPainting.valid">Edit</button>
