@@ -15,6 +15,7 @@ export class FormNewArtistComponent implements OnInit {
 
   // fileToUpload: File = null;
   fileToUpload: File;
+  nameFile: any;
 
   constructor(private fb: FormBuilder, private http: HttpServiceService) {
   }
@@ -57,13 +58,36 @@ export class FormNewArtistComponent implements OnInit {
     // formData.append('file', this.fileToUpload);
     // formData.append('name', 'hello');
     // this.addNewOutput.emit(formData);
+    // console.log(this.addNewArtist);
+
+    // this.addNewOutput.emit(this.addNewArtist.value);
     // console.log(this.addNewArtist.value);
-    this.addNewOutput.emit(this.addNewArtist.value);
+
+    // const formData = new FormData();
+    // formData.append('name', this.addNewArtist.value.name);
+    // formData.append('country', this.addNewArtist.value.country);
+    // formData.append('dateBirth', this.addNewArtist.value.dateBirth);
+    // formData.append('dateDeath', this.addNewArtist.value.dateDeath);
+    // formData.append('occupation', this.addNewArtist.value.occupation);
+    // formData.append('photo', this.fileToUpload);
+    // this.addNewOutput.emit(formData);
+    // console.log(formData);
+
+    // const fd = new FormData();
+    // fd.append('image', this.fileToUpload, this.fileToUpload.name);
+    // this.addNewOutput.emit(fd);
+    // console.log(fd);
+    // console.log(fd.values());
+    this.addNewArtist.value.photo = this.nameFile;
     console.log(this.addNewArtist.value);
+    this.addNewOutput.emit(this.addNewArtist.value);
   }
 
   onChange(event): void {
     this.fileToUpload = event.target.files[0];
+    this.nameFile = this.fileToUpload.name;
+    console.log(this.nameFile);
+
   }
 
   // onChange($event: Event): void{
