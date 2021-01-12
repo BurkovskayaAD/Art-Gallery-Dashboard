@@ -1,10 +1,8 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-// import {EventEmitter} from 'events';
+import {Component, OnInit, Output} from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
 import {EventEmitter} from '@angular/core';
-import {Observable, Subscriber} from 'rxjs';
-import {HttpEventType} from '@angular/common/http';
 import {HttpServiceService} from '../../services/http-service.service';
+import {Observable, Subscriber} from 'rxjs';
 
 @Component({
   selector: 'app-form-new-artist',
@@ -35,6 +33,8 @@ export class FormNewArtistComponent implements OnInit {
   });
 
   @Output() addNewOutput = new EventEmitter();
+  @Output() addNewOutputImg = new EventEmitter();
+
 
   // afuConfig  = {
   //   formatAllowed : " .jpg, .png, .jpeg "  ,
@@ -78,6 +78,8 @@ export class FormNewArtistComponent implements OnInit {
     // this.addNewOutput.emit(fd);
     // console.log(fd);
     // console.log(fd.values());
+
+
     this.addNewArtist.value.photo = this.nameFile;
     console.log(this.addNewArtist.value);
     this.addNewOutput.emit(this.addNewArtist.value);
@@ -87,7 +89,37 @@ export class FormNewArtistComponent implements OnInit {
     this.fileToUpload = event.target.files[0];
     this.nameFile = this.fileToUpload.name;
     console.log(this.nameFile);
+  }
 
+  onChangeUpload($event: Event): void{
+    const file = ($event.target as HTMLInputElement).files[0];
+    console.log(file);
+    this.convertToBase64(file);
+  }
+
+  convertToBase64(file: File): void{
+    const observable = new Observable((subscriber: Subscriber<any>) => {
+      this.readFile(file, subscriber);
+    });
+    observable.subscribe(d => {
+      const data = d;
+      console.log(data);
+      this.addNewOutputImg.emit(data);
+    });
+  }
+
+  readFile(file: File, subscriber: Subscriber<any>): void{
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileReader.onload = () => {
+      subscriber.next(fileReader.result);
+      subscriber.complete();
+    };
+    fileReader.onerror = (error) => {
+      subscriber.error(error);
+      subscriber.complete();
+    };
   }
 
   // onChange($event: Event): void{

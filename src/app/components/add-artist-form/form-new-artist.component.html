@@ -47,7 +47,7 @@
 
       <div>
         <label class="text-form pr-3">Photo *</label>
-        <input class="file-in" id="file-in" type="file" (change)="onChange($event)" name="photo" formControlName="photo"
+        <input class="file-in" id="file-in" type="file" (change)="onChangeUpload($event)" (change)="onChange($event)" name="photo" formControlName="photo"
                accept="image/*" required>
 
         <div class="alert alert-danger my-alert"

@@ -28,4 +28,9 @@ export class AddArtistPageComponent implements OnInit {
       }
     );
   }
+
+  dataSend(data: any): void {
+    console.log(data);
+    this.http.post(Constants.artistsPhotoApiUrl, data).subscribe();
+  }
 }
