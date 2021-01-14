@@ -22,7 +22,6 @@ export class EditExhibitionFormComponent implements OnInit {
 
   private routeSub: Subscription;
   exhibitionEdit;
-  deleteExhibition = false;
 
   editNewExhibition = this.fb.group({
     name: [''],
@@ -40,44 +39,15 @@ export class EditExhibitionFormComponent implements OnInit {
 
   onSubmit(): void {
     this.addNewOutput.emit(this.editNewExhibition.value);
-    console.log(this.editNewExhibition.value);
-  }
-
-  onDelete(): void {
-    this.deleteExhibition = true;
-  }
-
-  onDeleteNo(): void {
-    this.deleteExhibition = false;
-  }
-
-  onDeleteYes(): void {
-    this.routeSub = this.route.params.subscribe(param => {
-      const idd = String(param.id);
-      this.http.delete(Constants.exhibitionsEditApiUrl + idd, idd).subscribe(
-        (data) => {
-          console.log(idd);
-          sessionStorage.setItem('exhibitionDeleted', 'true');
-          this.router.navigate(['/exhibition']);
-        },
-        error => {
-          alert('Something went wrong');
-        }
-      );
-    });
   }
 
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(param => {
-      console.log(param);
       const idd = String(param.id);
-      console.log(idd);
       this.http.get(Constants.exhibitionsEditApiUrl + idd).subscribe(
         (exhibitionEdit) => {
           this.exhibitionEdit = exhibitionEdit;
-          console.log(this.exhibitionEdit);
-          this.exhibitionEdit.lastModified = moment().format('YYYY-MM-DD');;
-          console.log(this.exhibitionEdit.lastModified);
+          this.exhibitionEdit.lastModified = moment().format('YYYY-MM-DD');
         }
       );
     });

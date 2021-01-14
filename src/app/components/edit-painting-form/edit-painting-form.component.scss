@@ -1,32 +1,3 @@
-.delete-painting-block {
-  width: 97%;
-  background-color: white;
-  padding: 40px;
-  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 1px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.delete-text {
-  font-family: 'Montserrat', sans-serif;
-  color: #212529;
-  font-size: 13px;
-  padding-top: 7px;
-}
-
-.delete-button {
-  width: 100px;
-  text-decoration: none;
-  padding: 5px 0;
-  font-size: 13px;
-  border: 1px solid black;
-  border-radius: 1px;
-  margin: 0 40px;
-}
-
 .form-edit-painting {
   width: calc(100% - 260px);
   background-color: #f1f1f1;
@@ -103,41 +74,6 @@ input {
   margin: 0 40px;
 }
 
-.delete-second-block {
-  left: 260px;
-  width: calc(100% - 260px);
-  position: fixed;
-  top: 35%;
-  bottom: 40%;
-  overflow: hidden;
-  background: white;
-  z-index: 1002;
-  opacity: 0.9;
-  border: 1px solid #bfbfbf;
-}
-
-.delete-second-text {
-  font-family: 'Montserrat', sans-serif;
-  color: #151515;
-  font-size: 25px;
-  position: relative;
-  text-align: center;
-  top: 30%;
-}
-
-.delete-second-button {
-  width: 100px;
-  text-decoration: none;
-  padding: 5px 0;
-  font-size: 13px;
-  border: 1px solid black;
-  border-radius: 1px;
-  margin: 70px 40px 0 40px;
-}
-
-.delete-second-button-block {
-  text-align: center;
-}
 
 @media (max-width: 700px) {
   .form-edit-painting {
@@ -149,10 +85,6 @@ input {
   }
   .main-text-introduction {
     text-align: center;
-  }
-  .delete-second-block {
-    width: 100%;
-    left: 0;
   }
 }
 
@@ -175,12 +107,6 @@ input {
   }
   input[type=text] {
     width: 100%;
-  }
-  .delete-second-block {
-    height: 347px;
-  }
-  .delete-second-text {
-    top: 44%;
   }
 }
 

@@ -41,44 +41,15 @@ export class EditPaintingFormComponent implements OnInit {
 
   onSubmit(): void {
     this.addNewOutput.emit(this.editNewPainting.value);
-    console.log(this.editNewPainting.value);
-  }
-
-  onDelete(): void {
-    this.deletePainting = true;
-  }
-
-  onDeleteNo(): void {
-    this.deletePainting = false;
-  }
-
-  onDeleteYes(): void {
-    this.routeSub = this.route.params.subscribe(param => {
-      const idd = String(param.id);
-      this.http.delete(Constants.paintingsEditApiUrl + idd, idd).subscribe(
-        (data) => {
-          console.log(idd);
-          sessionStorage.setItem('paintingDeleted', 'true');
-          this.router.navigate(['/painting']);
-        },
-        error => {
-          alert('Something went wrong');
-        }
-      );
-    });
   }
 
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(param => {
-      console.log(param);
       const idd = String(param.id);
-      console.log(idd);
       this.http.get(Constants.paintingsEditApiUrl + idd).subscribe(
         (paintingEdit) => {
           this.paintingEdit = paintingEdit;
-          console.log(this.paintingEdit);
-          this.paintingEdit.lastModified = moment().format('YYYY-MM-DD');;
-          console.log(this.paintingEdit.lastModified);
+          this.paintingEdit.lastModified = moment().format('YYYY-MM-DD');
         }
       );
     });
