@@ -1,4 +1,9 @@
 import {AfterViewInit, Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {Constants} from '../../Constants';
+import {HttpServiceService} from '../../services/http-service.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
+
 
 @Component({
   selector: 'app-table-template',
@@ -7,12 +12,18 @@ import {AfterViewInit, Component, Input, OnInit, TemplateRef, ViewChild} from '@
 })
 export class TableTemplateComponent implements OnInit, AfterViewInit {
 
-  constructor() {
+  constructor(private http: HttpServiceService, private route: ActivatedRoute, private router: Router) {
   }
+
+  private routeSub: Subscription;
+  deleteArtist = false;
+  idRow;
 
   @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
   @ViewChild('dateTemp') dateTemp: TemplateRef<any>;
   @ViewChild('yearTemp') yearTemp: TemplateRef<any>;
+  @ViewChild('buttonTemp') buttonTemp: TemplateRef<any>;
+
 
   @Input()
   rows: object;
@@ -34,7 +45,35 @@ export class TableTemplateComponent implements OnInit, AfterViewInit {
       if (col.yearColumn) {
         return {...col, cellTemplate: this.yearTemp};
       }
+      if (col.buttonColumn) {
+        return {...col, cellTemplate: this.buttonTemp};
+      }
       return col;
+    });
+  }
+
+  onDelete(row): void{
+    this.deleteArtist = true;
+    this.idRow = row.toString();
+  }
+
+  onDeleteNo(): void {
+    this.deleteArtist = false;
+  }
+
+  onDeleteYes(): void {
+    this.routeSub = this.route.params.subscribe(param => {
+      const idd = this.idRow;
+      this.http.delete(Constants.artistsEditApiUrl + idd, idd).subscribe(
+        (data) => {
+          sessionStorage.setItem('artistDeleted', 'true');
+          this.deleteArtist = false;
+          location.reload();
+        },
+        error => {
+          alert('Something went wrong');
+        }
+      );
     });
   }
 
