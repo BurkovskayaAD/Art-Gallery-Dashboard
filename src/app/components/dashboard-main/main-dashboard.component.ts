@@ -43,19 +43,16 @@ export class MainDashboardComponent implements OnInit, AfterViewInit {
     this.http.get(Constants.artistsApiUrl).subscribe(
       (artist) => {
         this.artist = artist;
-        console.log(this.artist);
       }
     );
     this.http.get(Constants.paintingsApiUrl).subscribe(
       (painting) => {
         this.painting = painting;
-        console.log(this.painting);
       }
     );
     this.http.get(Constants.exhibitionsApiUrl).subscribe(
       (exhibition) => {
         this.exhibition = exhibition;
-        console.log(this.exhibition);
       }
     );
 
