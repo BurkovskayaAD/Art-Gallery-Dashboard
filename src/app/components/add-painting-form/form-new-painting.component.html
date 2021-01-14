@@ -6,7 +6,7 @@
 
   <div class="add-painting-block">
 
-    <form [formGroup]="addNewPainting" class="painting-form" (ngSubmit)="onSubmit()" novalidate>
+    <form [formGroup]="addNewPainting" class="painting-form" (ngSubmit)="onSubmit(addNewPainting.value)" novalidate>
 
       <div class="input-block">
         <label class="text-form">Painting`s name *</label>
@@ -50,7 +50,7 @@
 
       <div class="input-block">
         <label class="text-form pr-2">Picture *</label>
-        <input type="file" (change)="onChangePicture($event)" name="picture" accept="image/*" formControlName="picture">
+        <input type="file" (change)="onChange($event)" name="picture" accept="image/*" formControlName="picture">
 
         <div class="alert alert-danger my-alert"
              *ngIf="addNewPainting.controls['picture'].invalid && addNewPainting.controls['picture'].dirty">

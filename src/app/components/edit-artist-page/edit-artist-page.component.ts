@@ -27,8 +27,6 @@ export class EditArtistPageComponent implements OnInit {
       const idd = String(param.id);
       this.http.post(Constants.artistsEditApiUrl + idd, editNewArtist).subscribe(
         (data) => {
-          console.log(editNewArtist);
-          console.log(Constants.artistsEditApiUrl + idd);
           sessionStorage.setItem('artistEdited', 'true');
           this.router.navigate(['/artist']);
         },

@@ -10,7 +10,14 @@ import {Observable, Subscriber} from 'rxjs';
 
 export class FormNewExhibitionComponent implements OnInit {
 
+  fileToUpload: File;
+  nameFile: any;
+
   constructor(private fb: FormBuilder) {
+  }
+
+  get nameError(): any {
+    return this.addNewExhibition.get('name').errors;
   }
 
   addNewExhibition = this.fb.group({
@@ -26,45 +33,25 @@ export class FormNewExhibitionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get nameError(): any {
-    // console.log(this.addNewExhibition.get('name').errors);
-    return this.addNewExhibition.get('name').errors;
-  }
-
-  onSubmit(): void {
-    this.addNewOutput.emit(this.addNewExhibition.value);
-    console.log(this.addNewExhibition.value);
-  }
-
-  onChangePoster($event: Event): void {
-    const file = ($event.target as HTMLInputElement).files[0];
-    console.log(file);
-    this.convertToBase64Poster(file);
-  }
-
-  convertToBase64Poster(file: File): void {
-    const observable = new Observable((subscriber: Subscriber<any>) => {
-      this.readFilePoster(file, subscriber);
-    });
-    observable.subscribe(d => {
-      const data = d;
-      console.log(data);
-      this.addNewExhibition.patchValue({poster: data});
-    });
-  }
-
-  readFilePoster(file: File, subscriber: Subscriber<any>): void {
+  onSubmit(formValue): void {
     const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
+    fileReader.readAsDataURL(this.fileToUpload);
 
     fileReader.onload = () => {
-      subscriber.next(fileReader.result);
-      subscriber.complete();
+      const formResult = {
+        ...formValue,
+        poster: this.nameFile,
+        image: fileReader.result,
+      };
+      console.log(formResult);
+      this.addNewOutput.emit(formResult);
     };
-    fileReader.onerror = (error) => {
-      subscriber.error(error);
-      subscriber.complete();
-    };
+    fileReader.onerror = (error) => {};
+  }
+
+  onChange(event): void {
+    this.fileToUpload = event.target.files[0];
+    this.nameFile = this.fileToUpload.name;
   }
 
 }

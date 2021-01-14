@@ -10,7 +10,14 @@ import {Observable, Subscriber} from 'rxjs';
 
 export class FormNewPaintingComponent implements OnInit {
 
+  fileToUpload: File;
+  nameFile: any;
+
   constructor(private fb: FormBuilder) {
+  }
+
+  get nameError(): any {
+    return this.addNewPainting.get('name').errors;
   }
 
   addNewPainting = this.fb.group({
@@ -26,40 +33,24 @@ export class FormNewPaintingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
-    this.addNewOutput.emit(this.addNewPainting.value);
-    const PaintingObj = this.addNewPainting.value;
-    console.log(PaintingObj);
-  }
-
-  onChangePicture($event: Event): void {
-    const file = ($event.target as HTMLInputElement).files[0];
-    console.log(file);
-    this.convertToBase64Picture(file);
-  }
-
-  convertToBase64Picture(file: File): void {
-    const observable = new Observable((subscriber: Subscriber<any>) => {
-      this.readFilePicture(file, subscriber);
-    });
-    observable.subscribe(d => {
-      const data = d;
-      console.log(data);
-      this.addNewPainting.patchValue({picture: data});
-    });
-  }
-
-  readFilePicture(file: File, subscriber: Subscriber<any>): void {
+  onSubmit(formValue): void {
     const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
+    fileReader.readAsDataURL(this.fileToUpload);
 
     fileReader.onload = () => {
-      subscriber.next(fileReader.result);
-      subscriber.complete();
+      const formResult = {
+        ...formValue,
+        picture: this.nameFile,
+        image: fileReader.result,
+      };
+      console.log(formResult);
+      this.addNewOutput.emit(formResult);
     };
-    fileReader.onerror = (error) => {
-      subscriber.error(error);
-      subscriber.complete();
-    };
+    fileReader.onerror = (error) => {};
+  }
+
+  onChange(event): void {
+    this.fileToUpload = event.target.files[0];
+    this.nameFile = this.fileToUpload.name;
   }
 }

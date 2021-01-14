@@ -63,11 +63,12 @@ export class ExhibitionsDashboardComponent implements OnInit {
       }
     );
     this.columns = [
-      {prop: 'name', linkColumn: true},
+      {prop: 'name'},
       {prop: 'about'},
       {prop: 'dateStart', dateColumn: true},
       {prop: 'dateEnd', dateColumn: true},
       {prop: 'lastModified', dateColumn: true},
+      {prop: 'editOrDelete', buttonColumn: true}
     ];
   }
 }

@@ -6,7 +6,7 @@
 
   <div class="add-exhibition-block">
 
-    <form [formGroup]="addNewExhibition" class="exhibition-form" (ngSubmit)="onSubmit()" novalidate>
+    <form [formGroup]="addNewExhibition" class="exhibition-form" (ngSubmit)="onSubmit(addNewExhibition.value)" novalidate>
 
       <div class="input-block">
         <label class="text-form">Exhibition`s name *</label>
@@ -50,7 +50,7 @@
 
       <div class="input-block">
         <label class="text-form pr-2">Poster *</label>
-        <input type="file" (change)="onChangePoster($event)" name="poster" accept="image/*" formControlName="poster">
+        <input type="file" (change)="onChange($event)" name="poster" accept="image/*" formControlName="poster">
 
         <div class="alert alert-danger my-alert"
              *ngIf="addNewExhibition.controls['poster'].invalid && addNewExhibition.controls['poster'].dirty">

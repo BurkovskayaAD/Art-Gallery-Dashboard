@@ -1,8 +1,6 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {EventEmitter} from '@angular/core';
-import {HttpServiceService} from '../../services/http-service.service';
-import {Observable, Subscriber} from 'rxjs';
 
 @Component({
   selector: 'app-form-new-artist',
@@ -11,14 +9,13 @@ import {Observable, Subscriber} from 'rxjs';
 })
 export class FormNewArtistComponent implements OnInit {
 
-  // fileToUpload: File = null;
   fileToUpload: File;
+  nameFile: any;
 
-  constructor(private fb: FormBuilder, private http: HttpServiceService) {
+  constructor(private fb: FormBuilder) {
   }
 
   get nameError(): any {
-    // console.log(this.addNewArtist.get('name').errors);
     return this.addNewArtist.get('name').errors;
   }
 
@@ -32,31 +29,28 @@ export class FormNewArtistComponent implements OnInit {
   });
 
   @Output() addNewOutput = new EventEmitter();
-  @Output() addNewOutputImg = new EventEmitter();
 
   ngOnInit(): void {
   }
 
   onSubmit(formValue): void {
-
     const fileReader = new FileReader();
     fileReader.readAsDataURL(this.fileToUpload);
 
     fileReader.onload = () => {
       const formResult = {
         ...formValue,
+        photo: this.nameFile,
         image: fileReader.result,
       };
       console.log(formResult);
       this.addNewOutput.emit(formResult);
     };
-    fileReader.onerror = (error) => {
-    };
-
-
+    fileReader.onerror = (error) => {};
   }
 
   onChange(event): void {
     this.fileToUpload = event.target.files[0];
+    this.nameFile = this.fileToUpload.name;
   }
 }

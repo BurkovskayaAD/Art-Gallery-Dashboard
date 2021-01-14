@@ -63,11 +63,12 @@ export class PaintingsDashboardComponent implements OnInit {
       }
     );
     this.columns = [
-      {prop: 'name', linkColumn: true},
+      {prop: 'name'},
       {prop: 'genre'},
       {prop: 'author'},
       {prop: 'dateCreation', name: 'Year Creation', yearColumn: true},
       {prop: 'lastModified', dateColumn: true},
+      {prop: 'editOrDelete', buttonColumn: true}
     ];
   }
 }

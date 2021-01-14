@@ -27,8 +27,6 @@ export class EditExhibitionPageComponent implements OnInit {
       const idd = String(param.id);
       this.http.post(Constants.exhibitionsEditApiUrl + idd, editNewExhibition).subscribe(
         (data) => {
-          console.log(editNewExhibition);
-          console.log(Constants.exhibitionsEditApiUrl + idd);
           sessionStorage.setItem('exhibitionEdited', 'true');
           this.router.navigate(['/exhibition']);
         },

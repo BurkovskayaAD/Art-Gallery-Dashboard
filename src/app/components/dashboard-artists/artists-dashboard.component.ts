@@ -25,7 +25,6 @@ export class ArtistsDashboardComponent implements OnInit {
     this.loading = true;
     this.http.get(Constants.artistsApiUrl).subscribe(
       (artists) => {
-        console.log(artists);
         if (artists.error) {
           this.textArtistDisconnect = true;
         } else {
@@ -63,12 +62,13 @@ export class ArtistsDashboardComponent implements OnInit {
       }
     );
     this.columns = [
-      {prop: 'name', linkColumn: true},
+      {prop: 'name'},
       {prop: 'occupation'},
       {prop: 'country'},
       {prop: 'dateBirth', dateColumn: true},
       {prop: 'dateDeath', dateColumn: true},
-      {prop: 'lastModified', dateColumn: true}
+      {prop: 'lastModified', dateColumn: true},
+      {prop: 'editOrDelete', buttonColumn: true}
     ];
   }
 }

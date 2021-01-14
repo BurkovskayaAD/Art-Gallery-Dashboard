@@ -26,8 +26,6 @@ export class EditPaintingPageComponent implements OnInit {
       const idd = String(param.id);
       this.http.post(Constants.paintingsEditApiUrl + idd, editNewPainting).subscribe(
         (data) => {
-          console.log(editNewPainting);
-          console.log(Constants.paintingsEditApiUrl + idd);
           sessionStorage.setItem('paintingEdited', 'true');
           this.router.navigate(['/painting']);
         },
