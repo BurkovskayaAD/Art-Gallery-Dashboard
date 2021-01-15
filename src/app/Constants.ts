@@ -4,7 +4,6 @@ export class Constants {
   static readonly baseApiUrl = environment.baseUrl;
 
   static readonly artistsApiUrl = `${environment.baseUrl}/artists`;
-  static readonly artistsPhotoApiUrl = `${environment.baseUrl}/artists/photo`;
   static readonly artistsLatestApiUrl = `${environment.baseUrl}/artists/latest`;
   static readonly exhibitionsApiUrl = `${environment.baseUrl}/exhibitions`;
   static readonly exhibitionsLatestApiUrl = `${environment.baseUrl}/exhibitions/latest`;

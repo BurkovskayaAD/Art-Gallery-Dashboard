@@ -16,7 +16,7 @@ export class TableTemplateComponent implements OnInit, AfterViewInit {
   }
 
   private routeSub: Subscription;
-  deleteArtist = false;
+  delete = false;
   idRow;
 
   @ViewChild('linkTemp') linkTemp: TemplateRef<any>;
@@ -52,28 +52,56 @@ export class TableTemplateComponent implements OnInit, AfterViewInit {
     });
   }
 
-  onDelete(row): void{
-    this.deleteArtist = true;
+  onDelete(row): void {
+    this.delete = true;
     this.idRow = row.toString();
   }
 
   onDeleteNo(): void {
-    this.deleteArtist = false;
+    this.delete = false;
   }
 
   onDeleteYes(): void {
     this.routeSub = this.route.params.subscribe(param => {
       const idd = this.idRow;
-      this.http.delete(Constants.artistsEditApiUrl + idd, idd).subscribe(
-        (data) => {
-          sessionStorage.setItem('artistDeleted', 'true');
-          this.deleteArtist = false;
-          location.reload();
-        },
-        error => {
-          alert('Something went wrong');
-        }
-      );
+      const href = this.router.url + 's';
+      console.log(href);
+
+      if (href === '/exhibitions') {
+        this.http.delete(Constants.exhibitionsApiUrl + '/' + idd, idd).subscribe(
+          (data) => {
+            sessionStorage.setItem('exhibitionDeleted', 'true');
+            this.delete = false;
+            location.reload();
+          },
+          error => {
+            alert('Something went wrong');
+          }
+        );
+      } else if (href === '/paintings') {
+        this.http.delete(Constants.paintingsApiUrl + '/' + idd, idd).subscribe(
+          (data) => {
+            sessionStorage.setItem('paintingDeleted', 'true');
+            this.delete = false;
+            location.reload();
+          },
+          error => {
+            alert('Something went wrong');
+          }
+        );
+      } else {
+        this.http.delete(Constants.artistsApiUrl + '/' + idd, idd).subscribe(
+          (data) => {
+            sessionStorage.setItem('artistDeleted', 'true');
+            this.delete = false;
+            location.reload();
+          },
+          error => {
+            alert('Something went wrong');
+          }
+        );
+      }
+
     });
   }
 

@@ -11,10 +11,12 @@ import {HttpServiceService} from '../../services/http-service.service';
 export class ExhibitionsDashboardComponent implements OnInit {
   rows;
   columns;
-  textExhibitionAdded;
-  textExhibitionEdited;
-  textExhibitionDeleted;
+  // textExhibitionAdded;
+  // textExhibitionEdited;
+  // textExhibitionDeleted;
   textExhibitionDisconnect;
+  messages = {textExhibitionAdded: false, textExhibitionEdited: false, textExhibitionDeleted: false};
+
 
   loading = false;
 
@@ -30,32 +32,37 @@ export class ExhibitionsDashboardComponent implements OnInit {
         } else {
           this.textExhibitionDisconnect = false;
 
-          const isNewExhibition = sessionStorage.getItem('exhibitionAdded');
-          if (isNewExhibition !== null) {
-            this.textExhibitionAdded = true;
-            setTimeout(() => {
-              this.textExhibitionAdded = false;
-            }, 2000);
-            sessionStorage.removeItem('exhibitionAdded');
-          }
+          // const isNewExhibition = sessionStorage.getItem('exhibitionAdded');
+          // if (isNewExhibition !== null) {
+          //   this.textExhibitionAdded = true;
+          //   setTimeout(() => {
+          //     this.textExhibitionAdded = false;
+          //   }, 2000);
+          //   sessionStorage.removeItem('exhibitionAdded');
+          // }
+          //
+          // const isEditExhibition = sessionStorage.getItem('exhibitionEdited');
+          // if (isEditExhibition !== null) {
+          //   this.textExhibitionEdited = true;
+          //   setTimeout(() => {
+          //     this.textExhibitionEdited = false;
+          //   }, 2000);
+          //   sessionStorage.removeItem('exhibitionEdited');
+          // }
+          //
+          // const isDeleteExhibition = sessionStorage.getItem('exhibitionDeleted');
+          // if (isDeleteExhibition !== null) {
+          //   this.textExhibitionDeleted = true;
+          //   setTimeout(() => {
+          //     this.textExhibitionDeleted = false;
+          //   }, 2000);
+          //   sessionStorage.removeItem('exhibitionDeleted');
+          // }
 
-          const isEditExhibition = sessionStorage.getItem('exhibitionEdited');
-          if (isEditExhibition !== null) {
-            this.textExhibitionEdited = true;
-            setTimeout(() => {
-              this.textExhibitionEdited = false;
-            }, 2000);
-            sessionStorage.removeItem('exhibitionEdited');
-          }
+          this.messageOutput('exhibitionDeleted', 'textExhibitionDeleted');
+          this.messageOutput('exhibitionEdited', 'textExhibitionEdited');
+          this.messageOutput('exhibitionAdded', 'textExhibitionAdded');
 
-          const isDeleteExhibition = sessionStorage.getItem('exhibitionDeleted');
-          if (isDeleteExhibition !== null) {
-            this.textExhibitionDeleted = true;
-            setTimeout(() => {
-              this.textExhibitionDeleted = false;
-            }, 2000);
-            sessionStorage.removeItem('exhibitionDeleted');
-          }
           this.rows = exhibitions;
         }
 
@@ -70,5 +77,18 @@ export class ExhibitionsDashboardComponent implements OnInit {
       {prop: 'lastModified', dateColumn: true},
       {prop: 'editOrDelete', buttonColumn: true}
     ];
+  }
+
+  messageOutput(key, type): void{
+    const b = sessionStorage.getItem(key);
+    console.log(this.messages[type]);
+    console.log(key);
+    if (b !== null) {
+      this.messages[type] = true;
+      setTimeout( () => {
+        this.messages[type] = false;
+      }, 2000);
+      sessionStorage.removeItem(key);
+    }
   }
 }

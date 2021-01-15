@@ -11,10 +11,9 @@ import {HttpServiceService} from '../../services/http-service.service';
 export class ArtistsDashboardComponent implements OnInit {
   rows;
   columns;
-  textArtistAdded;
-  textArtistEdited;
   textArtistDisconnect;
-  textArtistDeleted;
+
+  messages = {textArtistAdded: false, textArtistEdited: false, textArtistDeleted: false};
 
   loading = false;
 
@@ -30,32 +29,36 @@ export class ArtistsDashboardComponent implements OnInit {
         } else {
           this.textArtistDisconnect = false;
 
-          const isNewArtist = sessionStorage.getItem('artistAdded');
-          if (isNewArtist !== null) {
-            this.textArtistAdded = true;
-            setTimeout(() => {
-              this.textArtistAdded = false;
-            }, 2000);
-            sessionStorage.removeItem('artistAdded');
-          }
+          // const isNewArtist = sessionStorage.getItem('artistAdded');
+          // if (isNewArtist !== null) {
+          //   this.textArtistAdded = true;
+          //   setTimeout(() => {
+          //     this.textArtistAdded = false;
+          //   }, 2000);
+          //   sessionStorage.removeItem('artistAdded');
+          // }
+          //
+          // const isEditArtist = sessionStorage.getItem('artistEdited');
+          // if (isEditArtist !== null) {
+          //   this.textArtistEdited = true;
+          //   setTimeout(() => {
+          //     this.textArtistEdited = false;
+          //   }, 2000);
+          //   sessionStorage.removeItem('artistEdited');
+          // }
+          //
+          // const isDeleteArtist = sessionStorage.getItem('artistDeleted');
+          // if (isDeleteArtist !== null) {
+          //   this.textArtistDeleted = true;
+          //   setTimeout(() => {
+          //     this.textArtistDeleted = false;
+          //   }, 2000);
+          //   sessionStorage.removeItem('artistDeleted');
+          // }
 
-          const isEditArtist = sessionStorage.getItem('artistEdited');
-          if (isEditArtist !== null) {
-            this.textArtistEdited = true;
-            setTimeout(() => {
-              this.textArtistEdited = false;
-            }, 2000);
-            sessionStorage.removeItem('artistEdited');
-          }
-
-          const isDeleteArtist = sessionStorage.getItem('artistDeleted');
-          if (isDeleteArtist !== null) {
-            this.textArtistDeleted = true;
-            setTimeout(() => {
-              this.textArtistDeleted = false;
-            }, 2000);
-            sessionStorage.removeItem('artistDeleted');
-          }
+          this.messageOutput('artistDeleted', 'textArtistDeleted');
+          this.messageOutput('artistEdited', 'textArtistEdited');
+          this.messageOutput('artistAdded', 'textArtistAdded');
           this.rows = artists;
         }
         this.loading = false;
@@ -70,5 +73,18 @@ export class ArtistsDashboardComponent implements OnInit {
       {prop: 'lastModified', dateColumn: true},
       {prop: 'editOrDelete', buttonColumn: true}
     ];
+  }
+
+  messageOutput(key, type): void{
+    const b = sessionStorage.getItem(key);
+    console.log(this.messages[type]);
+    console.log(key);
+    if (b !== null) {
+      this.messages[type] = true;
+      setTimeout( () => {
+        this.messages[type] = false;
+      }, 2000);
+      sessionStorage.removeItem(key);
+    }
   }
 }
