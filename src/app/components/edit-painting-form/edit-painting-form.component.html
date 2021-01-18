@@ -29,6 +29,17 @@
       </div>
 
       <div>
+        <label class="text-form pr-2">Picture</label>
+        <input [(ngModel)]="paintingEdit.picture" placeholder="{{paintingEdit.picture}}" type="text" name="pictureOld"
+               formControlName="pictureOld" readonly>
+      </div>
+
+      <div class="input-block">
+        <label class="text-form pr-2">New picture</label>
+        <input type="file" (change)="onChange($event)" name="picture" accept="image/*" formControlName="picture">
+      </div>
+
+      <div>
         <label class="text-form pr-2">Last modified</label>
         <input [ngModel]="paintingEdit.lastModified | date:'yyyy-MM-dd'" type="date" name="lastModified"
                formControlName="lastModified" readonly>
@@ -36,7 +47,7 @@
 
 
       <div class="button-block px-5 mt-2">
-        <button class="button-form" type="submit" [disabled]="!editNewPainting.valid">Edit</button>
+        <button class="button-form" type="submit">Edit</button>
         <button class="button-form" type="button" routerLink="/artist">Back</button>
       </div>
 

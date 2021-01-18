@@ -5,38 +5,50 @@
   </div>
 
   <div class="edit-artist-block">
-    <form *ngIf="artistEdit" id="aForm" [formGroup]="editNewArtist" class="artist-form" (ngSubmit)="onSubmit()"
+    <form *ngIf="artistEditOld" id="aForm" [formGroup]="artistEdit" class="artist-form" (ngSubmit)="onSubmit()"
           novalidate>
 
       <div class="input-block">
         <label class="text-form">Artist`s name</label>
-        <input [(ngModel)]="artistEdit.name" placeholder="{{artistEdit.name}}" type="text" name="name"
+        <input [(ngModel)]="artistEditOld.name" placeholder="{{artistEditOld.name}}" type="text" name="name"
                formControlName="name" [class.hasError]=nameError>
       </div>
 
 
       <div class="input-block">
         <label class="text-form pr-2">Country</label>
-        <input [(ngModel)]="artistEdit.country" placeholder="{{artistEdit.country}}" type="text" name="country"
+        <input [(ngModel)]="artistEditOld.country" placeholder="{{artistEditOld.country}}" type="text" name="country"
                formControlName="country">
       </div>
 
       <div>
         <label class="text-form pr-2">Date of Birth</label>
-        <input [ngModel]="artistEdit.dateBirth | date:'yyyy-MM-dd'" type="date" name="dateBirth"
+        <input [ngModel]="artistEditOld.dateBirth | date:'yyyy-MM-dd'" type="date" name="dateBirth"
                formControlName="dateBirth">
       </div>
 
 
       <div>
         <label class="text-form pr-2">Date of Death</label>
-        <input [ngModel]="artistEdit.dateDeath | date:'yyyy-MM-dd'" type="date" class="spec" name="dateDeath"
+        <input [ngModel]="artistEditOld.dateDeath | date:'yyyy-MM-dd'" type="date" class="spec" name="dateDeath"
                formControlName="dateDeath">
+      </div>
+
+      <div>
+        <label class="text-form pr-2">Photo</label>
+        <input [(ngModel)]="artistEditOld.photo" placeholder="{{artistEditOld.photo}}" type="text" name="photoOld"
+               formControlName="photoOld" readonly>
+      </div>
+
+      <div>
+        <label class="text-form pr-3">New photo</label>
+          <input class="file-in" id="file-in" type="file" (change)="onChange($event)"
+                 name="photo" formControlName="photo" accept="image/*">
       </div>
 
       <div class="input-block">
         <label class="text-form-select">Type</label>
-        <select [(ngModel)]="artistEdit.occupation" size="1" class="select" name="occupation"
+        <select [(ngModel)]="artistEditOld.occupation" size="1" class="select" name="occupation"
                 formControlName="occupation">
           <option selected value="Painter">Painter</option>
           <option value="Sculptor">Sculptor</option>
@@ -46,12 +58,12 @@
 
       <div>
         <label class="text-form pr-2">Last modified</label>
-        <input [ngModel]="artistEdit.lastModified | date:'yyyy-MM-dd'" type="date" name="lastModified"
+        <input [ngModel]="artistEditOld.lastModified | date:'yyyy-MM-dd'" type="date" name="lastModified"
                formControlName="lastModified" readonly>
       </div>
 
       <div class="button-block px-5 mt-2">
-        <button class="button-form" type="submit" [disabled]="!editNewArtist.valid">Edit</button>
+        <button class="button-form" type="submit">Edit</button>
         <button class="button-form" type="button" routerLink="/artist">Back</button>
       </div>
 

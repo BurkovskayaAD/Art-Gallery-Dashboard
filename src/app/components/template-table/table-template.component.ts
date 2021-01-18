@@ -65,7 +65,6 @@ export class TableTemplateComponent implements OnInit, AfterViewInit {
     this.routeSub = this.route.params.subscribe(param => {
       const idd = this.idRow;
       const href = this.router.url + 's';
-      console.log(href);
 
       if (href === '/exhibitions') {
         this.http.delete(Constants.exhibitionsApiUrl + '/' + idd, idd).subscribe(

@@ -11,7 +11,8 @@ import {Router} from '@angular/router';
 
 export class AddArtistPageComponent implements OnInit {
 
-  constructor(private http: HttpServiceService, private router: Router) {
+  constructor(private http: HttpServiceService,
+              private router: Router) {
   }
 
   ngOnInit(): void {

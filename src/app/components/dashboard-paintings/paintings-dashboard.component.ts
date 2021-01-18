@@ -82,8 +82,6 @@ export class PaintingsDashboardComponent implements OnInit {
 
   messageOutput(key, type): void{
     const b = sessionStorage.getItem(key);
-    console.log(this.messages[type]);
-    console.log(key);
     if (b !== null) {
       this.messages[type] = true;
       setTimeout( () => {

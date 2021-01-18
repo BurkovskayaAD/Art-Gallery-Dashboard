@@ -22,12 +22,17 @@ export class EditExhibitionFormComponent implements OnInit {
 
   private routeSub: Subscription;
   exhibitionEdit;
+  fileToUpload: File;
+  nameFile: any;
+  posterName;
 
   editNewExhibition = this.fb.group({
     name: [''],
     dateStart: [''],
     dateEnd: [''],
     about: [''],
+    poster: [''],
+    posterOld: [''],
     lastModified: ['']
   });
 
@@ -37,20 +42,47 @@ export class EditExhibitionFormComponent implements OnInit {
     return this.editNewExhibition.get('name').errors;
   }
 
-  onSubmit(): void {
-    this.addNewOutput.emit(this.editNewExhibition.value);
-  }
-
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(param => {
       const idd = String(param.id);
       this.http.get(Constants.exhibitionsEditApiUrl + idd).subscribe(
         (exhibitionEdit) => {
           this.exhibitionEdit = exhibitionEdit;
+          this.posterName = this.exhibitionEdit.poster;
           this.exhibitionEdit.lastModified = moment().format('YYYY-MM-DD');
         }
       );
     });
+  }
+
+  onSubmit(): void {
+    if (this.fileToUpload === undefined) {
+      this.exhibitionEdit.poster = this.posterName;
+      this.addNewOutput.emit(this.exhibitionEdit);
+    } else {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(this.fileToUpload);
+      fileReader.onload = () => {
+        const formResult = {
+          name: this.exhibitionEdit.name,
+          dateStart: this.exhibitionEdit.dateStart,
+          dateEnd: this.exhibitionEdit.dateEnd,
+          about: this.exhibitionEdit.about,
+          poster: this.nameFile,
+          image: fileReader.result,
+          lastModified: this.exhibitionEdit.lastModified
+        };
+        this.addNewOutput.emit(formResult);
+      };
+      fileReader.onerror = (error) => {
+      };
+    }
+  }
+
+
+  onChange(event): void {
+    this.fileToUpload = event.target.files[0];
+    this.nameFile = this.fileToUpload.name;
   }
 
 }

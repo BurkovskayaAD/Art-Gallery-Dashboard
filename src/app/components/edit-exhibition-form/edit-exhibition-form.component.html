@@ -34,6 +34,17 @@
                   name="about" formControlName="about"></textarea>
       </div>
 
+      <div class="input-block">
+        <label class="text-form pr-2">Poster</label>
+        <input [(ngModel)]="exhibitionEdit.poster" placeholder="{{exhibitionEdit.poster}}" type="text" name="posterOld"
+               formControlName="posterOld" readonly>
+      </div>
+
+      <div class="input-block">
+        <label class="text-form pr-2">New poster</label>
+        <input type="file" (change)="onChange($event)" name="poster" accept="image/*" formControlName="poster">
+      </div>
+
       <div>
         <label class="text-form pr-2">Last modified</label>
         <input [ngModel]="exhibitionEdit.lastModified | date:'yyyy-MM-dd'" type="date" name="lastModified"
@@ -42,7 +53,7 @@
 
 
       <div class="button-block px-5 mt-2">
-        <button class="button-form" type="submit" [disabled]="!editNewExhibition.valid">Edit</button>
+        <button class="button-form" type="submit">Edit</button>
         <button class="button-form" type="button" routerLink="/exhibition">Back</button>
       </div>
 

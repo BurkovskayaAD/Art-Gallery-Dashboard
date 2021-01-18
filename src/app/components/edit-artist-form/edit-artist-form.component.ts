@@ -21,13 +21,18 @@ export class EditArtistFormComponent implements OnInit {
   }
 
   private routeSub: Subscription;
-  artistEdit;
+  artistEditOld;
+  fileToUpload: File;
+  nameFile: any;
+  photoName;
 
-  editNewArtist = this.fb.group({
+  artistEdit = this.fb.group({
     name: [''],
     country: [''],
     dateBirth: [''],
     dateDeath: [''],
+    photo: [''],
+    photoOld: [''],
     occupation: [''],
     lastModified: ['']
   });
@@ -35,24 +40,52 @@ export class EditArtistFormComponent implements OnInit {
   @Output() addNewOutput = new EventEmitter();
 
   get nameError(): any {
-    return this.editNewArtist.get('name').errors;
-  }
-
-  onSubmit(): void {
-    this.addNewOutput.emit(this.editNewArtist.value);
+    return this.artistEdit.get('name').errors;
   }
 
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(param => {
       const idd = String(param.id);
       this.http.get(Constants.artistsEditApiUrl + idd).subscribe(
-        (artistEdit) => {
-          this.artistEdit = artistEdit;
-          this.artistEdit.lastModified = moment().format('YYYY-MM-DD');;
+        (artistEditOld) => {
+          this.artistEditOld = artistEditOld;
+          this.artistEditOld.lastModified = moment().format('YYYY-MM-DD');
+          this.photoName = this.artistEditOld.photo;
         }
       );
     });
 
+  }
+
+  onSubmit(): void {
+    if (this.fileToUpload === undefined) {
+      this.artistEditOld.photo = this.photoName;
+      this.addNewOutput.emit(this.artistEditOld);
+    } else {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(this.fileToUpload);
+      fileReader.onload = () => {
+        const formResult = {
+          name: this.artistEditOld.name,
+          country: this.artistEditOld.country,
+          dateBirth: this.artistEditOld.dateBirth,
+          dateDeath: this.artistEditOld.dateDeath,
+          photo: this.nameFile,
+          image: fileReader.result,
+          occupation: this.artistEditOld.occupation,
+          lastModified: this.artistEditOld.lastModified
+        };
+        this.addNewOutput.emit(formResult);
+      };
+      fileReader.onerror = (error) => {
+      };
+    }
+  }
+
+
+  onChange(event): void {
+    this.fileToUpload = event.target.files[0];
+    this.nameFile = this.fileToUpload.name;
   }
 
 }
