@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Constants} from '../../Constants';
 import {HttpServiceService} from '../../services/http-service.service';
 
@@ -17,6 +17,10 @@ export class ArtistsDashboardComponent implements OnInit {
 
   loading = false;
 
+  @Input() selection: string;
+  @Input() searchArtist: string;
+
+
   constructor(private http: HttpServiceService) {
   }
 
@@ -28,34 +32,6 @@ export class ArtistsDashboardComponent implements OnInit {
           this.textArtistDisconnect = true;
         } else {
           this.textArtistDisconnect = false;
-
-          // const isNewArtist = sessionStorage.getItem('artistAdded');
-          // if (isNewArtist !== null) {
-          //   this.textArtistAdded = true;
-          //   setTimeout(() => {
-          //     this.textArtistAdded = false;
-          //   }, 2000);
-          //   sessionStorage.removeItem('artistAdded');
-          // }
-          //
-          // const isEditArtist = sessionStorage.getItem('artistEdited');
-          // if (isEditArtist !== null) {
-          //   this.textArtistEdited = true;
-          //   setTimeout(() => {
-          //     this.textArtistEdited = false;
-          //   }, 2000);
-          //   sessionStorage.removeItem('artistEdited');
-          // }
-          //
-          // const isDeleteArtist = sessionStorage.getItem('artistDeleted');
-          // if (isDeleteArtist !== null) {
-          //   this.textArtistDeleted = true;
-          //   setTimeout(() => {
-          //     this.textArtistDeleted = false;
-          //   }, 2000);
-          //   sessionStorage.removeItem('artistDeleted');
-          // }
-
           this.messageOutput('artistDeleted', 'textArtistDeleted');
           this.messageOutput('artistEdited', 'textArtistEdited');
           this.messageOutput('artistAdded', 'textArtistAdded');
@@ -84,5 +60,13 @@ export class ArtistsDashboardComponent implements OnInit {
       }, 2000);
       sessionStorage.removeItem(key);
     }
+  }
+
+  selectionChange(selectionArtist): void {
+    this.selection = selectionArtist;
+  }
+
+  searchArtistChange(searchArtist: string): void{
+    this.searchArtist = searchArtist;
   }
 }

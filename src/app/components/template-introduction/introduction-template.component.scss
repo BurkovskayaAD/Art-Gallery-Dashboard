@@ -1,3 +1,11 @@
+.line-separator {
+  border-top: 1px solid #bfbfbf;
+  top: 86px;
+  left: 280px;
+  position: absolute;
+  width: calc(97% - 260px);
+}
+
 .introduction {
   display: flex;
   flex-direction: row;
@@ -41,6 +49,11 @@
   .button-introduction {
     margin-top: 55px;
   }
+  .line-separator{
+    width: 97%;
+    top: 136px;
+    left: 10px;
+  }
 }
 
 @media (max-width: 530px) {
@@ -49,5 +62,8 @@
   }
   .button-introduction {
     margin-top: 125px;
+  }
+  .line-separator{
+    top: 210px;
   }
 }

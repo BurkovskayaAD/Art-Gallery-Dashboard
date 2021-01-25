@@ -61,6 +61,32 @@
   animation: preloader-rotate 2s infinite linear;
 }
 
+.options-block{
+  display: flex;
+  z-index: 3000;
+  float: right;
+  background-color: #f1f1f1;
+  width: calc(100% - 260px);
+  justify-content: flex-end;
+  padding-top: 15px;
+}
+.input-style{
+  width: 368px;
+  padding-left: 25px;
+}
+.select{
+  margin-right: 1.5%;
+}
+
+.input-block{
+  margin-right: 1.5%;
+}
+.icon-style{
+  height: 26px;
+  margin-right: -22px;
+  position: relative;
+}
+
 @keyframes preloader-rotate {
   100% {
     transform: rotate(360deg);

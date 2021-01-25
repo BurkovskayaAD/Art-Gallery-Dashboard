@@ -27,6 +27,8 @@ import {EditExhibitionFormComponent} from './components/edit-exhibition-form/edi
 import {EditExhibitionPageComponent} from './components/edit-exhibition-page/edit-exhibition-page.component';
 import {EditPaintingFormComponent} from './components/edit-painting-form/edit-painting-form.component';
 import {EditPaintingPageComponent} from './components/edit-painting-page/edit-painting-page.component';
+import { ArtistSelectionPipe } from './pipes/artist-selection.pipe';
+import { ArtistSearchNamePipe } from './pipes/artist-search-name.pipe';
 
 const appRoutes: Routes = [
   {path: '', component: MainDashboardComponent},
@@ -62,7 +64,9 @@ const appRoutes: Routes = [
     EditExhibitionFormComponent,
     EditExhibitionPageComponent,
     EditPaintingFormComponent,
-    EditPaintingPageComponent
+    EditPaintingPageComponent,
+    ArtistSelectionPipe,
+    ArtistSearchNamePipe
   ],
   imports: [
     BrowserModule,
