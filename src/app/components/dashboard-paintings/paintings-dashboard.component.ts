@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Constants} from '../../Constants';
 import {HttpServiceService} from '../../services/http-service.service';
 
@@ -11,15 +11,16 @@ import {HttpServiceService} from '../../services/http-service.service';
 export class PaintingsDashboardComponent implements OnInit {
   rows;
   columns;
-  // textPaintingAdded;
-  // textPaintingEdited;
-  // textPaintingDeleted;
   textPaintingDisconnect;
 
   messages = {textPaintingAdded: false, textPaintingEdited: false, textPaintingDeleted: false};
 
 
   loading = false;
+
+  @Input() searchPainting: string;
+  @Input() searchPaintingGenre: string;
+  @Input() searchPaintingAuthor: string;
 
   constructor(private http: HttpServiceService) {
   }
@@ -32,33 +33,6 @@ export class PaintingsDashboardComponent implements OnInit {
           this.textPaintingDisconnect = true;
         } else {
           this.textPaintingDisconnect = false;
-
-          // const isNewPainting = sessionStorage.getItem('paintingAdded');
-          // if (isNewPainting !== null) {
-          //   this.textPaintingAdded = true;
-          //   setTimeout(() => {
-          //     this.textPaintingAdded = false;
-          //   }, 2000);
-          //   sessionStorage.removeItem('paintingAdded');
-          // }
-          //
-          // const isEditPainting = sessionStorage.getItem('paintingEdited');
-          // if (isEditPainting !== null) {
-          //   this.textPaintingEdited = true;
-          //   setTimeout(() => {
-          //     this.textPaintingEdited = false;
-          //   }, 2000);
-          //   sessionStorage.removeItem('paintingEdited');
-          // }
-          //
-          // const isDeletePainting = sessionStorage.getItem('paintingDeleted');
-          // if (isDeletePainting !== null) {
-          //   this.textPaintingDeleted = true;
-          //   setTimeout(() => {
-          //     this.textPaintingDeleted = false;
-          //   }, 2000);
-          //   sessionStorage.removeItem('paintingDeleted');
-          // }
 
           this.messageOutput('paintingDeleted', 'textPaintingDeleted');
           this.messageOutput('paintingEdited', 'textPaintingEdited');
@@ -89,5 +63,17 @@ export class PaintingsDashboardComponent implements OnInit {
       }, 2000);
       sessionStorage.removeItem(key);
     }
+  }
+
+  searchPaintingChange(searchPainting: string): void{
+    this.searchPainting = searchPainting;
+  }
+
+  searchPaintingGenreChange(searchPaintingGenre: string): void{
+    this.searchPaintingGenre = searchPaintingGenre;
+  }
+
+  searchPaintingAuthorChange(searchPaintingAuthor: string): void{
+    this.searchPaintingAuthor = searchPaintingAuthor;
   }
 }

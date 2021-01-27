@@ -61,6 +61,33 @@
   animation: preloader-rotate 2s infinite linear;
 }
 
+.options-block {
+  display: flex;
+  z-index: 3000;
+  float: right;
+  background-color: #f1f1f1;
+  width: calc(100% - 260px);
+  justify-content: flex-end;
+  padding-top: 15px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.input-style {
+  width: 170px;
+  padding-left: 25px;
+}
+
+.input-block {
+  margin-right: 1.5%;
+}
+
+.icon-style {
+  height: 26px;
+  margin-right: -22px;
+  position: relative;
+}
+
 @keyframes preloader-rotate {
   100% {
     transform: rotate(360deg);
@@ -96,5 +123,11 @@
   .text-exhibition-added-block {
     padding-left: 280px;
     padding-top: 90px;
+  }
+}
+
+@media (max-width: 701px) {
+  .options-block{
+    width: 100%;
   }
 }

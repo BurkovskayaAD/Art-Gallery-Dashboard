@@ -28,7 +28,11 @@ import {EditExhibitionPageComponent} from './components/edit-exhibition-page/edi
 import {EditPaintingFormComponent} from './components/edit-painting-form/edit-painting-form.component';
 import {EditPaintingPageComponent} from './components/edit-painting-page/edit-painting-page.component';
 import { ArtistSelectionPipe } from './pipes/artist-selection.pipe';
-import { ArtistSearchNamePipe } from './pipes/artist-search-name.pipe';
+import { SearchNamePipe } from './pipes/search-name.pipe';
+import { ArtistSearchCountryPipe } from './pipes/artist-search-country.pipe';
+import { ArtistSelectionDateDeathPipe } from './pipes/artist-selection-date-death.pipe';
+import { PaintingSearchGenrePipe } from './pipes/painting-search-genre.pipe';
+import { PaintingSearchAuthorPipe } from './pipes/painting-search-author.pipe';
 
 const appRoutes: Routes = [
   {path: '', component: MainDashboardComponent},
@@ -66,7 +70,11 @@ const appRoutes: Routes = [
     EditPaintingFormComponent,
     EditPaintingPageComponent,
     ArtistSelectionPipe,
-    ArtistSearchNamePipe
+    SearchNamePipe,
+    ArtistSearchCountryPipe,
+    ArtistSelectionDateDeathPipe,
+    PaintingSearchGenrePipe,
+    PaintingSearchAuthorPipe
   ],
   imports: [
     BrowserModule,

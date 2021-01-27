@@ -18,7 +18,9 @@ export class ArtistsDashboardComponent implements OnInit {
   loading = false;
 
   @Input() selection: string;
+  @Input() selectionDateDeath: string;
   @Input() searchArtist: string;
+  @Input() searchCountryArtist: string;
 
 
   constructor(private http: HttpServiceService) {
@@ -62,11 +64,19 @@ export class ArtistsDashboardComponent implements OnInit {
     }
   }
 
-  selectionChange(selectionArtist): void {
-    this.selection = selectionArtist;
+  selectionChange(selection): void {
+    this.selection = selection;
+  }
+
+  selectionDateDeathChange(selectionDateDeath): void {
+    this.selectionDateDeath = selectionDateDeath;
   }
 
   searchArtistChange(searchArtist: string): void{
     this.searchArtist = searchArtist;
+  }
+
+  searchCountryArtistChange(searchCountryArtist: string): void{
+    this.searchCountryArtist = searchCountryArtist;
   }
 }

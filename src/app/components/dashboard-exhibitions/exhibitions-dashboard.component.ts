@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Constants} from '../../Constants';
 import {HttpServiceService} from '../../services/http-service.service';
 
@@ -11,14 +11,14 @@ import {HttpServiceService} from '../../services/http-service.service';
 export class ExhibitionsDashboardComponent implements OnInit {
   rows;
   columns;
-  // textExhibitionAdded;
-  // textExhibitionEdited;
-  // textExhibitionDeleted;
   textExhibitionDisconnect;
   messages = {textExhibitionAdded: false, textExhibitionEdited: false, textExhibitionDeleted: false};
 
 
   loading = false;
+
+  @Input() searchExhibition: string;
+
 
   constructor(private http: HttpServiceService) {
   }
@@ -31,33 +31,6 @@ export class ExhibitionsDashboardComponent implements OnInit {
           this.textExhibitionDisconnect = true;
         } else {
           this.textExhibitionDisconnect = false;
-
-          // const isNewExhibition = sessionStorage.getItem('exhibitionAdded');
-          // if (isNewExhibition !== null) {
-          //   this.textExhibitionAdded = true;
-          //   setTimeout(() => {
-          //     this.textExhibitionAdded = false;
-          //   }, 2000);
-          //   sessionStorage.removeItem('exhibitionAdded');
-          // }
-          //
-          // const isEditExhibition = sessionStorage.getItem('exhibitionEdited');
-          // if (isEditExhibition !== null) {
-          //   this.textExhibitionEdited = true;
-          //   setTimeout(() => {
-          //     this.textExhibitionEdited = false;
-          //   }, 2000);
-          //   sessionStorage.removeItem('exhibitionEdited');
-          // }
-          //
-          // const isDeleteExhibition = sessionStorage.getItem('exhibitionDeleted');
-          // if (isDeleteExhibition !== null) {
-          //   this.textExhibitionDeleted = true;
-          //   setTimeout(() => {
-          //     this.textExhibitionDeleted = false;
-          //   }, 2000);
-          //   sessionStorage.removeItem('exhibitionDeleted');
-          // }
 
           this.messageOutput('exhibitionDeleted', 'textExhibitionDeleted');
           this.messageOutput('exhibitionEdited', 'textExhibitionEdited');
@@ -88,5 +61,9 @@ export class ExhibitionsDashboardComponent implements OnInit {
       }, 2000);
       sessionStorage.removeItem(key);
     }
+  }
+
+  searchExhibitionChange(searchExhibition: string): void{
+    this.searchExhibition = searchExhibition;
   }
 }

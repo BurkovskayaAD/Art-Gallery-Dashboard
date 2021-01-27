@@ -61,7 +61,7 @@
   animation: preloader-rotate 2s infinite linear;
 }
 
-.options-block{
+.options-block {
   display: flex;
   z-index: 3000;
   float: right;
@@ -69,19 +69,31 @@
   width: calc(100% - 260px);
   justify-content: flex-end;
   padding-top: 15px;
-}
-.input-style{
-  width: 368px;
-  padding-left: 25px;
-}
-.select{
-  margin-right: 1.5%;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.input-block{
-  margin-right: 1.5%;
+.input-style {
+  width: 170px;
+  padding-left: 25px;
+  margin-right: 10px;
 }
-.icon-style{
+
+.select-last {
+  margin-right: 1.5%;
+  height: 30px;
+}
+
+.select {
+  margin-right: 10px;
+  height: 30px;
+}
+
+.input-block {
+  margin-right: 10px;
+}
+
+.icon-style {
   height: 26px;
   margin-right: -22px;
   position: relative;
@@ -122,6 +134,40 @@
   .text-artist-added-block {
     padding-left: 280px;
     padding-top: 90px;
+  }
+}
+
+@media (max-width: 835px) {
+  .select-last {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 701px) {
+  .options-block {
+    width: 100%;
+  }
+  .select-last {
+    margin-top: 0;
+  }
+}
+
+@media(max-width: 576px) {
+  .select-last {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media(max-width: 444px) {
+  .select {
+    margin-top: 10px;
+  }
+}
+
+@media(max-width: 368px) {
+  .input-block-second {
+    margin-top: 10px;
   }
 }
 
